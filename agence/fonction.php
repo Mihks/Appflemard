@@ -2,18 +2,28 @@
 
 <?php
 
+	$url = getenv('JAWSDB_URL');
+	$dbparts = parse_url($url);
 
-	$dsn = "mysql:host=localhost;dbname=wave;port=3306;charset=utf8";
+	$hostname = $dbparts['host'];
+	$username = $dbparts['user'];
+	$password = $dbparts['pass'];
+	$database = ltrim($dbparts['path'],'/');
+
+// 	$dsn = "mysql:host=$hostname;dbname=$database;charset=utf8";
+	
+
 
 		try
 			{
-				$bdd = new PDO($dsn,'root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+				$bdd = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8",$username,$password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 			}
 		catch (Exception $e)
 			{
 				die('Erreur : ' . $e->getMessage());
 
 			}
+			
 
 
 function FunctionTrajet($agence,$bdd) {
