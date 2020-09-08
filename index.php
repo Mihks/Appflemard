@@ -285,7 +285,7 @@ session_start();
 
 		<hr/>
 
-		<?php include('Espace client/includes/footer.php'); ?>
+		<?php include('agence/includes/footer.php'); ?>
 
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
