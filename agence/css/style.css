@@ -1,0 +1,726 @@
+/*
+style sur la page en generale
+----------------------------
+le corps
+----------------------------
+
+ */
+
+
+ @media screen and (max-width: 480px) {
+
+
+ 	#payer{
+
+	width: 70px;
+	height: 70px;
+	position: relative;
+	left: -30px;
+
+}
+
+
+
+
+ }
+
+
+@media screen and (min-width: 481px)  and (max-width: 489px) {
+
+
+ 	#payer{
+
+	width: 70px;
+	height: 70px;
+	position: relative;
+	left: -30px;
+
+}
+
+
+
+
+ }
+
+
+ @media screen and (min-width: 490px)  and (max-width: 766px) {
+
+
+ 	#payer{
+
+	width: 70px;
+	height: 70px;
+	position: relative;
+	left: 100px;
+
+}
+
+ }
+
+
+ @media screen and (min-width: 980px) {
+
+ 	#payer{
+
+	width: 70px;
+	height: 70px;
+	position: relative;
+	left: 100px;
+
+}
+
+
+ }
+
+
+
+@media screen and (min-width: 768px) and (max-width: 979px){
+
+
+	
+#payer{
+
+	width: 70px;
+	height: 70px;
+	position: relative;
+	left: 100px;
+
+}
+
+
+ 	#nav{
+ 		display: none;
+ 		background-color: #01030F;
+ 		width: 100%;
+
+ 		margin: 0;
+ 		padding-top: -6px;
+
+ 		border: 2px solid black;
+ 		font-size: 12px;
+ 		position: relative;
+ 		top: 0px;
+
+ 	}
+
+ 	#nav a:hover{
+
+ 		font-size: 12px;
+ 	}
+
+
+ 	footer{
+
+ 		width: 100%;
+ 	}
+ 	#heure{
+
+ 		position: fixed;
+ 		
+
+ 	}
+
+ 	.btn{
+ 		position: fixed;
+ 		top: 35px;
+ 		right: 25px;
+ 		height: 20px;
+ 		width: 20px;
+ 		
+
+ 	}
+
+ 	.icon-bar{
+ 		position: relative;
+ 		left: -8px;
+ 		top: -7px;
+
+ 	}
+
+
+
+ 	#btnMenu {
+ 		display: block;
+ 		}
+
+ 	 #imaga{
+ 			
+ 		
+ 		width: 20%;
+ 		
+ 	}
+
+
+
+
+ 	p{
+
+ 		font-size: 30px;
+ 	}
+
+ 	.info{
+
+ 		display: block;
+ 		width: 20%;
+
+ 	}
+
+ 	.centre-text,#imaga{
+
+ 		display: block;
+
+ 		
+ 	}
+
+
+
+
+
+}
+ /* Mise en page pour tablettes 
+ 
+ /* Mise en page pour les grands écrans 
+
+
+ */ @media (min-width: 1200px) {
+
+ 		h2{
+
+ 			box-shadow: 2px 2px 1px;
+ 				}
+
+
+ 	
+
+ 	}
+
+/* Mise en page  De smartphones à tablettes */
+ @media screen and (max-width: 767px){
+
+
+
+
+
+ 	#nav{
+ 		display: none;
+ 		background-color: #01030F;
+ 		width: 100%;
+
+ 		margin: 0;
+ 		padding-top: -6px;
+
+ 		border: 2px solid black;
+ 		font-size: 12px;
+ 		position: relative;
+ 		top: 0px;
+
+ 	}
+
+ 	#nav a:hover{
+
+ 		font-size: 12px;
+ 	}
+
+
+ 	footer{
+
+ 		width: 100%;
+ 	}
+ 	#heure{
+
+ 		position: fixed;
+ 		
+
+ 	}
+
+ 	.btn{
+ 		position: fixed;
+ 		top: 35px;
+ 		right: 25px;
+ 		height: 20px;
+ 		width: 20px;
+ 		
+
+ 	}
+
+ 	.icon-bar{
+ 		position: relative;
+ 		left: -8px;
+ 		top: -7px;
+
+ 	}
+
+
+
+ 	#btnMenu {
+ 		display: block;
+ 		}
+
+ 	 #imaga{
+ 			
+ 		
+ 		width: 200px;
+ 	}
+
+
+
+
+ 	p{
+
+ 		font-size: 30px;
+ 	}
+
+ 	.info{
+
+ 		display: block;
+
+ 	}
+
+ 	.centre-text,#imaga{
+
+ 		display: block;
+
+ 		
+ 	}
+
+
+
+
+ }
+
+
+
+
+
+body{
+
+	margin: 0px;
+	/*background-image: url("../images/bg_2.jpg");*/
+	background-color: #f0f0f0;
+	line-height: 1.5;
+	
+	
+
+}
+
+
+.btn {    
+	display: inline-block;    
+	cursor: pointer; 
+
+} 
+.btn-navbar {    
+	display: none;
+	float: right;    
+	padding: 12px 15px;    
+	margin-right: 5px;    
+	margin-left: 5px; 
+} 
+
+.icon-bar {    
+	display: block;
+  	width: 18px;    
+  	height: 3px;    
+  	background-color: red;    
+  	-webkit-border-radius: 1px; /* Ce sont des préfixes, pour que les navigateurs */       
+  	-moz-border-radius: 1px; /* prennent en charge les nouvelles propriétés. */            
+  	border-radius: 1px; 
+ } 
+
+ .icon-bar + .icon-bar { /* Le + permet de sélectionner les éléments qui suivent */    
+  	margin-top: 3px; 
+}
+
+
+
+.log,.slogan{
+
+	display: inline-block;
+}
+
+	
+
+#heure{
+	border-bottom: 0.5px solid orange;
+	border-radius:1px;
+	height: 30px;
+	font-weight: bolder;
+	vertical-align: top;
+	position: fixed;
+	right: 20px;
+}
+
+ /*
+}
+
+----------------------------
+l'entete
+----------------------------
+
+ */
+
+
+
+
+/*
+
+----------------------------
+le texte
+----------------------------
+
+ */
+
+h2{
+
+	text-align: left;
+	color: red;
+	padding-left: 15px;
+	font-family: "Chiller", Arial,sans-serif;
+	font-size: 42px;
+	border-bottom: 1px solid orange;
+	
+	text-shadow: 1px 1px 1px orange;
+
+}
+
+p{
+	text-align: justify;
+	
+	width: 70.5%;
+	font-size: 20px;
+}
+
+.centre-text {
+
+	margin: 15px;
+	padding: 15px;
+	padding-left: 50px;
+}
+
+.info-foot p{
+
+	text-align: center;
+
+	width: 100%;
+	margin-left: 10px;
+	
+}
+
+.display-text {
+
+	
+	padding: 10px;
+	width: 70%;
+	margin-left: 10px;
+	padding-left: 15px;
+
+}
+
+.ad{
+
+	
+	float: right;
+	width: 25%;
+	
+}
+
+
+.footer-lien-reseau img{
+
+	width: 70px;
+	height: 70px;
+	border: 1px solid blue;
+	border-radius: 10px;
+}
+
+
+p strong{
+
+	text-align: right;
+	
+
+
+}
+
+footer{
+	margin: 15px;
+	padding: 15px;
+	background: #01030F;
+	color: white;
+	border-bottom: 2px solid orange;
+	box-shadow: 2px 2px 1px;
+	border-radius: 5px;
+
+
+}
+ footer p a{
+
+ 	text-decoration: none;
+ 	
+ }
+
+/*
+style sur la navigation
+----------------------------
+la navigation
+----------------------------
+
+ */
+
+
+
+nav {
+
+	text-transform: uppercase;
+	margin: 15px;
+	font-family: "Chiller","Mistral",sans-serif, "Arial" ;
+	font-size: 20px;
+	position: absolute;
+	top: -40px;
+	width: 100%;
+	display: block;
+}
+
+	
+
+nav ul{
+
+	padding-right: 20%;
+	margin-left: 30%;
+	padding-top: 10px;	
+	border-radius: 4px;
+	position: relative;
+	top: 0px;
+	right: 0px;
+	height: 20%;
+}
+
+header{
+
+/*	border: 2px solid orange;*/
+	margin: 15px;
+	margin-left: 0px;
+	position: fixed;
+	top: -15px;
+	width: 100%;
+	height: 70px;
+	background: #01030F;
+	border-bottom: 1px solid orange;
+	box-shadow: 1px 1px 40px;
+
+}
+
+
+nav li {
+
+	
+	margin-bottom: 10px;
+	list-style: none;
+	display: inline-block;
+	display: -moz-inline-stack;
+	margin-right: 10px;
+
+}
+
+
+
+nav a {
+
+	border-bottom: 2px solid orange;
+	color: rgb(0,128,128);
+	padding: 10px;
+
+}
+
+nav a:active, nav a:focus {
+
+	color: orange;
+	border-bottom: 2px solid red;
+
+
+}
+
+
+a{
+	color: cyan;
+	text-decoration: none;
+}
+
+a:hover{
+
+	color: red;
+
+}
+
+p img{
+
+	padding-left: 30px;
+}
+
+/*
+style du diapo
+----------------------------
+diaporama
+----------------------------
+
+ */
+
+/*div img{
+
+	position: absolute;  
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 25%;
+    height: 25%;
+    border: 1px ridge black;
+}*/
+
+
+
+
+
+/*
+style sur la page en generale
+----------------------------
+formulaire
+----------------------------
+
+ */
+
+
+
+#imaga,.centre-text{
+
+	display: inline-block;
+	
+}
+
+#imaga{
+
+	border-radius: 5px;
+	margin-left: 5px;
+	box-shadow: 1px 6px 40px;
+	
+
+}
+
+.centre-text{
+	width: 60%;
+	min-width: 300px;
+}
+
+
+[placeholder]{
+
+	padding-left: 12px;
+}
+
+input:not([type='image']),select{
+
+	border: none; 
+	border-bottom: 1px solid orange;
+	margin: 5px;
+	font-weight: bolder;
+	padding-right: 10px;
+
+
+
+}
+
+
+
+
+
+label{
+	text-align: left;
+
+	margin-right: 0px;
+	display: block;
+	font-size:18px;
+	color: rgb(0,128,128);
+	float: left;
+	width: 150px;
+
+
+	
+	
+}
+
+
+select{
+
+	min-width: 300px;
+	min-height: 40px;
+	height: 50px;
+	border-radius: 10px;
+	padding-left: 0px;
+	
+}
+
+input:not([type='image']) {
+
+	min-width: 278px;
+	min-height: 36px;
+	height: 47px;
+	border-radius: 10px;	
+
+}
+
+
+
+
+
+
+
+
+.dis,.lbv,.destination,.frm-control{
+
+	box-shadow: 1px 1px 40px;
+
+}
+ #reservation {
+
+ 	min-width: 300px;
+ 	width: 60%;
+ 	margin-left: 15px;
+ 	
+
+ }
+
+ .info{
+
+
+ 	margin-left: 15px;
+ 	width: 30%;
+ 	font-style: italic;
+ 	font-size: small;
+ 	min-width: 330px;
+ 	
+ 	
+ }
+
+ .info b{
+
+ 	color: red;
+ 	font-size: large;
+ }
+
+ .info,#reservation{
+
+ 	-webkit-display: inline-block;
+ 	display: inline-block;
+
+
+ }
+
+
+ .centre-text:first-letter{
+
+ 	
+ 	font-weight: bolder;
+ 	font-size: 50px;
+
+
+ }
+
