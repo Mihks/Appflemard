@@ -5,6 +5,7 @@
 session_name("flemard");
 
 session_start();
+include_once 'fonction.php';
 
 
 $data_received = file_get_contents("php://input");  
@@ -38,8 +39,6 @@ $agent_received = $ligne_response->AGENT;
 
 
 if (isset($reference_received) AND !empty($reference_received) ) {
-
-		include_once 'fonction.php';
 
 
 		//$code_statut = 200;//mt_rand(199,200);
