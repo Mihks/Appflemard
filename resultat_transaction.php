@@ -116,7 +116,6 @@ session_start();
 							<li><a href="index.php#reserve" id="lien-reserve">Reservation</a></li>
 							<li><a href="index.php#a_propos" >A propos de</a></li>
 							<li><a href="index.php#contact">Contact</a></li>
-							<li><a href="../../../administration/appAdmin/connexion.php">Espace partenaire</a></li>
 
 						
 						</ul>
