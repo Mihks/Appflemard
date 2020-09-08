@@ -153,9 +153,9 @@ session_start();
 	
 </body>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/interfaceClient.js"></script>
+<script src="agence/js/jquery.min.js"></script>
+<script src="agence/js/jquery-ui.min.js"></script>
+<script src="agence/js/interfaceClient.js"></script>
 </html>
 
 
