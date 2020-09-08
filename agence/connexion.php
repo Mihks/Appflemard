@@ -4,7 +4,7 @@
 	<title>connexion</title>
 	<meta charset="utf-8"/>
 
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<style type="text/css">
 	
@@ -20,7 +20,7 @@
 
 		<header>
 		
-			<div class="log"><img src="../images/yaga.png" alt="logo" width="53" height="53"></div >
+			<div class="log"><img src="images/yaga.png" alt="logo" width="53" height="53"></div >
 			<p class="slogan"></p>
 			<span id="heure"></span>
 			
@@ -39,10 +39,10 @@
 					
 					<ul>
 
-						<li><a href="http://flemard/app/index.php" class="">Accueil</a></li>
-						<li><a href="http://flemard/app/index.php#reserve" id="lien-reserve">Reservation</a></li>
-						<li><a href="http://flemard/app/index.php#a_propos" >A propos de</a></li>
-						<li><a href="http://flemard/app/index.php#contact">Contact</a></li>
+						<li><a href="../index.php" class="">Accueil</a></li>
+						<li><a href="../index.php#reserve" id="lien-reserve">Reservation</a></li>
+						<li><a href="../index.php#a_propos" >A propos de</a></li>
+						<li><a href="../index.php#contact">Contact</a></li>
 						<li><a href="#">Espace partenaire</a></li>
 
 					
