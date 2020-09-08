@@ -1,3 +1,4 @@
+
 <?php 
 
 
@@ -29,6 +30,8 @@ session_start();
 		<meta name="description" content="" />
 		<meta name="keywords" content="voyage GABON" />
 		<meta name="author" content="Klein Mihks" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+
 
         <!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]--> 
 
@@ -47,21 +50,21 @@ session_start();
 
 
 		
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+		<link rel="stylesheet" type="text/css" href="agence/css/style.css">
+		<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.structure.css">
+		<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.theme.min.css">
 		
 
 	
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link rel="shortcut icon" href="images/flemard.jpg" />
+		<link rel="shortcut icon" href="agence/images/flemard.jpg" />
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 		
 	</head>
 
 	<body>
 
-		<?php include_once 'includes/header.php'; ?>
+		<?php include_once 'agence/includes/header.php'; ?>
 		
 
 
@@ -71,14 +74,14 @@ session_start();
 
 			<div class="centre-text">
 
-				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>PayPal</b> ou via d'autres moyens de <b>mobile money</b> utilisés au Gabon (en cours d'intégration)<img src="images/wait.gif" /> .</p>
+				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>PayPal</b> ou via d'autres moyens de <b>mobile money</b> utilisés au Gabon (en cours d'intégration)<img src="Espace client/images/wait.gif" /> .</p>
 
 
 
 				<p>Tout juste après avoir effectué votre paiement sur votre <b>smartphone</b> ou autres, vous êtes redirigé vers votre billet numérique au format pdf ( à imprimer si vous le souhaitiez). Ce billet indiquera les coordonnées de votre voyage et est à présenter le jour j à <b>l’agence solicitée</b>. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
 			</div>
 
-			<img src="images/integration_guide.pdf.png"  id="imaga" />
+			<img src="agence/images/integration_guide.pdf.png"  id="imaga" />
 			
 
 			
@@ -118,12 +121,12 @@ session_start();
 								</div>
 									
 								
-								<div id="nbre-place">
+								<div id="nbre-place" >
 									<label for="nombre_billet">Nombre de place</label>
 									<input  class="frm-control" type="number" id="nombre_billet" name="nombre_billet" min="1" max="10" placeholder="nombre entre 1 et 10" class="frm-control" autocomplete="off" required />
 								</div>
 
-
+								
 
 								<div >
 								<label for="agence">Agence</label>
@@ -152,19 +155,19 @@ session_start();
 <!--------------------------------------------------------------------------------------------------------------------------------->
 								<!--major -->
 
-								<?php include('includes/major.php'); ?>
+								<?php include('agence/includes/major.php'); ?>
 								
 <!--------------------------------------------------------------------------------------------------------------------------------->
 							<!--hitou -->
 				
-								<?php include('includes/hitu.php'); ?>
+								<?php include('agence/includes/hitu.php'); ?>
 
 <!--------------------------------------------------------------------------------------------------------------------------------->
 							<!--akewa -->
-								<?php include('includes/akewa.php'); ?>
+								<?php include('agence/includes/akewa.php'); ?>
 <!--------------------------------------------------------------------------------------------------------------------------------->
 							<!--transporteur -->
-							<?php include('includes/transporter.php'); ?>
+							<?php include('agence/includes/transporter.php'); ?>
 <!--------------------------------------------------------------------------------------------------------------------------------->
 
 				<?php		$reponse = $bdd->query(" SELECT 
@@ -224,7 +227,7 @@ session_start();
 							
 							<div >
 
-								<input type="image"  id="envoyer" value="envoyer" style="border-radius: 15px;width: 75px;height: 40px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;margin-left: 260px;" src="images/logo_airtelmoney.jpg" />
+								<input type="image"  id="envoyer" value="envoyer" style="border-radius: 15px;width: 75px;height: 70px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;margin-left: 260px;" src="Espace client/images/logo_airtelmoney.jpg" />
 
 								<!-- <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button> -->
 
@@ -254,7 +257,7 @@ session_start();
 						<p>Réservez vos places pour un voyage de Libreville vers l'interieur du Gabon et vise versa avec votre ordinateur, téléphones…</p>
 					</div>
 
-					<img src="images/yagaC.png" id="imaga" width="200" height="200" border="1" title="Flemard" alt="Flemard"  /><sub style="font-family: chiller;color: red;">Flemard</sub>
+					<img src="agence/images/yagaC.png" id="imaga" width="200" height="200" border="1" title="Flemard" alt="Flemard"  /><sub style="font-family: chiller;color: red;">Flemard</sub>
 					
 				</div>
 			</article>
@@ -282,11 +285,11 @@ session_start();
 
 		<hr/>
 
-		<?php include('includes/footer.php'); ?>
+		<?php include('Espace client/includes/footer.php'); ?>
 
 		
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-ui.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 
 		<script> 
@@ -369,10 +372,13 @@ session_start();
 				// body...*
 
 				var type = $('#type_billet').val();
+				var depart = $('#depart').val();
+				
+				var agence = $("[name='agence']").val();
 
 				if (type=='Aller_retour') {
-
-					$.post('horaire_retour.php',{trajet:trajet,agence: $("[name='agence']").val(),date:$('#retour').val()},
+					var retour = $('#retour').val();
+					$.post('Espace client/horaire_retour.php',{trajet:trajet,agence:agence,date:retour},
 
 					function(data){
 
@@ -381,13 +387,14 @@ session_start();
 				});
 
 				}
-
-				$.post('horaire.php',{trajet:trajet,agence: $("[name='agence']").val(),date:$('#depart').val()},
+	
+				$.post('horaire.php',{trajet:trajet,agence:agence,date:depart},
 
 					function(data){
 
 						$('#heure-depart').html(data);
-
+						
+						
 				});
 			}
 
