@@ -18,9 +18,9 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1 ,target- densitydpi=device-dpi,maximum-scale=1.0" />
 
 
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+	<link rel="stylesheet" href="agence/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.theme.min.css">
 
 
 </head>
@@ -41,7 +41,7 @@ session_start();
 				
 			echo '<header>
 			
-				<div class="log"><img src="images/yaga.png" alt="logo" width="53" height="53"></div >
+				<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
 				<p class="slogan"></p>
 				<span id="heure"></span>
 				
@@ -64,7 +64,6 @@ session_start();
 							<li><a href="index.php#reserve" id="lien-reserve">Reservation</a></li>
 							<li><a href="index.php#a_propos" >A propos de</a></li>
 							<li><a href="index.php#contact">Contact</a></li>
-							<li><a href="http://flemadmin/appAdmin/connexion.php">Espace partenaire</a></li>
 
 						
 						</ul>
@@ -86,7 +85,7 @@ session_start();
 			
 		</div>';
 
-		include('includes/footer.php');
+		include('agence/includes/footer.php');
 			
 			
 
@@ -137,7 +136,7 @@ session_start();
 
 		</div>";
 
-		include('includes/footer.php');
+		include('agence/includes/footer.php');
 
 
 		
