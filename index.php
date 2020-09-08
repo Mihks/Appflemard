@@ -378,7 +378,7 @@ session_start();
 
 				if (type=='Aller_retour') {
 					var retour = $('#retour').val();
-					$.post('Espace client/horaire_retour.php',{trajet:trajet,agence:agence,date:retour},
+					$.post('agence/horaire_retour.php',{trajet:trajet,agence:agence,date:retour},
 
 					function(data){
 
