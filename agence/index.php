@@ -1,7 +1,7 @@
 <?php 
 
 
-session_name('flemadmin');
+// session_name('flemadmin');
 
 session_start(); 
 
