@@ -41,7 +41,7 @@ function _header()
 {
 	echo '<header>
 		
-			<div class="log"><img src="images/yaga.png" alt="logo" width="53" height="53"></div >
+			<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
 			<p class="slogan"></p>
 			<span id="heure"></span>
 			
@@ -64,7 +64,6 @@ function _header()
 						<li><a href="index.php#reserve" id="lien-reserve">Reservation</a></li>
 						<li><a href="index.php#a_propos" >A propos de</a></li>
 						<li><a href="index.php#contact">Contact</a></li>
-						<li><a href="../../../administration/appAdmin/connexion.php">Espace partenaire</a></li>
 
 					
 					</ul>
@@ -226,7 +225,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 
 
-			include('includes/footer.php');
+			include('agence/includes/footer.php');
 
 		
 		}else{
@@ -235,7 +234,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 				echo "<p class='centre-text'>La date du retour doit toujours être supérieur à l'aller !<p/>";
 
-			include('includes/footer.php');
+			include('agence/includes/footer.php');
 		}
 
 		
@@ -254,7 +253,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 		echo '<p class="centre-text">Vous souhaitez réserver <span style="color:red;font-weight:bold;">'.$_POST['nombre_billet'].'</span> place(s) . <b>Cependant</b>, Il y a <span style="color:rgb(0,128,128);font-weight:bold;">'.$place_aller_dispo.'</span> '.$place_aller.' pour le '.$dateDepart.' à  '.$_POST['heure_depart'].' !<p/>';
 
-		include('includes/footer.php');
+		include('agence/includes/footer.php');
 	}
 	
 
@@ -272,7 +271,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 		echo("<br><br><div style='font-size: 24px ;font-weight:bolder;text-align: center;'>Désolé le numéro n'est pas valide<a href='index.php#reserve' style='font-weight:bolder;text-align: center;text-decoration:none;font-size: 24px;' >retour</a></div><br>");
 
-		include('includes/footer.php');
+		include('agence/includes/footer.php');
 
 		exit;
 
@@ -292,7 +291,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 	curl_setopt($ch, CURLOPT_POST, 1); 
 
-	curl_setopt($ch, CURLOPT_URL,"//https://mypvit.com/pvit-secure-full-api.kk"); 
+	curl_setopt($ch, CURLOPT_URL,"https://mypvit.com/pvit-secure-full-api.kk"); 
 	 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 
 
@@ -313,7 +312,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		&operateur=".$info[1]."
 
 
-		&redirect=https://flemard.ga/resultat_transaction.php 
+		&redirect=https://flemardapp.herokuapp.com/resultat_transaction.php 
 
 		&agent=caisse3"); 
 
@@ -337,7 +336,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 	
 	echo("<p class='centre-text'>Votre formulaire contient des incohérences, veuillez recommencer... !</p>");
 
-	include('includes/footer.php');
+	include('agence/includes/footer.php');
 
 
 }
