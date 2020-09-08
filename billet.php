@@ -4,9 +4,9 @@ session_name("flemard");
 
 session_start();
 
-require('fpdf/fpdf.php');
+require('agence/fpdf/fpdf.php');
 
-require('phpqrcode/qrlib.php');
+require('agence/phpqrcode/qrlib.php');
 
 
 
