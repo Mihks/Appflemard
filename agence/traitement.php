@@ -4,6 +4,7 @@ session_name('flemadmin');
 
 session_start();
 
+include_once 'fonction.php';
  
 
 ?>
@@ -51,7 +52,6 @@ if (isset($_REQUEST['agence']) && !empty($_REQUEST['agence'])
 
 
 
-		include_once 'fonction.php';
 
 
 		$reponse = $bdd->prepare(" SELECT `type_agence` FROM `agence` WHERE nom_agence = ? ");
