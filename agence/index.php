@@ -1,7 +1,7 @@
 <?php 
 
 
-// session_name('flemadmin');
+session_name('flemadmin');
 
 session_start(); 
 
@@ -10,8 +10,7 @@ session_start();
 include_once('fonction.php');
 
 
-
-	$req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
+$req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
 
 
 
