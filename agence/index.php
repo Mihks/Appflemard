@@ -59,9 +59,9 @@ if (isset($_SESSION['region']) && isset($_SESSION['login']) && isset($_SESSION['
 	<title>FlemAdmin</title>
 	<meta charset="utf-8"/>
 
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css">
-<!-- 	<link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.3.custom.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.min.css"> -->
 
 	
     <link href="css/style.css" rel="stylesheet">
@@ -478,7 +478,7 @@ button{
 
 
 				<li style="list-style-type: none;display: inline-block;margin-left: 5px;">
-					<a href="http://flemard/app/index.php#reserve" id="lien-reserv" title="Réservation en ligne" target="_blank" style="text-decoration: none;color: black;text-shadow: 1px 1px 1px orange;" >
+					<a href="../index.php#reserve" id="lien-reserv" title="Réservation en ligne" target="_blank" style="text-decoration: none;color: black;text-shadow: 1px 1px 1px orange;" >
 					
 					Réserv. en ligne</a><img src="images/application_form.png" class="pasHover" style="position: relative;top:2.2px;left: 5px;" />
 				</li>
