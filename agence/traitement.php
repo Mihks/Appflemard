@@ -122,7 +122,7 @@ if (isset($_REQUEST['agence']) && !empty($_REQUEST['agence'])
 
 		$_SESSION['type_agence'] = $type_agence;
 
-		header("Location:index.php");
+		header("Location:home.php");
 				
 	}else{
 				
