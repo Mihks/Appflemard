@@ -14,33 +14,6 @@ $req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
 
 
 
-function FunctionTrajet($agence,$bdd) {
-		
-
-		$rep = $bdd->prepare("SELECT nom_trajet  FROM `trajets` WHERE trajets.nom_agence= ? ;");
-
-
-		$rep->execute(array($agence));
-
-		echo '<label for="trajet">Trajet :</label>
-		
-		<select name="trajet" id="trajet">
-
-			<option value="trajet_confondu">Trajets Confondus</option>';
-
-		while ($donnees = $rep->fetch()) {
-			
-
-		
-		echo '<option value="'.$donnees["nom_trajet"].'">'.$donnees["nom_trajet"].'</option>';
-		
-		}
-
-
-		echo '</select>';
-
-}
-
 
 
 if (isset($_SESSION['region']) && isset($_SESSION['login']) && isset($_SESSION['agence']) && isset($_SESSION['membre']) && isset( $_SESSION['mdp'] ) ) {
@@ -672,40 +645,8 @@ button{
 					
 			<?php 
 
-			function heure_agence($bdd)
-			{
-
-			 	$reponsehoraire = $bdd->prepare("SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE ");
-
-			 	$reponsehoraire->execute(array($_SESSION['agence']));
-
-			 	
-
-			 	while ( $heure = $reponsehoraire->fetch() ) {
-			 		
-
-			 		$arrayheure =  $heure['horaire'];
-			 	}
-
-			 	
-			 	
-
-			 $reponseheure = ($arrayheure =='' )? $bdd->prepare(" SELECT DISTINCT heure AS horaire   FROM horaire WHERE nom_agence = ? ") : $bdd->prepare(" SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE "); 
-				
-				$reponseheure->execute( array($_SESSION["agence"])); 
-
-
-				while ($donnees = $reponseheure->fetch()) {
-
-
-					echo  "<option value='".$donnees['horaire']."'>".$donnees['horaire']."</option>" ;
-
-							}
-
-					$reponseheure->closeCursor();
-			}
 			
-				 heure_agence($bdd);
+				 heure_agence();
 
 
 
@@ -744,7 +685,7 @@ button{
 	<span style="margin:15px;" id="info_reservation">
 
 		
-			<?php FunctionTrajet($_SESSION['agence'],$bdd);?>
+			<?php FunctionTrajet();?>
 			<!-- <label for="trajet">Trajet :</label><select name="trajet" id="trajet">
 				<option value="trajet_confondu">Trajets Confondus</option>
 				<option value="Libreville-Oyem">Libreville-Oyem</option>
@@ -838,12 +779,7 @@ button{
 		<?php 
 
 				
-				heure_agence($bdd);
-
-
-
-
-
+				heure_agence();
 
 	?>
 
@@ -903,7 +839,7 @@ button{
 				<select id="heure_modif_gestplace">
 
 					<!-- <option value="tout_heure">Toutes heures</option> -->
-				<?php	heure_agence($bdd); ?>
+				<?php	heure_agence(); ?>
 
 				</select>
 
@@ -1273,9 +1209,7 @@ button{
 
 			</div>
 
-<!-- 			<video src="video/xvideos.com_3f62759c958731e6efa9edbc05b84cc7.mp4" controls poster="images/bdd.png" width="600"></video>
 
-			<p><a href="video/xvideos.com_3f62759c958731e6efa9edbc05b84cc7.mp4">Tayame le porno </a></p> -->
 
 			<div id="dial_mdp"></div>
 
