@@ -2263,17 +2263,17 @@ function INITIALISATION_DE_DATEPICKER() {
 
 
 
-// 	function gestion_des_statistiques() {
+	function gestion_des_statistiques() {
 				
-// 		var trajetStat =  $("#trajetStat").val();
+		var trajetStat =  $("#trajetStat").val();
 
-// 		var anneeStat =  $("#anneeStat").val();
+		var anneeStat =  $("#anneeStat").val();
 
-// 		$("#infostat").load('statistique.php',{trajetStat:trajetStat,anneeStat:anneeStat});
+		$("#infostat").load('statistique.php',{trajetStat:trajetStat,anneeStat:anneeStat});
 
-// 		$("#stat_tab-2").html("<?php echo "<img src='courbe.php' />"; ?>");
+		$("#stat_tab-2").html("<?php echo "<img src='courbe.php' />"; ?>");
 
-// 			}
+			}
 
 
 
