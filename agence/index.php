@@ -1647,7 +1647,1667 @@ button{
 	<script type="text/javascript" src="js/webcodecamjquery.js"></script>
 	<script type="text/javascript" src="js/mainjquery.js"></script>
 
+	<script>
+		/*!
+ * jQuery flemadmin code js
+ *
+ * https://
+ *
+ * Copyright (c) 2020 Klein Mihks
+ * Released under 
+ */
+			
+$(function(){
 
+
+function dialogue(div_dialog,titre) {
+	// body...
+
+	var self = $(div_dialog) ;
+
+	self.dialog({modal:true,title: titre ,height:'510',width:'800',buttons:{
+
+		'Fermer':function(){
+
+			self.dialog('close');
+		}
+	}});
+
+
+}
+
+$('#messagerie').click(function () {
+	   
+	dialogue('#dialog-messagerie','FlemChat');
+
+
+	});
+
+
+
+voir_scan = '';
+
+$('#voir_scan').click(function(){
+
+    $('#checkmatch').dialog({modal:true,width:600,title:'Résultat du dernier scan QR Code',buttons:{
+
+    	'Fermer':function(){
+
+    		$(this).dialog('close');
+    	}
+    }},
+
+    	function(){
+
+		$('#checkmatch').html(voir_scan);
+
+    });
+
+
+});
+
+
+	// $('#mdf_trajet').change(function(){
+
+
+	// 	var action = $('#horaire_action').val();
+
+	// 	var trajet = $('#mdf_trajet').val();
+
+	// 	if (action=='') {}
+
+	// 	$('#add_horaire').html("<br/><br/><label>Laquelle ? : </label><select id='horaire_defaut'></select>");
+
+	// 	$('#horaire_defaut').load('horaire_voyage.php',{trajet:trajet});
+
+	// });
+
+	function action_modif_horaire() {
+			// body...
+		
+		var action = $('#horaire_action').val();
+
+		var trajet = $('#mdf_trajet').val();
+	
+		if (action=='ajouter_heure_defaut') {
+
+
+			$('#add_horaire').html("<br/><br/><label>Choisir : </label><input type='number' max='23' min='0' id='select_heure' /> heure");
+			
+			$('#add_horaire').append("<br/><br/><label>Choisir : </label><select  id='select_min'></select> minutes");
+
+
+
+			for (var i = 0; i <= 55 ; i+=5) {
+				 
+			$('#select_min').append("<option>"+i+"</option>");
+
+
+			}
+
+
+		}else if (action='changer_heure_defaut') {
+
+
+			$('#add_horaire').html("<br/><br/><label>Laquelle ? : </label><select id='horaire_defaut'></select>");
+
+			$('#horaire_defaut').load('horaire_voyage.php',{trajet:trajet});
+
+
+			$('#add_horaire').append("<br/><br/><label>Choisir : </label><input type='number' max='23' min='0' id='select_heure' /> heure");
+
+			$('#add_horaire').append("<br/><br/><label> Choisir : </label><select id='select_min'></select> minutes");
+
+
+			for (var i = 0; i <= 55 ; i+= 5) {
+				 
+			$('#select_min').append("<option>"+i+"</option>");
+
+
+			}
+
+
+			}else{
+
+				$('#add_horaire').html("");
+
+			}
+
+
+	}
+
+
+
+
+
+
+	function modifier_les_horaires() {
+		// body...
+
+	$("#mdf_horaire").dialog({modal:true,title:'Changer horaire',
+
+		buttons:{
+
+			'Annuler':function(){
+
+				$(this).dialog('close');
+			},
+
+			'Valider':function(){
+
+				var action = $('#horaire_action').val();
+
+				var trajet = $('#mdf_trajet').val();
+
+				var select_heure = $('#select_heure').val();
+
+				var select_min = $('#select_min').val();
+
+				var ancien_heure = $('#horaire_defaut').val();
+
+
+				$.post('changer_horaire.php',{action:action,trajet:trajet,
+
+					select_heure:select_heure,
+					select_min:select_min,
+					ancien_heure:ancien_heure,},
+
+					function(data){
+
+
+						$('#mdf_horaire').html(data).dialog({modal:true,title:'horaire',
+
+							buttons:{
+
+								"Fermer":function(){
+
+									$(this).dialog('close');
+
+									location.reload();
+								}
+
+							} 
+
+						});
+
+					});
+
+				
+
+				
+			}
+
+
+		}
+
+
+
+			
+
+	});
+
+		}
+
+
+
+
+
+$('#envoie').button();
+
+
+// if (navigator.online) {
+
+// // 	alert('je suis en ligne my nigga !!!!');
+// // }else{
+
+// // 	alert('je suis pas en ligne mon frère aaaaaaaah aaaakkkaaa !!!!');
+// // }
+
+
+
+
+// $('[href="#onglet-3"]').click(function(){
+
+
+// 	$('#dial_confidentiel').dialog({modal:true,title:'Mot de passe administrateur',
+
+
+
+
+// 		buttons:{ 'Valider':function(){
+
+
+// 			$.post('mdp_admin.php',{mdp_admin:$('#mdp_admin_general').val()},
+
+// 				function(data){
+
+
+// 					if (data=='Mot de passe incorrect !') {
+
+// 						$('#dial_confidentiel').html(data).dialog({modal:true,title:'Mot de passe administrateur'},
+
+// 							function(){
+
+// 								location.reload();
+// 							});
+						
+
+// 					}
+// 				});
+// 		}
+
+
+
+// 	}});
+
+
+// 		});
+
+
+
+$('[name="solde"],[name="val"]').checkboxradio();
+
+
+
+$('#changer_remise').on("click change touch",function(){
+	
+	$("#dial_changer_remise").removeAttr('class','ui-dialog-titlebar-close').dialog({modal:true,title:'Changer remise',buttons:{
+
+		'valider':function(){
+
+			$.post('changer_remise.php',{'remise':$('#remise').val()},
+
+				function(data){
+
+					$(".ui-dialog-titlebar-close").hide();
+
+					$("#dial_changer_remise").html(data).dialog({modal:true,title:'remise',
+
+						buttons:{
+
+							'Fermer': function(){
+
+								$(this).dialog('close');
+
+								location.reload();
+							}
+						}
+				});
+
+			});
+
+		}}});
+
+});
+
+
+$('#changer_penalite').click(function(){
+
+	$("#dial_changer_penalite").dialog({modal:true,title:'Changer penalité',buttons:{
+
+		'valider':function(){
+
+			$.post('changer_penalite.php',{'penalite':$('#penalite').val()},
+
+				function(data){
+
+					$(".ui-dialog-titlebar-close").hide();
+
+					$("#dial_changer_penalite").html(data).dialog({modal:true,title:'Penalité',
+
+						buttons:{
+
+							'Fermer': function(){
+
+								$(this).dialog('close');
+
+								location.reload();
+							}
+
+					}});
+
+			});
+
+		}}});
+});
+
+
+
+
+
+// setInterval(function() {$("#l").dialog({title:'sauvegarde',buttons:{'valider':function(){$(this).dialog('close');}}});
+// }, 10);
+/////////////////////////////////////////////////////section de definition des variables./objets literaux ou tableaux.///
+
+
+
+function getVarelementsReservation() {
+	
+
+return  {
+
+	limit : $('#limit').val(),
+
+	trajet : $('#trajet').val(),
+
+	etat_reservation : $('#Etat').val(),
+
+	hora : $('#hora').val(),
+
+	date : $("#date_reserve").val(),
+
+	statut : $("#statut").val(),
+
+	id : $('#ref').val(),
+
+	radio : $('[name="solde"]:checked').val(),
+
+	idAnnule : $('#idAnnule').val(),
+
+	choixAction : $('#choixAction').val()
+
+	 
+	
+		
+
+		};
+
+}
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////:fin....//////////////////////////
+
+
+
+	
+	/////////////////////Section de definition des fonctions ......////////////////////////////////////////
+
+
+
+
+
+
+function horaire_mdf_place() {
+
+	$.post('horaire_mdf_place.php',
+
+		{trajet:$('#trajet_modif_gestplace').val(),date:$('#date_modif_gestplace').val()},
+
+		function(data){
+
+			$('#heure_modif_gestplace').html(data);
+
+			});
+	}
+
+
+
+
+function horaire() {
+				
+
+	var varelementsReservation = getVarelementsReservation();
+
+
+	$.post('horaire.php',varelementsReservation,
+
+		function(data){
+
+
+			$("#hora").html(data);
+
+
+
+				});
+
+				
+
+		
+			}
+
+
+
+
+
+
+function horaire_gest(hora,date,trajet) {
+				
+
+	var varelementsReservation = getVarelementsReservation();
+
+
+	$.post('horaire.php',{trajet: trajet, date:date},
+
+		function(data){
+
+
+			$(hora).html(data);
+
+
+
+				});
+
+				
+
+		
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function box_shadow_progress(valuepourcent) {
+			
+			
+			if ( valuepourcent >= 75 ) {
+
+	 			$('#barre').css({'box-shadow': '1px 1px 10px red'});
+		
+	 		}else{
+
+	 			$('#barre').css({'box-shadow': '1px 1px 10px black'});
+
+	 			}
+
+
+		}
+		
+
+
+
+function progressbar() {
+	
+
+	var varelementsReservation = getVarelementsReservation();
+
+
+	var effectif = $('#reserv').text();
+
+	if (isNaN(effectif)) {
+
+		$('#barre').progressbar({    value : 0 });
+
+		$('#pourcent_place_reserv').html("<img src='images/wait.gif' style='width:10px;height:10px;' />");
+
+		box_shadow_progress(0);
+
+	}else{ 
+
+	$.post('placeTprogress.php',varelementsReservation,
+
+		function(total) {
+			
+			var valuepourcent = effectif*100/total;
+
+			valuepourcent = (isNaN(valuepourcent)) ? 0 : effectif*100/total;
+ 
+
+			$('#barre').progressbar({    value : valuepourcent });
+
+
+			$('#pourcent_place_reserv').text(Math.floor(valuepourcent)+'%');
+			
+			
+			box_shadow_progress(valuepourcent);
+
+
+
+		});
+
+	}
+
+	}
+
+
+
+
+function INITIALISATION_DE_DATEPICKER() {
+		
+
+			$.datepicker.regional['fr'] = {
+
+					altField : 'Fermer',
+					prevText : 'Précédent',
+					nextText : 'Suivant',
+					CurrentText : "Ajourd'hui",
+					firstDay : 1,
+					monthNames : ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+
+					monthNamesShort : ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+					dayNames : ['Dimanche', 'Lundi','Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+					dayNamesShort : ['Dim.','Lun.','Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+					dayNamesMin : ['D','L','M','M', 'J', 'V','S'],
+					weekHeader : 'sem.',
+					dateFormat : 'yy-mm-dd',
+					isRTL: false,  
+					showMonthAfterYear: false,
+					 yearSuffix: ''
+
+				};
+
+
+			$.datepicker.setDefaults($.datepicker.regional["fr"]);
+	
+
+	}
+
+
+
+	function naviguer_entre_date_gest(date,horaire) {
+				
+
+
+		$.post('gestion_de_place.php',{'date': date, horaire:horaire},function(donnee){
+
+		$('#table_gestion_place').html(donnee);
+				
+				});
+			
+
+			}
+
+
+	function gestion_des_voyages() {
+				
+
+				var trajet = $('#trajet_voy').val();
+				var limit = $("#limit").val();
+				var date = $("#date_voy").val();
+				var horaire = $("#horaire").val();
+	  
+				
+
+				// $('#solde_jour').html('Chargement');
+				// affiche_solde_du_jour();
+				
+				// $("#sectionlistevoyage")
+
+				$.post("requetes_voyage.php",{'trajet' : trajet, 'limit':limit, 'date': date, 'horaire': horaire},
+
+					function(data){
+
+					$('#sectionlistevoyage').html(data);
+
+				}); //charge les requetes faites sur requetes.php
+
+				
+				// $("#afficheTraj").text('Trajet'+': '+trajet).show();
+
+				// var mois_cst_fr = new Array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+
+				// var jour_cst_fr = new Array('Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi');
+				// var date_travel = new Date(date);
+				// var jour_travel = date_travel.getDate();
+				// var mois_travel = date_travel.getMonth();
+				// var annee_travel = date_travel.getFullYear();
+				// var nom_sem_jour_travel  = date_travel.getDay();
+
+				// $("#date_de_voyage").text(jour_cst_fr[nom_sem_jour_travel]+', '+jour_travel+' '+mois_cst_fr[mois_travel]+' '+annee_travel+': Date du Voyage');
+
+
+
+			}
+
+
+
+
+	function gestion_des_statistiques() {
+				
+		var trajetStat =  $("#trajetStat").val();
+
+		var anneeStat =  $("#anneeStat").val();
+
+		$("#infostat").load('statistique.php',{trajetStat:trajetStat,anneeStat:anneeStat});
+
+		$("#stat_tab-2").html("<?php echo "<img src='courbe.php' />"; ?>");
+
+			}
+
+
+
+
+
+
+	function gestion_modification_du_nombre_de_place() {
+					
+
+
+				$('#dial_modif_gestplace').dialog({modal:true,title:'Modifier le nombre de place',buttons:{
+
+				'Valider': function(){
+
+						var nombre_modif_gestplace = $('#nombre_modif_gestplace').val();
+						var trajet_modif_gestplace = $('#trajet_modif_gestplace').val();
+						var date_modif_gestplace = $('#date_modif_gestplace').val();
+						var heure_modif_gestplace = $('#heure_modif_gestplace').val();
+
+						$.post('modifier_place_voyage.php',{'nombre':nombre_modif_gestplace,'trajet':trajet_modif_gestplace,'date':date_modif_gestplace,'heure':heure_modif_gestplace},function(donnees){
+
+							$(".ui-dialog-titlebar-close").hide();
+
+							$('#dial_modif_gestplace').html(donnees);
+
+							$('#dial_modif_gestplace').dialog({modal:true,title:'Modifier le nombre de place',buttons :{ 
+
+
+								'Fermer': function(){ 
+
+
+									$(this).dialog('close');
+
+									location.reload();
+ 										
+
+
+
+ 										} 
+
+
+ 									}   
+
+
+
+ 									});
+
+						}); // fin de la function de post
+
+
+				} //fin de valider
+
+				} //fin de button
+
+
+			}); //fin de dial_modif
+			
+
+
+				}
+
+
+
+
+
+
+
+
+
+
+	function modifier_prix_des_trajets_de_voyage(nom_trajet_tarif) {
+			
+
+			// $('#dial_tarif').html(
+
+		// 	"<div><h4>Veuillez saisir le mot de passe administrateur</h4></div><input type='password' id='admin_mdp'/>");
+
+		$('#dial_tarif').dialog({modal:true,title:'Changer le prix du trançon',buttons :{
+					
+					'Valider': function(){
+
+						var nouveau_trajet_tarif = $('#nouveau_trajet_tarif').val();
+
+						var agence = $("#gestionplace").attr('class');
+
+						nom_trajet_tarif  = (agence.match(/akewa/)) ? $('#choix_trajet_bat').val() : nom_trajet_tarif;
+
+
+						var type_prix_trajet_tarif = $('#type_prix_trajet_tarif').val();
+
+
+						$.post('changer_tarif.php',{"nom_trajet_tarif":nom_trajet_tarif,"nouveau_trajet_tarif":nouveau_trajet_tarif,"type_prix_trajet_tarif":type_prix_trajet_tarif},function(data){
+ 
+
+
+								$('#dial_tarif').html(data);
+
+								$('#dial_tarif').dialog({modal:true,title:'Changer le prix du trançon',
+
+									open: function(){
+
+										$(".ui-dialog-titlebar-close").hide();
+										
+									},buttons :{
+											
+											'Fermer': function(){
+
+												$(this).dialog('close');
+
+												location.reload();
+
+													}
+												}
+													});
+
+
+												
+
+							});
+
+						$(this).dialog('close');
+
+
+							}
+						}
+
+							});
+
+		
+
+
+		}
+
+
+
+
+
+		function changer_mdp_compte_new_mdp() {
+			
+
+
+			var ancien_mdp = $("#ancien_mdp").val();
+
+			var nouveau_mdp = $("#nouveau_mdp").val();
+
+			var confirm_mdp = $('#confirm_mdp').val();
+				
+
+			$.post('changer_mdp.php',{
+
+				'ancien_mdp':ancien_mdp,
+				'nouveau_mdp':nouveau_mdp,
+				'confirm_mdp':confirm_mdp},
+
+			function(data){
+
+				window['message_mdp'] = data;
+
+				if (data=='Le mot de passe saisie est incorrect !') {
+
+
+					$('#ancien_mdp').css({boxShadow:'1px 1px 20px red'});
+
+
+					$('#dial_mdp').text(message_mdp);
+
+
+					$('#dial_mdp').dialog({modal:true,title:'Changer de mot de passe',buttons :{
+					'Fermer': function(){
+
+
+						$('#ancien_mdp').css({boxShadow:''});
+
+						$(this).dialog('close');
+
+
+							}
+						}
+							});
+
+					
+				}else if(data=='Le nouveau mot de passe et la confirmation du mot de passe doivent être identiques et comporter au moins 4 caractères ,veuillez recommencer !' ){
+
+					$('#nouveau_mdp,#confirm_mdp').css({boxShadow:'1px 1px 20px red'});
+
+
+					$('#dial_mdp').text(message_mdp);
+
+
+					$('#dial_mdp').dialog({modal:true,title:'Changer de mot de passe',buttons :{
+					'Fermer': function(){
+
+						$('#nouveau_mdp,#confirm_mdp').css({boxShadow:''});
+
+						$(this).dialog('close');
+
+							}
+						}
+							});
+
+					
+				
+				}else if(data=='Opération effectuée...!'){
+
+
+					$('#dial_mdp').html('<b>'+message_mdp+'</b>');
+
+
+					$('#dial_mdp').dialog({modal:true,title:'Changer de mot de passe',buttons :{
+					'Fermer': function(){
+
+						$(this).dialog('close');
+
+						location.reload();
+
+							}
+						}
+							});
+
+				}else if (data =="Aucun changement a été effectué !"){
+
+					$('#dial_mdp').text(message_mdp);
+
+
+					$('#dial_mdp').dialog({modal:true,title:'Changer de mot de passe',buttons :{
+					'Fermer': function(){
+
+						$(this).dialog('close');
+
+
+							}
+						}
+							});
+
+				}else if (data == "Veuillez vous reconnecter...") {
+
+					$('#dial_mdp').text(message_mdp);
+
+					$('#dial_mdp').dialog({modal:true,title:'Changer de mot de passe',buttons :{
+					'Fermer': function(){
+
+						$(this).dialog('close');
+
+
+							}
+						}
+							});
+				
+
+				}
+
+				
+				
+		});
+
+
+		$("#ancien_mdp").val('');
+
+		$("#nouveau_mdp").val('');
+
+		$('#confirm_mdp').val('');
+
+
+		}
+
+
+
+	function gestion_des_annulation() {
+
+		var varelementsReservation = getVarelementsReservation();
+
+
+		$('#afficheTraj').text('Identifiant : '+varelementsReservation['idAnnule']);
+
+		$("#date_de_voyage").text("Action : "+varelementsReservation['choixAction']);
+
+		if (varelementsReservation['choixAction']=='annuler') {
+
+			$('#sectiontab').html("<div id='chargement' hidden>Chargement en cours...</div>");
+			$('#chargement').fadeIn();
+			$('#sectiontab').load('annuler_reservation.php',{'id':varelementsReservation['idAnnule']});
+				
+				
+		}else if (varelementsReservation['choixAction']=='reprogrammer'){
+
+			$('#sectiontab').html("<div id='chargement' hidden>Chargement en cours...</div>");
+			$('#chargement').fadeIn();
+			$('#sectiontab').load('reprogramer_voyage.php',{'id':varelementsReservation['idAnnule']});
+			
+
+		}else if (varelementsReservation['choixAction']=='excedent') {
+
+
+			$('#sectiontab').html("<div id='chargement' hidden>Chargement en cours...</div>");
+			$('#chargement').fadeIn();
+			$('#sectiontab').load('excedent_voyage.php',{'id':varelementsReservation['idAnnule']});
+			
+
+		}else{
+
+			alert('Erreur');
+		}
+
+
+			}
+			
+
+	function button_plus_gestion_des_annulation_et_reprogrammation_de_voyage() {
+				
+		if ($('#invisible').prop("hidden",true)) {
+
+			$('#invisible').slideToggle();
+
+			$('#circle-plus').toggleClass("ui-icon-circle-plus").toggleClass("ui-icon-circle-minus");
+
+		 }else{
+
+		   	$('#invisible').slideToggle();
+	
+			$('#circle-plus').toggleClass("ui-icon-circle-plus").toggleClass("ui-icon-circle-minus");
+		   		}
+			}
+
+
+
+
+
+	function changer_interface_reservation_ou_voyage(val) {
+				
+		// var val = $(this).val();
+
+		if (val=='reservation') {
+
+			$('#info_reservation').toggle();
+			$('#info_voyage').toggle();
+				
+		}else{
+
+			$('#info_voyage').toggle();
+			$('#info_reservation').toggle();
+				
+				}
+			}
+
+
+
+	function recherche_ID_Nom() {
+				
+		
+		var varelementsReservation = getVarelementsReservation();
+
+		$('#sectiontab').html("<div id='chargement' hidden>Chargement en cours...</div>");
+
+		$('#chargement').fadeIn();
+
+				
+		$('#afficheTraj').text('Recherche : '+varelementsReservation['id']);
+				
+		$('#sectiontab').load('rechercheIDNom.php',varelementsReservation);
+			
+
+		}
+
+
+	function changer_mdp_compte() {
+			
+		
+		if ($('#hidden_mdp').prop("hidden",true)) {
+
+			$('#hidden_mdp').slideToggle();
+
+			$('#hidden_mdp-circle-plus').toggleClass("ui-icon-circle-plus").toggleClass("ui-icon-circle-minus");
+
+
+
+		}else{
+
+		   	$('#hidden_mdp').slideToggle();
+		   	$('#hidden_mdp-circle-plus').toggleClass("ui-icon-circle-plus").toggleClass("ui-icon-circle-minus");
+
+		   		}
+		}
+	
+	 
+	function gestion_des_reservation() {
+
+
+			var varelementsReservation = getVarelementsReservation();
+
+			affiche_solde_du_jour();
+
+			
+			$("#sectiontab").load("requetes.php",varelementsReservation); //charge les requetes faites sur requetes.php
+
+			
+			$("#afficheTraj").text('Trajet'+': '+varelementsReservation['trajet']+'. Etat : '+varelementsReservation['etat_reservation']).show();
+
+			var mois_cst_fr = new Array('Janv.', 'Fév.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.');
+
+			var jour_cst_fr = new Array('Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.');
+			var date_travel = new Date(varelementsReservation['date']);
+			var jour_travel = date_travel.getDate();
+			var mois_travel = date_travel.getMonth();
+			var annee_travel = date_travel.getFullYear();
+			var nom_sem_jour_travel  = date_travel.getDay();
+
+
+
+			$("#date_de_voyage").text(jour_cst_fr[nom_sem_jour_travel]+' '+jour_travel+' '+mois_cst_fr[mois_travel]+' '+annee_travel+' à '+varelementsReservation['hora'] +': Départ');
+
+			
+			nombre_place_reservees();		
+
+			nombre_place_dispo();
+
+			
+
+		}
+
+
+
+	 function nombre_place_reservees() {
+
+
+	 	var varelementsReservation = getVarelementsReservation();
+
+
+
+		$("#reserv").load('gestionplace.php',varelementsReservation,
+
+			function(data){
+
+				(data > 1 ) ? $('#reserv_label').text('Réservées') : $('#reserv_label').text('Réservée');
+
+			});		
+
+	 }
+
+
+	 function nombre_place_dispo() {
+
+	 	var varelementsReservation = getVarelementsReservation();
+
+		$("#dispo").load('essai.php',varelementsReservation,
+
+			function(data){
+
+
+				(data > 1) ? $('#dispo_label').text('Disponibles') : $('#dispo_label').text('Disponible');
+
+		});
+
+		
+		
+	 }
+
+
+
+	function affiche_solde_du_jour() {
+
+
+		var varelementsReservation = getVarelementsReservation();
+				
+		$("#solde_jour").load('soldeJour.php',varelementsReservation);
+
+		$('#typeSolde').text(varelementsReservation['radio']);
+	
+		}
+
+
+
+	 function timeSeconde() {
+			
+			$('#time').load('heure.php');
+		}
+
+
+	
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////://///////////////////fin des declaration des fonctions/////////////////////////////////////////////////////////////////
+	
+
+
+
+
+
+
+///////////////////////////////Section de LA GESTION DES EVENEMENTS......./////////////////////////////////////
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////function timer.............////////////////////////////
+
+
+
+
+setInterval(function() {
+		nombre_place_reservees();
+		
+		nombre_place_dispo();
+		
+		
+		affiche_solde_du_jour();
+		
+		timeSeconde();
+
+
+		naviguer_entre_date_gest($('#date_gest').val(),$('#horaire_gest_place').val());
+
+
+
+	}, 1000);
+
+
+	setInterval(progressbar,600);
+
+
+
+
+
+//////////////////////////////////.................../////////////////////////////////
+
+$("[name='solde']").click(function(){
+
+	$('#solde_jour').html('chargement...');
+
+	// alert($(this).val());
+
+	if (this.value =='Prix billet') {
+
+		$('#solde_jour').css({boxShadow:'1px 1px 20px black'});
+	
+	}else if(this.value =='Pénalité') {
+
+		$('#solde_jour').css({boxShadow:'1px 1px 10px red'});
+
+	
+	}else if(this.value=='Excédents') {
+
+
+		$('#solde_jour').css({boxShadow:'1px 1px 10px lime'});
+
+
+	}else if(this.value=='Total') {
+
+
+		$('#solde_jour').css({boxShadow:'1px 1px 10px blue'});
+
+	}
+
+	
+	affiche_solde_du_jour();
+
+});
+
+
+
+//////////////////////dialog aide...........//////////////////////
+
+$('#aide').click(function(){
+
+
+	$('#dial_aide').dialog({modal:true,title:'Aide',height:'500',width:'540',buttons:{'Fermer':function(){$(this).dialog('close');}}});
+
+
+});
+
+	
+	//////////////////////////////
+
+
+
+	 $("#lien_qrcode").click(function(){
+
+	 	// $('#dial_qrcode').dialog({modal:true,title:'Enrégistrement',height:'510',width:'800',buttons:{'Fermer':function(){$(this).dialog('close');}}});
+
+	 	dialogue('#dial_qrcode','Enrégistrement');
+	 });
+
+
+	///////////////les tabs de l'app ......????///////////////////////////
+
+	$('#win,#onglets,#dial_stats').tabs();
+
+///////////////////////////////////////
+
+	$('#butt_id').click(function(){
+
+		var input_id = $('#input_id').val();
+
+		$.post('qrc_id',{id:input_id},function(data){
+
+			// $('#result_id').html('Chargement...');
+			
+			$('#result_id').html(data);
+
+			$('#dialog_qrc').dialog({modal:true,width:600,title:'Résultat ID : '+ $('#input_id').val(),buttons:{
+			
+			'Fermer':function(){
+
+				$(this).dialog('close');
+			}
+		} });
+
+		
+		});
+
+
+		
+		// $('#result_id').html('Chargement...');
+		//$('#result_id').load('qrc',{id:input_id});
+
+
+	});
+
+	/////////////////////////////changer de mot de passe.....///////////////////::
+
+
+	$('#hidden_mdp-circle-plus').click(function(){
+
+		changer_mdp_compte();
+
+		});
+
+		
+	$('#execute_mdp').click(function(){
+
+
+		changer_mdp_compte_new_mdp();
+		
+
+			}); 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+	
+
+
+////////////////////:::changer les prixs des trajets ....../////////////////////////////
+
+	$('td a,#modif_prix_trajet_bat').on('click',function(){ 
+
+		window['nom_trajet_tarif'] = $(this).attr('id');
+
+		modifier_prix_des_trajets_de_voyage(nom_trajet_tarif);
+
+	});
+
+	
+
+
+	////////////////:la transition du menu ......///////////
+
+	$("#btnMenu").click(function(){
+
+		 $('#menu').toggle('slide',{direction:'left'},1000);
+
+		 // $('body').append('<div class="shade"></div>'); 
+
+		 // $('.shade').css('opacity', 0.7).fadeIn(); 
+
+	});
+
+	
+
+
+	$("#flemAdmin").show("explode",5000);
+
+
+
+
+
+	/////////////////Recherche/////////////////////
+
+
+
+		$('#action').click(function() {   
+
+			recherche_ID_Nom(); 
+
+			 }); 
+
+
+
+		//changer d'interface reservation ou voyage
+		$('#choixInfo').change(function(){
+
+			changer_interface_reservation_ou_voyage($(this).val());
+
+		});
+
+
+		
+		
+////////////...............la gestion des reservation........///////////////////////////////////////////////////////
+
+		$('#hora').change(function(){
+
+
+			$("#reserv").html('<font size="4">chargement...</font>');
+			$("#dispo").html('<font size="4">chargement...</font>');
+
+			$('#solde_jour').html('Chargement');
+
+			$('#sectiontab').html("<div id='chargement' hidden>Chargement en cours...</div>");
+			$('#chargement').toggle('explode');
+
+			gestion_des_reservation();
+		});
+
+		$("#trajet,#date_reserve,#statut,#Etat").on("change touch",function(){ 
+
+			$("#reserv").html('<font size="4">chargement...</font>');
+			$("#dispo").html('<font size="4">chargement...</font>');
+
+			$('#solde_jour').html('Chargement');
+
+			
+			$('#sectiontab').html("<div id='chargement' hidden>Chargement en cours...</div>");
+			$('#chargement').toggle('explode');
+
+
+			horaire();
+
+			gestion_des_reservation();
+
+			setTimeout(function(){
+
+				gestion_des_reservation();
+			} ,600);
+
+			});
+
+/////////////////////////////////////////////////////////////////////////////
+
+		//gestion des annulation et reprogrammation de voyage
+		
+		$('#circle-plus').click(function(){
+
+			
+			button_plus_gestion_des_annulation_et_reprogrammation_de_voyage();
+
+		});
+
+
+		//////gestion Annulation
+
+		$('#butnAnnule').click(function(){
+
+
+			gestion_des_annulation();
+
+		});
+
+		$('#choixAction').change(function(){
+
+			$('#label_change').text('Identifiant');
+			$('#span_change').html("<input type='text' id='idAnnule' autocomplete='off'>");
+				
+		});
+
+
+
+		//gestion voyage
+		$("#trajet_voy,#horaire").on("change touch",function(){ //#choixInfo
+
+
+			$('#sectionlistevoyage').html("<img  src='images/wait.gif' />");
+
+			gestion_des_voyages();
+
+			
+			});
+
+
+	
+	////////////////modifier les horaires////////////////
+
+
+		$('#lien_mdf_horaire').click(function(){
+
+			modifier_les_horaires();
+
+		});
+
+
+
+			$('#horaire_action,#mdf_trajet').change(action_modif_horaire);
+
+
+	/////////////////////////////
+
+			
+
+			$(window).load(function(){
+
+
+					//----------------INITIALISATION DE DATEPICKER-
+		//METTRE LA DATE EN FR--------------------------
+//----------------------------------------------------------------------------------------
+
+				INITIALISATION_DE_DATEPICKER();
+				
+				horaire_gest(hora='#horaire_gest_place',$('#date_gest').val(),trajet='trajet_confondu');
+
+
+				horaire_mdf_place();			
+
+				action_modif_horaire();
+
+				gestion_des_reservation();
+
+				gestion_des_voyages();
+				// naviguer_entre_date_gest($('#date_gest').val(),$('#horaire_gest_place').val());
+
+
+
+
+			//----------DATEPICKER LE PLANNING DE RESERVATION SUR 3 à 4 JOURS
+//----------------------------------------------------------------------------------------
+				var OjourD = $("#date_reserve"),
+					dateJour = new Date();
+
+				OjourD.prop({
+
+					"max": "+4j"
+
+				}).datepicker({
+
+					maxDate : OjourD.prop("max"),
+					dateFormat:'yy-mm-dd'
+					
+				});
+
+
+
+				var OjourD = $("#date_gest"),
+					date_gest = new Date();
+
+				OjourD.prop({
+
+					"max": "+14j"
+
+				}).datepicker({
+
+					maxDate : OjourD.prop("max"),
+					dateFormat:'yy-mm-dd'
+					
+				});
+
+
+
+
+				var date_modif_gestplace =  $("#date_modif_gestplace"),
+					date_modif = new Date();
+				
+				date_modif_gestplace.prop({
+
+					"min": "+0j",
+					"max": "+14j"
+				}).datepicker({
+
+					minDate : date_modif_gestplace.prop("min"),
+					maxDate :date_modif_gestplace.prop("max"),
+					dateFormat:'yy-mm-dd'
+					
+				});
+
+
+
+
+				var date_voy =  $("#date_voy"),
+					dateVoyage = new Date();
+				
+				date_voy.prop({
+
+					"min": "+0j",
+					"max": "+0j"
+
+				}).datepicker({
+
+					minDate : date_voy.prop("min"),
+					maxDate :date_voy.prop("max"),
+					dateFormat:'yy-mm-dd'
+					
+				});
+
+		});
+
+
+		var mois_fr = new Array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
+
+		var jour_fr = new Array('00','01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31');
+
+		var mois_cfr = new Array('Janv', 'Fév', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc');
+		
+		var date = new Date();
+
+		var annee = date.getFullYear();
+
+		var jour = date.getDate();
+
+		var mois = date.getMonth();
+
+
+
+		$("#date_reserve,#date_voy,#date_modif_gestplace,#date_gest").val(annee+'-'+mois_fr[mois]+'-'+jour_fr[jour]);
+
+		$('#date_reserve,#date_voy,#date_gest,#date_modif_gestplace').focus(function(){  
+			$(this).blur();
+
+		});
+
+
+/////////////////////////////////////////gestion de place//////////////////////////////////
+		
+
+
+		$("#gestionplace").click(function(){
+
+
+			var agence = 'Paramètres - ' +$('#gestionplace').attr('class');
+
+
+			// $("#dialog").dialog({modal:true,title:'Paramètres - '+agence,height:'510',width:'800',buttons:{
+
+			// 	'Fermer': function(){
+
+			// 		$(this).dialog("close");
+			// 	}
+
+			// }});
+
+
+			dialogue('#dialog',agence);
+
+
+			naviguer_entre_date_gest($('#date_gest').val(),$('#horaire_gest_place').val());
+
+
+		
+				
+		});
+
+
+
+
+	///////gestion de modification de nombre de places////////////////////
+
+		$("#lien_modif_gestplace").click(gestion_modification_du_nombre_de_place); //fin de lien_modif
+
+
+
+		////////date de navigation entre les differentes dates de gestion de places....////////////////
+		
+
+		$("#date_gest").change(function(){
+
+			$('#table_gestion_place').html('<img src="images/wait.gif" />');
+
+			naviguer_entre_date_gest($('#date_gest').val(),$('#horaire_gest_place').val());
+
+			horaire_gest(hora='#horaire_gest_place',$('#date_gest').val(),trajet='trajet_confondu');
+
+
+		});
+
+
+
+		$("#horaire_gest_place").change(function(){
+
+			$('#table_gestion_place').html('<img src="images/wait.gif" />');
+
+			naviguer_entre_date_gest($('#date_gest').val(),$('#horaire_gest_place').val());
+
+		});
+
+		
+
+
+		$('#date_modif_gestplace,#trajet_modif_gestplace').change(function(){
+
+			//horaire_gest(hora='#heure_modif_gestplace',$('#date_modif_gestplace').val(),$('#trajet_modif_gestplace').val());
+		
+			horaire_mdf_place();
+		});
+
+
+//////////////////////////////////////Statistique////////////////////////////////
+
+
+		/////////////////////:click pour obtenir le dialog des stats (son interface)/////////////
+
+		$("#stats").click(function(){
+
+
+			// $('#dial_stats').dialog({modal:true,title:'Statistique',height:'510',width:'800',buttons:{'Fermer':function(){$(this).dialog('close');}}});
+
+			dialogue('#dial_stats','Statistique');
+
+			gestion_des_statistiques();
+
+		});
+
+
+
+		////////////GESTION DES STATISTIQUES//////////////////
+
+		$("#trajetStat").change(function(){
+
+			$('#infostat,#stat_tab-2').html("<img src='images/wait.gif' />");
+
+			gestion_des_statistiques();
+
+		});
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+	}); 
+		
+	</script>
 </body>
 
 		
