@@ -23,16 +23,79 @@
 				die('Erreur : ' . $e->getMessage());
 
 			}
+
+
+
+
+// function FunctionTrajet() {
+		
+
+// 		$rep = $bdd->prepare("SELECT nom_trajet  FROM `trajets` WHERE trajets.nom_agence= ? ;");
+
+
+// 		$rep->execute(array($_SESSION['agence']));
+
+// 		echo '<label for="trajet">Trajet :</label>
+		
+// 		<select name="trajet" id="trajet">
+
+// 			<option value="trajet_confondu">Trajets Confondus</option>';
+
+// 		while ($donnees = $rep->fetch()) {
 			
 
+		
+// 		echo '<option value="'.$donnees["nom_trajet"].'">'.$donnees["nom_trajet"].'</option>';
+		
+// 		}
 
-function FunctionTrajet($agence,$bdd) {
+
+// 		echo '</select>';
+
+// }
+
+
+			
+function heure_agence()
+			{
+
+			 	$reponsehoraire = $bdd->prepare("SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE ");
+
+			 	$reponsehoraire->execute(array($_SESSION['agence']));
+
+			 	
+
+			 	while ( $heure = $reponsehoraire->fetch() ) {
+			 		
+
+			 		$arrayheure =  $heure['horaire'];
+			 	}
+
+			 	
+			 	
+
+			 $reponseheure = ($arrayheure =='' )? $bdd->prepare(" SELECT DISTINCT heure AS horaire   FROM horaire WHERE nom_agence = ? ") : $bdd->prepare(" SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE "); 
+				
+				$reponseheure->execute( array($_SESSION["agence"])); 
+
+
+				while ($donnees = $reponseheure->fetch()) {
+
+
+					echo  "<option value='".$donnees['horaire']."'>".$donnees['horaire']."</option>" ;
+
+							}
+
+					$reponseheure->closeCursor();
+			}
+
+function FunctionTrajet() {
 		
 
 		$rep = $bdd->prepare("SELECT nom_trajet  FROM `trajets` WHERE trajets.nom_agence= ? ;");
 
 
-		$rep->execute(array($agence));
+		$rep->execute(array($_SESSION['agence']));
 
 		echo '<label for="trajet">Trajet :</label>
 		
