@@ -1,7 +1,7 @@
 
 		<header>
 		
-			<div class="log"><img src="images/yaga.png" alt="logo" width="53" height="53"></div >
+			<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
 			<p class="slogan"></p>
 			<span id="heure"></span>
 			
@@ -23,9 +23,7 @@
 						<li><a href="#" class="">Accueil</a></li>
 						<li><a href="#reserve" id="lien-reserve">Reservation</a></li>
 						<li><a href="#a_propos" >A propos de</a></li>
-						<li><a href="#contact">Contact</a></li>
-						<li><a href="connexion.php">Espace partenaire</a></li>
-					
+						<li><a href="#contact">Contact</a></li>			
 					</ul>
 				</div>
 
