@@ -1580,15 +1580,7 @@ button{
 	<script type="text/javascript" src="js/webcodecamjquery.js"></script>
 	<script type="text/javascript" src="js/mainjquery.js"></script>
 
-	<script>
-		/*!
- * jQuery flemadmin code js
- *
- * https://
- *
- * Copyright (c) 2020 Klein Mihks
- * Released under 
- */
+<script>
 			
 $(function(){
 
