@@ -74,7 +74,7 @@ session_start();
 
 			<div class="centre-text">
 
-				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>PayPal</b> ou via d'autres moyens de <b>mobile money</b> utilisés au Gabon (en cours d'intégration)<img src="Espace client/images/wait.gif" /> .</p>
+				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>PayPal</b> ou via d'autres moyens de <b>mobile money</b> utilisés au Gabon (en cours d'intégration)<img src="agence/images/wait.gif" /> .</p>
 
 
 
@@ -227,7 +227,7 @@ session_start();
 							
 							<div >
 
-								<input type="image"  id="envoyer" value="envoyer" style="border-radius: 15px;width: 75px;height: 70px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;margin-left: 260px;" src="Espace client/images/logo_airtelmoney.jpg" />
+								<input type="submit"  id="envoyer" value="envoyer" style="border-radius: 15px;width: 75px;height: 70px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;margin-left: 260px;"  />
 
 								<!-- <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button> -->
 
