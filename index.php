@@ -227,7 +227,7 @@ session_start();
 							
 							<div >
 
-								<input type="submit"  id="envoyer" value="envoyer" style="border-radius: 15px;width: 75px;height: 70px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;margin-left: 260px;"  />
+								<input type="submit"  id="envoyer" value="envoyer" style="border-radius: 15px;width: 45px;height: 40px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;margin-left: 260px;"  />
 
 								<!-- <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button> -->
 
