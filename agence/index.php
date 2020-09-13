@@ -649,7 +649,6 @@ button{
 				 heure_agence();
 
 
-
 					?>
 
 				
@@ -686,14 +685,7 @@ button{
 
 		
 			<?php FunctionTrajet();?>
-			<!-- <label for="trajet">Trajet :</label><select name="trajet" id="trajet">
-				<option value="trajet_confondu">Trajets Confondus</option>
-				<option value="Libreville-Oyem">Libreville-Oyem</option>
-				<option value="Libreville-Bitam">Libreville-Bitam</option>
-				<option value="Oyem-Libreville">Oyem-Libreville</option>
-				<option value="Bitam-Libreville">Bitam-Libreville</option>
-			</select> -->
-
+			
 			<label for="date_reserve">Agenda :</label><input style="cursor: pointer;" title="Agenda" type="text" id="date_reserve" name="date" placeholder="entrer une date" />
 			<img src="images/b_calendar.png" style="vertical-align: bottom;margin: 3px;" />
 
@@ -3241,4 +3233,4 @@ $('#aide').click(function(){
 
 	header("Location:connexion.php");
 }
-
+		?>
