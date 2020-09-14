@@ -643,13 +643,13 @@ button{
 				  	<optgroup label="Horaire">
 				
 					
-			<?php 
+			//<?php 
 
 			
-				 heure_agence();
+				// heure_agence();
 
 
-					?>
+				//	?>
 
 				
 		 			</optgroup>
