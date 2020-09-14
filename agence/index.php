@@ -684,7 +684,10 @@ button{
 	<span style="margin:15px;" id="info_reservation">
 
 		
-			<?php FunctionTrajet();?>
+			//<?php 
+			
+			//FunctionTrajet();
+		//?>
 			
 			<label for="date_reserve">Agenda :</label><input style="cursor: pointer;" title="Agenda" type="text" id="date_reserve" name="date" placeholder="entrer une date" />
 			<img src="images/b_calendar.png" style="vertical-align: bottom;margin: 3px;" />
