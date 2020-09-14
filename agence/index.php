@@ -7,7 +7,7 @@ session_start();
 
 
 
-include_once('fonction.php');
+require('fonction.php');
 
 
 $req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
