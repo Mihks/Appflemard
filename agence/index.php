@@ -643,13 +643,42 @@ button{
 				  	<optgroup label="Horaire">
 				
 					
-			//<?php 
+			<?php 
 
 			
 				// heure_agence();
+				
+				 	$reponsehoraire = $bdd->prepare("SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE ");
+
+			 	$reponsehoraire->execute(array($_SESSION['agence']));
+
+			 	
+
+			 	while ( $heure = $reponsehoraire->fetch() ) {
+			 		
+
+			 		$arrayheure =  $heure['horaire'];
+			 	}
+
+			 	
+			 	
+
+			 $reponseheure = ($arrayheure =='' )? $bdd->prepare(" SELECT DISTINCT heure AS horaire   FROM horaire WHERE nom_agence = ? ") : $bdd->prepare(" SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE "); 
+				
+				$reponseheure->execute( array($_SESSION["agence"])); 
 
 
-				//	?>
+				while ($donnees = $reponseheure->fetch()) {
+
+
+					echo  "<option value='".$donnees['horaire']."'>".$donnees['horaire']."</option>" ;
+
+							}
+
+					$reponseheure->closeCursor();
+
+
+					?>
 
 				
 		 			</optgroup>
@@ -797,7 +826,36 @@ button{
 		<?php 
 
 				
-				heure_agence();
+				//heure_agence();
+				
+				 	$reponsehoraire = $bdd->prepare("SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE ");
+
+			 	$reponsehoraire->execute(array($_SESSION['agence']));
+
+			 	
+
+			 	while ( $heure = $reponsehoraire->fetch() ) {
+			 		
+
+			 		$arrayheure =  $heure['horaire'];
+			 	}
+
+			 	
+			 	
+
+			 $reponseheure = ($arrayheure =='' )? $bdd->prepare(" SELECT DISTINCT heure AS horaire   FROM horaire WHERE nom_agence = ? ") : $bdd->prepare(" SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE "); 
+				
+				$reponseheure->execute( array($_SESSION["agence"])); 
+
+
+				while ($donnees = $reponseheure->fetch()) {
+
+
+					echo  "<option value='".$donnees['horaire']."'>".$donnees['horaire']."</option>" ;
+
+							}
+
+					$reponseheure->closeCursor();
 
 	?>
 
@@ -857,7 +915,36 @@ button{
 				<select id="heure_modif_gestplace">
 
 					<!-- <option value="tout_heure">Toutes heures</option> -->
-				<?php	heure_agence(); ?>
+				<?php	//heure_agence();
+					
+				$reponsehoraire = $bdd->prepare("SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE ");
+
+			 	$reponsehoraire->execute(array($_SESSION['agence']));
+
+			 	
+
+			 	while ( $heure = $reponsehoraire->fetch() ) {
+			 		
+
+			 		$arrayheure =  $heure['horaire'];
+			 	}
+
+			 	
+			 	
+
+			 $reponseheure = ($arrayheure =='' )? $bdd->prepare(" SELECT DISTINCT heure AS horaire   FROM horaire WHERE nom_agence = ? ") : $bdd->prepare(" SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE "); 
+				
+				$reponseheure->execute( array($_SESSION["agence"])); 
+
+
+				while ($donnees = $reponseheure->fetch()) {
+
+
+					echo  "<option value='".$donnees['horaire']."'>".$donnees['horaire']."</option>" ;
+
+							}
+
+					$reponseheure->closeCursor();?>
 
 				</select>
 
@@ -1513,7 +1600,37 @@ button{
 		  
 
 		   Horaire : <select id="horaire">
-			<?php	heure_agence(); ?>
+			<?php	//heure_agence(); 
+				
+				
+				 	$reponsehoraire = $bdd->prepare("SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE ");
+
+			 	$reponsehoraire->execute(array($_SESSION['agence']));
+
+			 	
+
+			 	while ( $heure = $reponsehoraire->fetch() ) {
+			 		
+
+			 		$arrayheure =  $heure['horaire'];
+			 	}
+
+			 	
+			 	
+
+			 $reponseheure = ($arrayheure =='' )? $bdd->prepare(" SELECT DISTINCT heure AS horaire   FROM horaire WHERE nom_agence = ? ") : $bdd->prepare(" SELECT DISTINCT horaire FROM voyage WHERE nom_agence = ? AND date_voyage = CURRENT_DATE "); 
+				
+				$reponseheure->execute( array($_SESSION["agence"])); 
+
+
+				while ($donnees = $reponseheure->fetch()) {
+
+
+					echo  "<option value='".$donnees['horaire']."'>".$donnees['horaire']."</option>" ;
+
+							}
+
+					$reponseheure->closeCursor();?>
 
 			</select>
 
