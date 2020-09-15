@@ -74,14 +74,14 @@ session_start();
 
 			<div class="centre-text">
 
-				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>PayPal</b> ou via d'autres moyens de <b>mobile money</b> utilisés au Gabon (en cours d'intégration)<img src="agence/images/wait.gif" /> .</p>
+				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>Airtel Money</b> ou via MobiCash .</p>
 
 
 
 				<p>Tout juste après avoir effectué votre paiement sur votre <b>smartphone</b> ou autres, vous êtes redirigé vers votre billet numérique au format pdf ( à imprimer si vous le souhaitiez). Ce billet indiquera les coordonnées de votre voyage et est à présenter le jour j à <b>l’agence solicitée</b>. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
 			</div>
 
-			<img src="agence/images/integration_guide.pdf.png"  id="imaga" />
+			<img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg"  id="imaga" />
 			
 
 			
