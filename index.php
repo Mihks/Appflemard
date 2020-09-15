@@ -81,7 +81,7 @@ session_start();
 				<p>Tout juste après avoir effectué votre paiement sur votre <b>smartphone</b> ou autres, vous êtes redirigé vers votre billet numérique au format pdf ( à imprimer si vous le souhaitiez). Ce billet indiquera les coordonnées de votre voyage et est à présenter le jour j à <b>l’agence solicitée</b>. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
 			</div>
 
-			<img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" height='200' width='200' id="imaga" />
+			<img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" height='200' width='250' id="imaga" />
 			
 
 			
