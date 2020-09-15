@@ -21,7 +21,7 @@ $heure_depart = $_POST['hora'];
 
 	
 
- 	$rep = $bdd->prepare("SELECT place_dispo(:date_voyage,:trajet,:nom_agence,:heure);");
+ 	$rep = $bdd->prepare("SELECT place_dispo(:date_voyage,:trajet,:nom_agence,:heure) ");
 
 	$rep->execute(array('date_voyage' => $date_depart,'trajet' => $trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure_depart));
 
