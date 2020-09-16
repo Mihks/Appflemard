@@ -1,5 +1,0 @@
-{
-    "require": {
-        "khanamiryan/qrcode-detector-decoder": "^1.0"
-    }
-}
