@@ -368,8 +368,6 @@ class Reservation
 		$_SESSION['id_client'] = $this->selectIDClient();
 
 
-		header('Location: callback.php');
-
 
 
 	}
