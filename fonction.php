@@ -26,6 +26,49 @@
 
 
 
+function _header()
+{
+	echo '<header>
+		
+			<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
+			<p class="slogan"></p>
+			<span id="heure"></span>
+			
+
+			<button class="btn btn-navbar" id="btnMenu">    
+				<span class="icon-bar"></span>    
+				<span class="icon-bar"></span>    
+				<span class="icon-bar"></span> 
+			</button> 
+
+
+			<nav id="nav">
+
+				
+				<div>
+					
+					<ul>
+
+						<li><a href="index.php" class="">Accueil</a></li>
+						<li><a href="index.php#reserve" id="lien-reserve">Reservation</a></li>
+						<li><a href="index.php#a_propos" >A propos de</a></li>
+						<li><a href="index.php#contact">Contact</a></li>
+
+					
+					</ul>
+				</div>
+
+			</nav>	
+
+			<div id="heure"></div>
+
+		</header>
+		
+		<br/><br/><br/><br/>';
+}
+
+
+
 
 // function FunctionTrajet() {
 		
