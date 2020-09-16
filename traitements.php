@@ -348,8 +348,8 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 
 
-	<script src="Espace client/js/jquery.min.js"></script>
-	<script src="Espace client/js/jquery-ui.min.js"></script>
+	<script src="agence/js/jquery.min.js"></script>
+	<script src="agence/js/jquery-ui.min.js"></script>
 
 
 	<!-- <script src="js/interfaceClient.js"></script> -->
