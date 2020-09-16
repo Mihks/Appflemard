@@ -36,8 +36,6 @@ if (isset($_SESSION['region']) && isset($_SESSION['login']) && isset($_SESSION['
 <!-- 	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.min.css"> -->
 
 	
- <link href="css/style.css" rel="stylesheet">
-
 
 	
 	<style type="text/css">
