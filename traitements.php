@@ -20,7 +20,7 @@ session_start(); ?>
 
 include_once('classe.aller_simple.php');
 
-		include_once 'fonction.php';
+include_once 'fonction.php';
 
 
 $req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
