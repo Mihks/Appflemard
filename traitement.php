@@ -130,16 +130,13 @@ $_SESSION['nom'] = $_POST['nom']; ///////
 
 		$trajet_retour = $retour[1] + $retour[0];
 
-		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage 
-												WHERE nom_agence = ? AND date_depart = ? 
-												AND trajet = ? AND heure_depart = ?  ");
+		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_depart = ? AND trajet = ? AND heure_depart = ?  ");
 
 		$reponse->execute(array($_POST["agence"],$_POST['retour'],$trajet_retour,$_POST['heure_retour']));
 
-		$place_retour_dispo = $donnees['nombre_place_dispo'];
-
 		$donnees = $reponse->fetch();
-
+		
+		$place_retour_dispo = $donnees['nombre_place_dispo'];
 	
 	}
 	
