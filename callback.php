@@ -68,6 +68,9 @@ if (isset($reference_received) AND !empty($reference_received) ) {
 			$reponse = $bdd->prepare(" UPDATE compte_marchand SET token = ? WHERE id_operateur = ? "); 
 							
 			$reponse->execute(array($token_received,$operateur_received));
+			
+			
+			$_SESSION['code_statut'] = $statut_received;
 
 		} else {
 
@@ -85,6 +88,7 @@ if (isset($reference_received) AND !empty($reference_received) ) {
 
 			$req3->execute(array($client_received,$_SESSION['id_client']));
 			
+			$_SESSION['code_statut'] = $statut_received;
 
 			
 		}
