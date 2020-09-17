@@ -369,7 +369,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		$_SESSION['id_client'] = $id_client;
 
 
-		//header('Location: callback.php');
+		header('Location: resultat_transaction.php');
 
 
 
