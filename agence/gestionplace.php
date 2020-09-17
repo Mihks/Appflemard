@@ -29,7 +29,7 @@ if (isset($_SESSION['agence']) && !empty($_SESSION['agence']) && isset($trajet) 
 
 		$donnees = $reponse->fetch();
 
-		$place_aller_reserve = $donnees['nombre_place_reserve'];
+		
 
 // 		$reponse->closeCursor();
 
@@ -39,7 +39,9 @@ if (isset($_SESSION['agence']) && !empty($_SESSION['agence']) && isset($trajet) 
             
           }else{
            
-              echo $place_aller_reserve;
+	      $place_aller_reserve = $donnees['nombre_place_reserve'];
+              
+		echo $place_aller_reserve;
             
               }
 
