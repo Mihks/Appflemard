@@ -17,21 +17,42 @@ $heure_depart = $_POST['hora'];
  
  if (isset($_SESSION['agence']) && !empty($_SESSION['agence']) && isset($trajet) && !empty($trajet) && isset($date_depart) && !empty($date_depart) && isset($heure_depart) && !empty($heure_depart)) {
  	
- 
+ 	
+	  if (preg_match('#trajet_confondu#', $trajet)){
+	  
+	  	
+	  	$reponse = $bdd->prepare(" SELECT SUM(nombre_place_dispo) FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND horaire = ?  ");
+
+		$reponse->execute(array($_SESSION["agence"],$date_depart,$heure_depart));
+
+		$donnees = $reponse->fetch();
+
+		$place_aller_dispo = $donnees['nombre_place_dispo'];
+
+		$reponse->closeCursor();
+
+
+		 echo $place_aller_dispo;
+
+	  
+	  
+	  
+	  }else{
 	
-	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
-	$reponse->execute(array($_SESSION["agence"],$date_depart,$trajet,$heure_depart));
+		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
-	$donnees = $reponse->fetch();
+		$reponse->execute(array($_SESSION["agence"],$date_depart,$trajet,$heure_depart));
 
-	$place_aller_dispo = $donnees['nombre_place_dispo'];
+		$donnees = $reponse->fetch();
 
-	$reponse->closeCursor();
-	 
-	 
-	 echo $place_aller_dispo;
+		$place_aller_dispo = $donnees['nombre_place_dispo'];
 
+		$reponse->closeCursor();
+
+
+		 echo $place_aller_dispo;
+	  }
 	 //////////////////////////
 	 
 //  	$rep = $bdd->prepare("SELECT place_dispo(:date_voyage,:trajet,:nom_agence,:heure) ");
