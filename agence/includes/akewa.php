@@ -2,7 +2,7 @@
 
 								<div>
 									<label for="lieu_dep_akewa">Trajet</label>
-									<select name="lieu_dep_akewa" id="lieu_dep_akewa" class="destination a1">
+									<select name="trajet" id="lieu_dep_akewa" class="destination a1">
 										<option value="Libreville-Port-gentil" >Libreville-Port-gentil</option>
 										<option value="Port-gentil-Libreville" >Port-gentil-Libreville</option>
 									</select>
