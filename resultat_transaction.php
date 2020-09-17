@@ -5,7 +5,7 @@ session_name("flemard");
 
 session_start(); 
 
-		include_once 'fonction.php';
+include_once 'fonction.php';
 	
 
 ?>
@@ -32,6 +32,7 @@ session_start();
 	if (!isset($_SESSION['code_statut'])) {
 		
 		header("Location:index.php");
+		
 	
 	}else{
 
