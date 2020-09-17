@@ -92,7 +92,7 @@ session_start();
 
 					<!-- infos personnelles-->
 
-					<form action="traitements.php" method="POST" id="form">
+					<form action="traitement.php" method="POST" id="form">
 							
 							
 						<div class="">
