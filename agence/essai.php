@@ -21,7 +21,7 @@ $heure_depart = $_POST['hora'];
 	
 	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
-	$reponse->execute(array($_POST["agence"],$date_depart,$trajet,$heure_depart));
+	$reponse->execute(array($_SESSION["agence"],$date_depart,$trajet,$heure_depart));
 
 	$donnees = $reponse->fetch();
 
