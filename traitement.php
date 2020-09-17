@@ -110,9 +110,7 @@ $_POST['nom'] = strip_tags($_POST['nom']);
 $_SESSION['nom'] = $_POST['nom']; ///////
 
 
-	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage 
-											WHERE nom_agence = ? AND date_depart = ? 
-											AND trajet = ? AND heure_depart = ?  ");
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
 	$reponse->execute(array($_POST["agence"],$_POST['depart'],$_POST['trajet'],$_POST['heure_depart']));
 
@@ -130,7 +128,7 @@ $_SESSION['nom'] = $_POST['nom']; ///////
 
 		$trajet_retour = $retour[1] + $retour[0];
 
-		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_depart = ? AND trajet = ? AND heure_depart = ?  ");
+		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
 		$reponse->execute(array($_POST["agence"],$_POST['retour'],$trajet_retour,$_POST['heure_retour']));
 
