@@ -28,19 +28,30 @@ if (isset($_SESSION['agence'])) {
 
 
 
-    $trajet = filtre($_POST['trajet']);
+    $trajet = strip_tags($_POST['trajet']);
+    $trajet = trim($trajet);
+    $trajet = stripslashes($trajet);
 
-    $limit = filtre($_POST['limit']);
+    $limit = strip_tags($_POST['limit']);
+    $limit = trim($limit);
+    $limit = stripslashes($limit);
 
-    $date = filtre($_POST['date']);
+    $date = strip_tags($_POST['date']);
+    $date = trim($date);
+    $date = stripslashes($date);
 
-    $horaire = filtre($_POST['hora']);
+    $horaire = strip_tags($_POST['hora']);
+    $horaire = trim($horaire);
+    $horaire = stripslashes($horaire);
 
-    $agence = filtre($_SESSION['agence']);
+
+    $agence = trim($_SESSION['agence']);
 
     // $statut = filtre($_POST['statut']);
 
-    $etat_reservation = filtre($_POST['Etat']);
+    $etat_reservation = strip_tags($_POST['Etat']);
+    $etat_reservation = trim($etat_reservation]);
+    $etat_reservation = stripslashes($etat_reservation);
 
 
     if (preg_match("#Avorte|Annulation|Reprogrammation#", $etat_reservation)) {
