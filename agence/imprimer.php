@@ -15,19 +15,6 @@ header('Content-Type: text/html; charset=utf-8');
 if (isset($_SESSION['agence'])) {
 
 
-
-
- 
-    function filtre($value)
-{
-    $nom = strip_tags($value);
-    $nom = trim($nom);
-    $nom = stripslashes($nom);
-    return  $nom;
-}
-
-
-
     $trajet = strip_tags($_POST['trajet']);
     $trajet = trim($trajet);
     $trajet = stripslashes($trajet);
@@ -294,7 +281,7 @@ class PDF extends FPDF
 function Header()
 {
     // Logo
-    $this->Image('../images/yagaC.png',10,6,30);
+    $this->Image('images/yagaC.png',10,6,30);
     // Police Arial gras 15
     $this->SetFont('Arial','B',15);
     // Décalage à droite
