@@ -435,7 +435,7 @@ session_start();
 							});
 
 
-			$("[name='agence']").on("click change touch",function(){
+			$("[name='agence']").on("click change",function(){
 
 				
 				var agence = $(this).val();
@@ -590,7 +590,7 @@ session_start();
 //----------------------------------------------------------------------------------------
 	
 			
-			$('#btnMenu').on('click touch', function(){            
+			$('#btnMenu').on('click', function(){            
 
 				$('#nav').slideToggle();    
 
