@@ -413,8 +413,7 @@ button{
 			
 			<!-- <a href="#" style="text-decoration: none;"> -->
 				
-<!-- 		<img src="images/question.svg" id="aide" alt="aide" title="Guide utilisation" style="position: absolute;left: 1269px;margin-top: 10px;border-radius: 3px;cursor: pointer;" /><!-- </a>-->
-		 -->
+<!-- 		<img src="images/question.svg" id="aide" alt="aide" title="Guide utilisation" style="position: absolute;left: 1269px;margin-top: 10px;border-radius: 3px;cursor: pointer;" /> </a> -->
 		
 
 
