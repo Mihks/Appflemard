@@ -390,10 +390,10 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 	$info = explode(';', $infos);
 	
 	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
-	<input type="hidden" name="tel_marchand" value="0'.$infos[1].'">	
+	<input type="hidden" name="tel_marchand" value="0'.$info[1].'">	
 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
-	<input type="hidden" name="operateur" value="'.$infos[0].'">	
+	<input type="hidden" name="operateur" value="'.$info[0].'">	
 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
 	<input type="submit" style="display: none;" value="payer">	
 	</form>
