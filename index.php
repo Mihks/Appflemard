@@ -106,11 +106,7 @@ session_start();
 								</div>
 								
 						</div>
-								<div id="num-tel">
-									<label for="tel">N° de téléphone Airtel money</label>
-									<input  class="frm-control" type="text" id="tel" name="tel_client" pattern="^(074|077)[0-9]{6}$" placeholder="ex:074318064" title="saisir le nouveau format" class="frm-control" autocomplete="off" required />
-								</div>
-	
+								
 								<div>
 									<label for="type_billet">Type de réservation</label>
 									<select name="type_billet" id="type_billet" class="frm-control">
