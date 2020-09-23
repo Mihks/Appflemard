@@ -32,21 +32,21 @@ $_SESSION['_agence'] = $_POST['agence']; // une session de agence
 
 
 
-	if (!preg_match("#^(074|077|066|062|060|065|)[0-9]{6}$#", $_POST['tel_client'])) {
+// 	if (!preg_match("#^(074|077|066|062|060|065|)[0-9]{6}$#", $_POST['tel_client'])) {
 
 
-		// Suppression des variables de session et de la session 
-		$_SESSION = array();
-		session_destroy();
+// 		// Suppression des variables de session et de la session 
+// 		$_SESSION = array();
+// 		session_destroy();
 
 
-		echo("<br><br><div style='font-size: 24px ;font-weight:bolder;text-align: center;'>Désolé le numéro n'est pas valide<a href='index.php#reserve' style='font-weight:bolder;text-align: center;text-decoration:none;font-size: 24px;' >retour</a></div><br>");
+// 		echo("<br><br><div style='font-size: 24px ;font-weight:bolder;text-align: center;'>Désolé le numéro n'est pas valide<a href='index.php#reserve' style='font-weight:bolder;text-align: center;text-decoration:none;font-size: 24px;' >retour</a></div><br>");
 
-		include('agence/includes/footer.php');
+// 		include('agence/includes/footer.php');
 
-		exit;
+// 		exit;
 
-	}
+// 	}
 //la validité des jours de reservation
 
 $reponse = $bdd->query(" SELECT CURRENT_DATE + interval 1 DAY AS jour_1 ,CURRENT_DATE + interval 2 DAY AS jour_2, CURRENT_DATE + interval 3 DAY jour_3, CURRENT_DATE + interval 4 DAY AS jour_4  ;");
