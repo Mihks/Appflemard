@@ -285,7 +285,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		}
 
 		 
-
+		ini_set('display_errors',1);
 
 		$tab = explode('-', $_POST['trajet'] ,2);
 
