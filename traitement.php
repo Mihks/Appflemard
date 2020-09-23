@@ -401,6 +401,7 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
 	<input type="hidden" name="operateur" value="'.$infos[1].'">	
+	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
 	<input type="submit" style="display: none;" value="payer">	
 	</form>
 	<script type="text/javascript">
