@@ -79,7 +79,7 @@ if (( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]
 		
 			&& !empty($_POST['depart']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['depart']) && ($_POST['depart'] == $jourValide[0] OR $_POST['depart'] == $jourValide[1] OR $_POST['depart'] == $jourValide[2]))
 		
-			&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) ) OR ( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]+$#", $_POST['nom']) && strlen($_POST['nom'])<=20 )
+			&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) && preg_match('#^airtel$|^gabontelecom$#', $_POST['moyen_paiement']) ) OR ( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]+$#", $_POST['nom']) && strlen($_POST['nom'])<=20 )
 			
 				&& (isset($_POST['type_billet']) && !empty($_POST['type_billet']) 
 				
@@ -97,7 +97,7 @@ if (( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]
 					
 						&& !empty($_POST['depart']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['depart']) && ($_POST['depart'] == $jourValide[0] OR $_POST['depart'] == $jourValide[1] OR $_POST['depart'] == $jourValide[2]))
 					
-						&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) &&  (isset($_POST['retour']) && !empty($_POST['retour']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['retour']) && ($_POST['retour'] == $jourValide[1] OR $_POST['retour'] == $jourValide[2] OR $_POST['retour'] == $jourValide[3]) ) && (isset($_POST['heure_retour']) && !empty($_POST['heure_retour'])) && ($_POST['depart'] < $_POST['retour'] && $_POST['depart'] != $_POST['retour'])&& preg_match('#^Aller_retour$#', $_POST['type_billet'])) ) {
+						&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) &&  (isset($_POST['retour']) && !empty($_POST['retour']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['retour']) && ($_POST['retour'] == $jourValide[1] OR $_POST['retour'] == $jourValide[2] OR $_POST['retour'] == $jourValide[3]) ) && (isset($_POST['heure_retour']) && !empty($_POST['heure_retour'])) && ($_POST['depart'] < $_POST['retour'] && $_POST['depart'] != $_POST['retour'])&& preg_match('#^Aller_retour$#', $_POST['type_billet']) && preg_match('#^airtel$|^gabontelecom$#', $_POST['moyen_paiement']) ) ) {
 
 
 $_POST['nom'] =	trim($_POST['nom']);
@@ -375,18 +375,11 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 //envoies les infos API mypivit
 
 
-if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
-
-
-	$nom_operateur = "airtel";
-
-
-	
-	$reponse = $bdd->prepare(" SELECT CONCAT_WS(';',token,id_operateur)  AS infos 
+	$reponse = $bdd->prepare(" SELECT CONCAT_WS(';',id_operateur,tel_marchand)  AS infos 
 
 										FROM compte_marchand  WHERE nom_operateur = ? "); 
 
-	$reponse->execute(array($nom_operateur)) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
+	$reponse->execute(array($_POST['moyen_paiement'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
 
 		
 	$donnees = $reponse->fetch();
@@ -397,10 +390,10 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	$info = explode(';', $infos);
 	
 	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
-	<input type="hidden" name="tel_marchand" value="077565805">	
+	<input type="hidden" name="tel_marchand" value="0'.$infos[1].'">	
 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
-	<input type="hidden" name="operateur" value="'.$infos[1].'">	
+	<input type="hidden" name="operateur" value="'.$infos[0].'">	
 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
 	<input type="submit" style="display: none;" value="payer">	
 	</form>
@@ -426,7 +419,7 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	
 	//-----------------------------------------------------------------------------------------------------------------------------------e
 
-	}
+	
 			}	#la condition de verification de place prend fin ici#
 
 
