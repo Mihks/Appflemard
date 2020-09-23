@@ -407,6 +407,7 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	<script type="text/javascript">
 		document.getElementById("pvitform").onload();
 	</script>';
+	echo($pvitform);
  
 	/* $ch = curl_init(); 
 
