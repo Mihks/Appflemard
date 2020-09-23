@@ -403,31 +403,11 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	curl_setopt($ch, CURLOPT_URL,"https://mypvit.com/pvit-secure-full-api.kk"); 
 	 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 
-
-		"tel_marchand=077565805 
-
-		&montant=".$_SESSION['montant']." 
-
-		&ref=".$_SESSION['ref_trans']." 
-
-		&tel_client=".$_POST['tel_client']."  
-
-		&token=".$info[0]." 
-
-		&action=1 
-
-		&service=WEB 
-
-		&operateur=".$info[1]."
-
-
-		&redirect=https://flemardapp.herokuapp.com/resultat_transaction.php 
-
-		&agent=caisse3"); 
-
+		"tel_marchand=077565805&montant=".$_SESSION['montant']." &ref=".$_SESSION['ref_trans']."&tel_client=".$_POST['tel_client']."&action=1&service=WEB&operateur=AM&redirect=https://flemardapp.herokuapp.com/resultat_transaction.php"); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 
 	$resultat = curl_exec($ch);
+	var_dump($resultat);
 
 	curl_close($ch);
 	
