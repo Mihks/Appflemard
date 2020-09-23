@@ -395,8 +395,19 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	$infos = $donnees['infos'];
 
 	$info = explode(';', $infos);
+	
+	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
+	<input type="hidden" name="tel_marchand" value="077565805">	
+	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
+	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
+	<input type="hidden" name="operateur" value="'.$infos[1].'">	
+	<input type="submit" style="display: none;" value="payer">	
+	</form>
+	<script type="text/javascript">
+		document.getElementById("pvitform").onload();
+	</script>';
  
-	$ch = curl_init(); 
+	/* $ch = curl_init(); 
 
 	curl_setopt($ch, CURLOPT_POST, 1); 
 
@@ -409,7 +420,7 @@ if (preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])){
 	$resultat = curl_exec($ch);
 	var_dump($resultat);
 
-	curl_close($ch);
+	curl_close($ch); */
 	
 	//-----------------------------------------------------------------------------------------------------------------------------------e
 
