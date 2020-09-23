@@ -218,6 +218,16 @@ session_start();
 
 
 							</div>
+						
+						
+							<div>
+									<label for="moyen_paiement">Type de réservation</label>
+									<select name="moyen_paiement" id="moyen_paiement" class="frm-control">
+										<option value="airtel" selected>Airtel Money</option>
+										<option value="gabontelecom" >MobiCash</option>
+									</select> 
+
+								</div>
 
 
 							
