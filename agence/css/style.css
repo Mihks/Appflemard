@@ -28,11 +28,6 @@ le corps
 @media screen and (min-width: 481px)  and (max-width: 489px) {
 	
 	
-	#envoyer{
-	
-	margin-left:70px;
-	
-	}
  	#payer{
 
 	width: 70px;
@@ -50,12 +45,6 @@ le corps
 
  @media screen and (min-width: 490px)  and (max-width: 766px) {
 	
-	 
-	 #envoyer{
-	
-	margin-left:20px;
-	
-	}
 
  	#payer{
 
