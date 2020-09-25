@@ -8,6 +8,7 @@
         "barryvdh/laravel-debugbar": "^2.2",        
         "fzaninotto/faker": "~1.4",        
         "intervention/image": "^2.3",
-         "ext-exif":"*"
+         "ext-exif":"*",
+         "gd": "*"
     }
 }
