@@ -148,22 +148,8 @@ session_start();
 
 								</div>
 
-<!--------------------------------------------------------------------------------------------------------------------------------->
-								<!--major -->
-
-								<?php include('agence/includes/major.php'); ?>
-								
-<!--------------------------------------------------------------------------------------------------------------------------------->
-							<!--hitou -->
-				
-								<?php include('agence/includes/hitu.php'); ?>
-
-<!--------------------------------------------------------------------------------------------------------------------------------->
-							<!--akewa -->
-								<?php include('agence/includes/akewa.php'); ?>
-<!--------------------------------------------------------------------------------------------------------------------------------->
-							<!--transporteur -->
-							<?php include('agence/includes/transporter.php'); ?>
+							<!--excellence transport -->
+							<?php include('agence/includes/excellence_transport.php'); ?>
 <!--------------------------------------------------------------------------------------------------------------------------------->
 
 				<?php		$reponse = $bdd->query(" SELECT 
@@ -434,6 +420,10 @@ session_start();
 
 					horaire($('#lieu_dep_akewa').val());
 				
+				}else if (agence=='excellence_transport') {
+
+					horaire($('#lieu_dep_excel').val());
+				
 				}
 
 				
@@ -533,6 +523,26 @@ session_start();
 					$("[type='submit']").prop("disabled",false);
 
 					horaire($('#lieu_dep_transp').val());
+
+				}else if (agence=='excellence_transport'){
+
+
+					$("#destination_excel_transp").show("slow");
+					
+					$("#lieu_dep_excel").prop("disabled",false); //mm resonnement que celui de major
+
+					
+					( type=='Aller_retour' )? $("#horaire_rtr_transp").prop("disabled",false) :  $("#horaire_rtr_transp").prop("disabled",true);
+
+					$(".horaire_retour:not(#horaire_rtr_transp)").prop("disabled",true);  // les horaires des autres agences sont desactivés
+
+					$(".cache:not(#destination_excel_transp)").hide(1000);
+
+					$(".a1:not(#lieu_dep_excel)").prop("disabled",true);
+
+					$("[type='submit']").prop("disabled",false);
+
+					horaire($('#lieu_dep_excel').val());
 
 				}else {
 
