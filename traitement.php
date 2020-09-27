@@ -75,7 +75,7 @@ if (( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]
 
 	&& (isset($_POST['agence']) && !empty($_POST['agence']) 
 	
-		&& preg_match('#major|hitu|akewa|transporteur#', $_POST['agence'])) && (isset($_POST['depart'])
+		&& preg_match('#major|hitu|akewa|transporteur|excellence_transport#', $_POST['agence'])) && (isset($_POST['depart'])
 		
 			&& !empty($_POST['depart']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['depart']) && ($_POST['depart'] == $jourValide[0] OR $_POST['depart'] == $jourValide[1] OR $_POST['depart'] == $jourValide[2]))
 		
@@ -93,7 +93,7 @@ if (( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]
 			
 				&& (isset($_POST['agence']) && !empty($_POST['agence']) 
 				
-					&& preg_match('#major|hitu|akewa|transporteur|excel_transport#', $_POST['agence'])) && (isset($_POST['depart'])
+					&& preg_match('#major|hitu|akewa|transporteur|excellence_transport#', $_POST['agence'])) && (isset($_POST['depart'])
 					
 						&& !empty($_POST['depart']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['depart']) && ($_POST['depart'] == $jourValide[0] OR $_POST['depart'] == $jourValide[1] OR $_POST['depart'] == $jourValide[2]))
 					
