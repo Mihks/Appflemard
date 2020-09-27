@@ -129,21 +129,8 @@ session_start();
 								<select name="agence" id="agence"  class="frm-control">
 									<option value="">Choisir votre agence</option>
 									<optgroup label="Terrestre">
-										<option value="major">Major</option>
-										<option value="hitu">Hitu</option>
-										<option value="">molviloise</option>
-										<option value="transporteur">Transporteur</option>
+										<option value="excellence_transport">Excellence Transport</option>
 									</optgroup>
-									
-									<optgroup label="Maritime">
-										<option value="akewa">Akewa</option>
-										<option value="">Antares</option>
-									</optgroup>
-
-									<optgroup label="Ferroviaire">
-										<option>Setrag</option>
-									</optgroup>
-
 								</select>
 
 								</div>
