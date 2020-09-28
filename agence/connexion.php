@@ -43,8 +43,6 @@
 						<li><a href="../index.php#reserve" id="lien-reserve">Reservation</a></li>
 						<li><a href="../index.php#a_propos" >A propos de</a></li>
 						<li><a href="../index.php#contact">Contact</a></li>
-						<li><a href="#">Espace partenaire</a></li>
-
 					
 					</ul>
 				</div>
@@ -76,15 +74,7 @@
 				<option value="">Choisir une agence</option>
 				
 				<optgroup label="Agence Terrestre">
-					<option value="major">Major</option>
-					<option value="hitu">Hitu</option>
-					<option value="transporteur">Transporteur</option>
-				</optgroup>
-
-				<optgroup label="Agence Maritime">
-					<option value="akewa">Akewa</option>
-					<option>Ka</option>
-					
+					<option value="transporteur">Excellence Transport</option>
 				</optgroup>
 
 			</select><br/>
