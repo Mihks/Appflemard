@@ -46,7 +46,7 @@ if (isset($_REQUEST['agence']) && !empty($_REQUEST['agence'])
 
 	&& isset($_REQUEST['membre']) && !empty($_REQUEST['membre']) && preg_match("#^administrateur$|^gerant$#", $_REQUEST['membre'])
 
-	&& isset($_REQUEST['login']) && !empty($_REQUEST['login'] && strlen($_REQUEST['login'])<= 10 )
+	&& isset($_REQUEST['login']) && !empty($_REQUEST['login'] && strlen($_REQUEST['login'])<= 20 )
 
 	&& isset($_REQUEST['mdp']) && !empty($_REQUEST['mdp']) && strlen($_REQUEST['mdp'])<= 30 && strlen($_REQUEST['mdp']) >= 4 ) {
 
