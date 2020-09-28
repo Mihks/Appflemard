@@ -66,7 +66,7 @@
 
 			
 			<label for="login">Login</label>
-			<input type="text" name="login" id="login" class="frm-control" autocomplete="Off" maxlength="10"  placeholder="login" required><br/>
+			<input type="text" name="login" id="login" class="frm-control" autocomplete="Off" maxlength="20"  placeholder="login" required><br/>
 
 			<label for="agence" >Agence</label>
 			<select  id="agence" class="frm-control" name="agence">
@@ -74,7 +74,7 @@
 				<option value="">Choisir une agence</option>
 				
 				<optgroup label="Agence Terrestre">
-					<option value="transporteur">Excellence Transport</option>
+					<option value="excellence_transport">Excellence Transport</option>
 				</optgroup>
 
 			</select><br/>
