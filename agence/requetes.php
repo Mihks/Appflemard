@@ -230,7 +230,7 @@ $reponse = $bdd->prepare(' SELECT
 }else{
 
 
-if (preg_match("#major|hitu|transporteur#", $_SESSION['agence'])) {
+if (preg_match("#^terrestre$#", $_SESSION['type_agence'])) {
 	
 
 
@@ -963,7 +963,7 @@ if (preg_match("#major|hitu|transporteur#", $_SESSION['agence'])) {
 
 }
 
-}elseif (preg_match('#akewa#', $_SESSION['agence'])) {
+}elseif (preg_match('#^maritime$#', $_SESSION['type_agence'])) {
 	
 
 
