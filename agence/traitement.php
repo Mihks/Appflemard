@@ -38,7 +38,7 @@ $_REQUEST['region'] = ($_REQUEST['membre']=='administrateur') ? 'administrateur'
 
 if (isset($_REQUEST['agence']) && !empty($_REQUEST['agence']) 
 
-	&& preg_match("#^major$|^hitu$|^akewa$|^transporteur$#",$_REQUEST['agence']) 
+	&& preg_match("#^major$|^hitu$|^akewa$|^transporteur$|^excellence_transport$#",$_REQUEST['agence']) 
 
 	&& isset($_REQUEST['region']) && !empty($_REQUEST['region']) 
 
