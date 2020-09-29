@@ -10,7 +10,6 @@
 
 				<p>Airtel Gabon</p>
 				<p>Gabon Telecom</p>
-				<p>Excellence Transport</p>
 				<p>AZOBE S.A.R.L</p>
 				
 			</div>
