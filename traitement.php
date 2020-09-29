@@ -429,7 +429,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 	
 	if (empty($_POST['heure_depart'])  OR empty($_POST['heure_retour']) ){
 	
-		echo $_POST['agence']." n'a pas prévue de voyage pour aujourd'hui , veuillez choisir une autre agence merci !";
+		echo "<p class='centre-text'>".$_POST['agence']." n'a pas prévue de voyage pour aujourd'hui , veuillez choisir une autre agence merci !</p>";
 	}else{
 	
 		echo("<p class='centre-text'>Votre formulaire contient des incohérences, veuillez recommencer... !</p>");
