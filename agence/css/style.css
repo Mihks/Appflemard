@@ -59,6 +59,12 @@ le corps
 
  @media screen and (min-width: 980px) {
 
+	 #envoyer{
+	 	
+		position: relative;
+		left: 210px;
+	 }
+
  	#payer{
 
 	width: 70px;
