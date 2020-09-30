@@ -184,11 +184,7 @@ le corps
  */ @media (min-width: 1200px) {
 	 
 	 
-	 
-	  #envoyer{
-	 
-		 margin-left:250px
-	 }
+	
 
 
  		h2{
@@ -681,7 +677,11 @@ input:not([type='image']) {
 
 
 
-
+ 
+#envoyer{
+	
+	margin-left:250px
+	 }
 
 
 .dis,.lbv,.destination,.frm-control{
