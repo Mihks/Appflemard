@@ -43,10 +43,6 @@ le corps
 
 
  @media screen and (min-width: 490px)  and (max-width: 766px) {
-	 #envoyer{
-	 
-	 margin-left:120px;
-	 }
 
 
  	#payer{
@@ -186,6 +182,14 @@ le corps
 
 
  */ @media (min-width: 1200px) {
+	 
+	 
+	 
+	  #envoyer{
+	 
+		 margin-left:250px
+	 }
+
 
  		h2{
 
