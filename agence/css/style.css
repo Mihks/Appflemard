@@ -678,10 +678,11 @@ input:not([type='image']) {
 
 
  
-#envoyer{
-	
-	margin-left:250px
-	 }
+button{	
+
+	margin-left:250px; 
+
+}
 
 
 .dis,.lbv,.destination,.frm-control{
