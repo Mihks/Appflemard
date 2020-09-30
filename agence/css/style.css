@@ -75,7 +75,7 @@ le corps
 
 @media screen and (min-width: 768px) and (max-width: 979px){
 
-
+	
 	
 #payer{
 
@@ -204,7 +204,10 @@ le corps
 /* Mise en page  De smartphones à tablettes */
  @media screen and (max-width: 767px){
 
-
+#envoyer{
+	
+	margin-left:150px;
+	}
 
 
 
