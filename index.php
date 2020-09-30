@@ -204,9 +204,7 @@ session_start();
 
 
 							
-							<div style='border: 1px solid black;margin-left: 30px;width: 300px;' >
-
-								<label for="moyen_paiement">.</label>
+							<div style='border: 1px solid black;margin-left: 30px;' id='valid' >
 
 								<button style="border-radius: 15px;width: 100px;height: 40px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;"  type="submit" id="envoyer" value="envoyer" >Valider</button>
 
