@@ -204,7 +204,7 @@ session_start();
 
 
 							
-							<div align='center'>
+							<div align='center' style='border: 1px solid black;'>
 
 			
 								<button style="border-radius: 15px;width: 100px;height: 40px;font-size: 14px;border-bottom: 1px solid orange;cursor: pointer;"  type="submit" id="envoyer" value="envoyer" >Valider</button>
