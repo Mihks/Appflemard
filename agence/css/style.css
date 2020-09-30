@@ -8,7 +8,11 @@ le corps
 
 
  @media screen and (max-width: 480px) {
-
+	
+	 #envoyer{
+	 
+	 margin-left:120px;
+	 }
 
  	#payer{
 
