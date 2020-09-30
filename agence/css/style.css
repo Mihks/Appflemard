@@ -79,13 +79,13 @@ le corps
 
 
 
-@media screen and (min-width: 768px) and (max-width: 979px){
+@media screen and (min-width: 768px){
 
 
 	#envoyer{
 	 	
 	position: relative;
-	left: 80px;
+	left: 180px;
 	 }
 
 	
