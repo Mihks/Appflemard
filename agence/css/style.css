@@ -200,10 +200,10 @@ le corps
 /* Mise en page  De smartphones à tablettes */
  @media screen and (max-width: 767px){
 
-	 #valid{
+	 #envoyer{
 	 	
-		margin-left: 220px;
-	 
+		position: relative;
+		left: 230px;
 	 }
 
 
