@@ -384,12 +384,25 @@ session_start();
 // }else{
 
 //     echo " ";
-// }
+// // }
 
-$ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key=' . getenv('WEBTOPDF_API_KEY') . '&content=https://www.flemard.ga&html_width=1024&margin=10&title=My+PDF+Title');
+// $ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key=' . getenv('WEBTOPDF_API_KEY') . '&content=https://www.flemard.ga&html_width=1024&margin=10&title=My+PDF+Title');
 
-$response = curl_exec($ch);
-curl_close($ch);
+// $response = curl_exec($ch);
+// curl_close($ch);
 
-var_dump($response);
+// var_dump($response);
+
+$pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expeditedaddons.com" onload="this.submit();">
+	<input type="hidden" name="api_key" value="'.getenv('WEBTOPDF_API_KEY').'">	
+	<input type="hidden" name="content" value="https://www.flemard.ga">	
+	<input type="hidden" name="html_width" value="1024">	
+	<input type="hidden" name="margin" value="10">	
+	<input type="hidden" name="title" value="klein+mihks">	
+	<input type="submit" style="display: none;" value="payer">	
+	</form>
+	<script type="text/javascript">
+		document.getElementById("pvitform").onload();
+	</script>';
+	echo($pvitform);
 ?>
