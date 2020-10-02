@@ -22,13 +22,13 @@ $requete = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = 
 									
 $requete->execute(array($code_statut,$_SESSION['ref_trans']));
 
-$requete = $bdd->prepare('UPDATE transaction SET statut = ?  WHERE ref_trans = ? ');
+// $requete = $bdd->prepare('UPDATE transaction SET statut = ?  WHERE ref_trans = ? ');
 									
-$requete->execute(array($statut,$_SESSION['ref_trans']));
+// $requete->execute(array($statut,$_SESSION['ref_trans']));
 
-// $req3 = $bdd->prepare('UPDATE client SET tel_client = ?  WHERE id_client = ? ');
+$requete = $bdd->prepare('UPDATE client SET tel_client = ?  WHERE id_client = ? ');
 
-// $req3->execute(array($tel,$_SESSION['id_client']));
+$requete->execute(array($tel,$_SESSION['id_client']));
 
 
 header("Location: resultat_transaction.php");
