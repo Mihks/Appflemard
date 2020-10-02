@@ -394,12 +394,12 @@ session_start();
 // var_dump($response);
 
 // Using default PHP curl library
-$ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key=56K8R0XSWEJD85VF2YZMO27G0C3Q9N37PABTI1H6L491U4&content=http://www.wikipedia.org&margin=10&html_width=1024&title=My PDF Title');
+$ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key=56K8R0XSWEJD85VF2YZMO27G0C3Q9N37PABTI1H6L491U4&content=https://www.flemard.ga&margin=10&html_width=1024&title=My PDF Title');
 
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo($response);
+ echo($response);
 
 // $pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expeditedaddons.com" onload="this.submit();">
 // 	<input type="hidden" name="api_key" value="'.getenv('WEBTOPDF_API_KEY').'">	
