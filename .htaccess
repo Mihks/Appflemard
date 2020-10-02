@@ -1,4 +1,4 @@
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.flemard\.ga [NC]
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%flemard.ga
