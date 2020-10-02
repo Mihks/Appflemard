@@ -1,2 +1,2 @@
-ServerName www.flemard.ga
+ServerName flemardapp.herokuapp.com
 Redirect permanent /  https://www.flemard.ga
