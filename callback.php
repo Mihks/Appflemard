@@ -1,12 +1,11 @@
-
-
-	
 <?php
+
 session_name("flemard");
 
 session_start();
 
-include_once('fonction.php');
+include_once 'fonction.php';
+
 // $data_received=file_get_contents("php://input");  
 	// $data_received_xml= new SimpleXMLElement($data_received);  
 	// $ligne_response=$data_received_xml[0];  
@@ -74,7 +73,7 @@ if (!isset($_SESSION['ref_trans']) AND empty($_SESSION['ref_trans']) ) {
 
 	}
 
- 
+ ?>
 
 
 	
