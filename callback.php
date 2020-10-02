@@ -1,18 +1,19 @@
 <?php
 
 session_name("flemard");
+
 session_start();
 
 
-if (!isset($_SESSION['ref_trans']) AND empty($_SESSION['ref_trans']) ) {
+if (!isset($_SESSION['ref_trans']) OR empty($_SESSION['ref_trans']) ) {
 	
 	header("Location: index.php");
 
-
+	
 	}else{
 
 		
-		include('fonction.php');
+		include('agence/fonction.php');
 
 		$code_statut = 200;//mt_rand(199,200);
 
@@ -56,7 +57,7 @@ if (!isset($_SESSION['ref_trans']) AND empty($_SESSION['ref_trans']) ) {
 			
 		}
 
-
+	
 		header("Location: resultat_transaction.php");
 
 	}
