@@ -1,12 +1,11 @@
 <?php
 
-header("Location: resultat_transaction.php");
 
-// session_name("flemard");
+session_name("flemard");
 
-// session_start();
+session_start();
 
-// include_once 'fonction.php';
+include_once 'fonction.php';
 
 		
 // $code_statut = 200;
@@ -32,6 +31,7 @@ header("Location: resultat_transaction.php");
 // $req3->execute(array($tel,$_SESSION['id_client']));
 
 
+header("Location: resultat_transaction.php");
  	
 
 
