@@ -17,24 +17,36 @@ session_start(); ?>
 <body>
 
 <?php
-include_once 'fonction.php';
-	
-include_once('classe.aller_simple.php');
 
+
+include_once 'fonction.php';
 
 
 $req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
 
 $_SESSION['ref_trans'] = base_convert(uniqid(true), 16, 36);
 
-$_SESSION['type'] = $_POST['type_billet']; // une session de type de bille
+$_SESSION['type'] = $_POST['type_billet']; // une session de type de billet
 
 $_SESSION['_agence'] = $_POST['agence']; // une session de agence
 
 
 
+// 	if (!preg_match("#^(074|077|066|062|060|065|)[0-9]{6}$#", $_POST['tel_client'])) {
 
 
+// 		// Suppression des variables de session et de la session 
+// 		$_SESSION = array();
+// 		session_destroy();
+
+
+// 		echo("<br><br><div style='font-size: 24px ;font-weight:bolder;text-align: center;'>Désolé le numéro n'est pas valide<a href='index.php#reserve' style='font-weight:bolder;text-align: center;text-decoration:none;font-size: 24px;' >retour</a></div><br>");
+
+// 		include('agence/includes/footer.php');
+
+// 		exit;
+
+// 	}
 //la validité des jours de reservation
 
 $reponse = $bdd->query(" SELECT CURRENT_DATE + interval 1 DAY AS jour_1 ,CURRENT_DATE + interval 2 DAY AS jour_2, CURRENT_DATE + interval 3 DAY jour_3, CURRENT_DATE + interval 4 DAY AS jour_4  ;");
@@ -63,11 +75,11 @@ if (( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]
 
 	&& (isset($_POST['agence']) && !empty($_POST['agence']) 
 	
-		&& preg_match('#major|hitu|akewa|transporteur#', $_POST['agence'])) && (isset($_POST['depart'])
+		&& preg_match('#major|hitu|akewa|transporteur|excellence_transport#', $_POST['agence'])) && (isset($_POST['depart'])
 		
 			&& !empty($_POST['depart']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['depart']) && ($_POST['depart'] == $jourValide[0] OR $_POST['depart'] == $jourValide[1] OR $_POST['depart'] == $jourValide[2]))
 		
-			&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) ) OR ( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]+$#", $_POST['nom']) && strlen($_POST['nom'])<=20 )
+			&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) && preg_match('#^airtel$|^gabontelecom$#', $_POST['moyen_paiement']) ) OR ( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]+$#", $_POST['nom']) && strlen($_POST['nom'])<=20 )
 			
 				&& (isset($_POST['type_billet']) && !empty($_POST['type_billet']) 
 				
@@ -81,65 +93,49 @@ if (( (isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^[A-Za-z -]
 			
 				&& (isset($_POST['agence']) && !empty($_POST['agence']) 
 				
-					&& preg_match('#major|hitu|akewa|transporteur#', $_POST['agence'])) && (isset($_POST['depart'])
+					&& preg_match('#major|hitu|akewa|transporteur|excellence_transport#', $_POST['agence'])) && (isset($_POST['depart'])
 					
 						&& !empty($_POST['depart']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['depart']) && ($_POST['depart'] == $jourValide[0] OR $_POST['depart'] == $jourValide[1] OR $_POST['depart'] == $jourValide[2]))
 					
-						&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) &&  (isset($_POST['retour']) && !empty($_POST['retour']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['retour']) && ($_POST['retour'] == $jourValide[1] OR $_POST['retour'] == $jourValide[2] OR $_POST['retour'] == $jourValide[3]) ) && (isset($_POST['heure_retour']) && !empty($_POST['heure_retour'])) && ($_POST['depart'] < $_POST['retour'] && $_POST['depart'] != $_POST['retour'])&& preg_match('#^Aller_retour$#', $_POST['type_billet'])) ) {
+						&& (isset($_POST['heure_depart']) && !empty($_POST['heure_depart'])) &&  (isset($_POST['retour']) && !empty($_POST['retour']) && preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $_POST['retour']) && ($_POST['retour'] == $jourValide[1] OR $_POST['retour'] == $jourValide[2] OR $_POST['retour'] == $jourValide[3]) ) && (isset($_POST['heure_retour']) && !empty($_POST['heure_retour'])) && ($_POST['depart'] < $_POST['retour'] && $_POST['depart'] != $_POST['retour'])&& preg_match('#^Aller_retour$#', $_POST['type_billet']) && preg_match('#^airtel$|^gabontelecom$#', $_POST['moyen_paiement']) ) ) {
 
 
+$_POST['nom'] =	trim($_POST['nom']);
+
+$_POST['nom'] = stripslashes($_POST['nom']);
+
+$_POST['nom'] = strip_tags($_POST['nom']);
+ //filtrage du nom et le stoké dans une variable
+
+$_SESSION['nom'] = $_POST['nom']; ///////
+
+
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
+
+	$reponse->execute(array($_POST["agence"],$_POST['depart'],$_POST['trajet'],$_POST['heure_depart']));
+
+	$donnees = $reponse->fetch();
+
+	$place_aller_dispo = $donnees['nombre_place_dispo'];
+
+	$reponse->closeCursor();
+
+
+	if (preg_match('#Aller_retour#', $_POST['type_billet'])) {
+		
+
+		$retour = explode('-',$_POST['trajet']);
+
+		$trajet_retour = $retour[1] + $retour[0];
+
+		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
+
+		$reponse->execute(array($_POST["agence"],$_POST['retour'],$trajet_retour,$_POST['heure_retour']));
+
+		$donnees = $reponse->fetch();
+		
+		$place_retour_dispo = $donnees['nombre_place_dispo'];
 	
-
-	$nom = $_POST['nom']; //filtrage du nom et le stoké dans une variable
-
-	$_SESSION['nom'] = $nom;
-
-	
-	if (preg_match('#major#', $_POST['agence'])) {
-		
-		$trajet = $_POST['lieu_dep_maj'];
-	
-
-	}elseif (preg_match('#hitu#', $_POST['agence'])) {
-		
-		$trajet = $_POST['lieu_depart'];
-	
-
-	}elseif (preg_match('#transporteur#', $_POST['agence'])) {
-		
-		$trajet = $_POST['lieu_dep_transp'];
-	}
-
-
-
-$voyage = new Reservation($bdd,$trajet,$_POST['type_billet'],$nom,$_POST['depart'],$_POST['nombre_billet'],$_POST['heure_depart']);
-
-
-
-	if (preg_match('#Aller_simple#', $_POST['type_billet'])) {
-		
-
-		$place_aller_dispo = $voyage->getPlaceDispo($_POST['type_billet']);
-
-		$place_retour_dispo = 0;
-
-		
-
-	
-	}elseif (preg_match('#Aller_retour#', $_POST['type_billet'])) {
-
-		$voyage->setheureRetour($_POST['heure_retour']);
-
-		$voyage->setdateRetour($_POST['retour']);
-		
-		$Aller_simple = 'Aller_simple';
-		
-		$place_aller_dispo = $voyage->getPlaceDispo($Aller_simple);
-
-
-		$place_retour_dispo = $voyage->getPlaceDispo($_POST['type_billet']);
-
-		
 	}
 	
 
@@ -148,9 +144,6 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 	OR ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo > $_POST['nombre_billet'] && $place_retour_dispo < $_POST['nombre_billet'] ) 
 	OR ( preg_match("#Aller_simple#", $_POST['type_billet']) && $place_aller_dispo < $_POST['nombre_billet'] ) ) {
 	
-	
-	
-
 
 	$place_aller = ($place_aller_dispo <= 1 )? '<b>place disponible</b>': '<b>places disponibles</b>';
 	
@@ -174,7 +167,6 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 		if ($_POST['depart'] < $_POST['retour'] && $_POST['depart'] != $_POST['retour']) {
 				
-			_header();
 			
 			echo '<p class="centre-text">Vous souhaitez réserver <span style="color:red;font-weight:bold;">'.$_POST['nombre_billet'].'</span>  place(s) par voyage . <b>Cependant</b>, Il y a <span style="color:rgb(0,128,128);font-weight:bold;">'.$place_aller_dispo.'</span> '.$place_aller.'</span> pour le '.$dateDepart.' à  '.$_POST['heure_depart'].' et <span style="color:rgb(0,128,128);font-weight:bold;">'.$place_retour_dispo.'</span> '.$place_retour.' pour le '.$dateRetour.' à '.$_POST['heure_retour'].'  !<p/>';
 
@@ -185,8 +177,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		
 		}else{
 
-			_header();
-
+		
 				echo "<p class='centre-text'>La date du retour doit toujours être supérieur à l'aller !<p/>";
 
 			include('agence/includes/footer.php');
@@ -204,8 +195,6 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		$dateDepart = $donnee['depart'];
 
 
-		_header();
-
 		echo '<p class="centre-text">Vous souhaitez réserver <span style="color:red;font-weight:bold;">'.$_POST['nombre_billet'].'</span> place(s) . <b>Cependant</b>, Il y a <span style="color:rgb(0,128,128);font-weight:bold;">'.$place_aller_dispo.'</span> '.$place_aller.' pour le '.$dateDepart.' à  '.$_POST['heure_depart'].' !<p/>';
 
 		include('agence/includes/footer.php');
@@ -216,81 +205,237 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 } else{
 
 
-	if (!preg_match("#^(074|077)[0-9]{6}$#", $_POST['tel_client'])) {
 
 
-		// Suppression des variables de session et de la session 
-		$_SESSION = array();
-		session_destroy();
+/////////////////////////////////calcul du montant
+	
+
+	/////Prix unitaire...///////////////
+	$reponse = $bdd->prepare(" SELECT prix_trajet FROM trajets WHERE nom_trajet = ? AND nom_agence = ?"); 
+							
+	$reponse->execute(array($_POST['trajet'] ,$_POST['agence'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
+
+		
+	$donnees = $reponse->fetch(); 
+
+		
+	$prixUnitaire = $donnees['prix_trajet'];
+
+	$reponse->closeCursor();
 
 
-		echo("<br><br><div style='font-size: 24px ;font-weight:bolder;text-align: center;'>Désolé le numéro n'est pas valide<a href='index.php#reserve' style='font-weight:bolder;text-align: center;text-decoration:none;font-size: 24px;' >retour</a></div><br>");
-
-		include('agence/includes/footer.php');
-
-		exit;
-
-	}
+	///////////////////////////////////////////////////::::///////////////
 
 
-	$voyage->insertion();
+
+////////////////////remise......//////////////
 
 
+// je recupere dans la bdd les infos de l'agence: le numero de tel et sa remise en cas d'aller retour
+	$reponse = $bdd->prepare(" SELECT  `remise` FROM `agence` WHERE nom_agence = ? ");  
+	
+	$reponse->execute(array($_POST['agence'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
+
+	$donnees = $reponse->fetch(); 
+
+	$remise = $donnees['remise'];
+			
+	$reponse->closeCursor();
+
+
+
+////////////////////////////////////:::
+
+	// if ( $_POST['type_billet'] == "Aller_simple"){
+			
+	// 	$montant = $prixUnitaire*$_POST['nombre_billet'];
+
+
+	// }elseif ( $_POST['type_billet'] == "Aller_retour") {
+			
+	// 	$montant = $prixUnitaire*$_POST['nombre_billet']*( 2 - $remise);
+
+		
+	// }
+
+	$montant = ($_POST['type_billet'] == "Aller_simple") ? $prixUnitaire*$_POST['nombre_billet'] : $prixUnitaire*$_POST['nombre_billet']*( 2 - $remise);
+
+
+	//////////////////////////////////////////insertion////////////////
+
+
+		$_SESSION['montant'] = $montant;
+
+
+		if ( $_SESSION['montant'] < 100 || $_SESSION['montant'] > 490000  ) {
+
+			$montant = $_SESSION['montant'];
+
+			// Suppression des variables de session et de la session 
+			$_SESSION = array();
+			session_destroy();
+
+
+			echo("<br><br><div style='font-size: 24px ;font-weight:bolder;text-align: center;'>Désolé le prix de votre billet s'élève à ".$montant." fcfa , <br>le montant d'une transaction est limité à  490 000 fcfa!<br><br><a href='index.php#reserve' style='font-weight:bolder;text-align: center;text-decoration:none;font-size: 24px;' >retour</a></div><br>");
+
+			include('agence/includes/footer.php');
+
+			exit;
+
+		}
+
+		 
+		ini_set('display_errors',1);
+
+		$tab = explode('-', $_POST['trajet'] ,2);
+
+		$villeClient = $tab[0];
+
+		$villedestination = $tab[1];
+
+
+		if (preg_match('#^Aller_simple$#', $_POST['type_billet'] )) {
+
+			/////insertion dans la table reservation
+		
+			$requete = $bdd->prepare('INSERT INTO reservation (nom_agence,date_depart,heure_depart,trajet,nombre_place,type_reservation ) VALUES(?,?,?,?,?,?)');
+			
+			$requete->execute(array($_POST['agence'],$_POST['depart'] ,$_POST['heure_depart'],$_POST['trajet']
+				,$_POST['nombre_billet'],$_POST['type_billet']));
+		
+
+		}elseif (preg_match('#^Aller_retour$#', $_POST['type_billet'] )) {
+			
+			/////insertion dans la table reservation
+		
+			$requete = $bdd->prepare('INSERT INTO reservation (nom_agence,date_depart,heure_depart,trajet,nombre_place,type_reservation,trajet_retour,heure_retour,date_retour ) VALUES(?,?,?,?,?,?,?,?,?)');
+
+			$requete->execute(array($_POST['agence'],$_POST['depart'],$_POST['heure_depart'],$_POST['trajet'] 
+
+				,$_POST['nombre_billet'] ,$_POST['type_billet'],$trajet_retour,$_POST['heure_retour'] ,$_POST['retour'] ));
+		}
+
+
+
+		//insertion dans la table paiement
+
+		$requete1 = $bdd->prepare('INSERT INTO paiement (ref_trans,nom_paiement,code_statut,montant_debite,date_paiement,id_reservation ) VALUES(?,?,?,?, NOW(),LAST_INSERT_ID())');
+							
+		$requete1->execute(array($_SESSION['ref_trans'],NULL,NULL,$_SESSION['montant']));
+
+
+
+		////////// insertion dans la table client .....					//introduction des villes
+		$requete2 = $bdd->prepare('INSERT INTO client (nom,ville_client ,ville_destination_client) VALUES(upper(?),?,?)'); 
+
+		$requete2->execute(array($_SESSION['nom'],$villeClient,$villedestination));
+
+
+////////////////////////////////////////://////////////::
+
+	// recupere moi l'id du client qui est en train de senregistrer ainsi que son id_reservation
+		$reponse = $bdd->prepare(" SELECT id_reservation FROM paiement WHERE paiement.ref_trans = ? "); 
+		
+		$reponse->execute(array($_SESSION['ref_trans'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
+
+		$donnees = $reponse->fetch(); 
+		
+		$id_reservation = $donnees['id_reservation'];
+
+		$reponse->closeCursor();
+
+		
+
+		$_SESSION['id_reservation'] = $id_reservation;
+
+
+		$requete = $bdd->prepare('INSERT INTO transaction (id_client,id_reservation,ref_trans,date_reservation,date_reservation_2) VALUES(LAST_INSERT_ID(),?,?,NOW(),NOW())');
+							
+		$requete->execute(array($_SESSION['id_reservation'],$_SESSION['ref_trans']));
+
+
+		// recupere moi l'id du client qui est en train de senregistrer ainsi que son id_reservation
+		$reponse = $bdd->prepare(" SELECT id_client FROM transaction WHERE transaction.ref_trans = ? "); 
+		
+		$reponse->execute(array($_SESSION['ref_trans'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
+
+		$donnees = $reponse->fetch(); 
+		
+		$id_client = $donnees['id_client'];
+
+		$reponse->closeCursor();
+		
+
+		$_SESSION['id_client'] = $id_client;
+
+
+
+
+///////////////////////////////////////////////////fin insertion/////////////////////////////////////////:
 //envoies les infos API mypivit
 
-	$infos = $voyage->getinfoCompte();
 
-	$info = explode(';', $infos);
+// 	$reponse = $bdd->prepare(" SELECT CONCAT_WS(';',id_operateur,tel_marchand)  AS infos 
 
-	$ch = curl_init(); 
+// 										FROM compte_marchand  WHERE nom_operateur = ? "); 
+
+// 	$reponse->execute(array($_POST['moyen_paiement'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
+
+		
+// 	$donnees = $reponse->fetch();
+
+		
+// 	$infos = $donnees['infos'];
+
+// 	$info = explode(';', $infos);
+	
+// 	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
+// 	<input type="hidden" name="tel_marchand" value="0'.$info[1].'">	
+// 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
+// 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
+// 	<input type="hidden" name="operateur" value="'.$info[0].'">	
+// 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
+// 	<input type="submit" style="display: none;" value="payer">	
+// 	</form>
+// 	<script type="text/javascript">
+// 		document.getElementById("pvitform").onload();
+// 	</script>';
+// 	echo($pvitform);
+ 
+	/* $ch = curl_init(); 
 
 	curl_setopt($ch, CURLOPT_POST, 1); 
 
 	curl_setopt($ch, CURLOPT_URL,"https://mypvit.com/pvit-secure-full-api.kk"); 
 	 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 
-
-		"tel_marchand=077565805 
-
-		&montant=".$_SESSION['montant']." 
-
-		&ref=".$_SESSION['ref_trans']." 
-
-		&tel_client=".$_POST['tel_client']."  
-
-		&token=".$info[0]." 
-
-		&action=1 
-
-		&service=WEB 
-
-		&operateur=".$info[1]."
-
-
-		&redirect=https://flemardapp.herokuapp.com/resultat_transaction.php 
-
-		&agent=caisse3"); 
-
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+		"tel_marchand=077565805&montant=".$_SESSION['montant']." &ref=".$_SESSION['ref_trans']."&operateur=AM&redirect=https://flemardapp.herokuapp.com/resultat_transaction.php"); 
+	//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 
 	$resultat = curl_exec($ch);
+	var_dump($resultat);
 
-	curl_close($ch);
+	curl_close($ch); */
 	
 	//-----------------------------------------------------------------------------------------------------------------------------------e
 
-
+	
 			}	#la condition de verification de place prend fin ici#
 
 
 			
 
 }else{
-
-	_header();
 	
-	echo("<p class='centre-text'>Votre formulaire contient des incohérences, veuillez recommencer... !</p>");
-
+	if (empty($_POST['heure_depart'])  OR empty($_POST['heure_retour']) ){
+	
+		echo "<p class='centre-text'>".$_POST['agence']." n'a pas prévue de voyage pour aujourd'hui , veuillez choisir une autre agence merci !</p>";
+	}else{
+	
+		echo("<p class='centre-text'>Votre formulaire contient des incohérences, veuillez recommencer... !</p>");
+	
+	}
+	
 	include('agence/includes/footer.php');
 
 
@@ -301,47 +446,3 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 
 ?>
 
-
-
-	<script src="agence/js/jquery.min.js"></script>
-	<script src="agence/js/jquery-ui.min.js"></script>
-
-
-	<!-- <script src="js/interfaceClient.js"></script> -->
-			
-	<script type="text/javascript">
-		
-		$(function () {
-
-
-
-				//AFFICHE LHEURE
-//----------------------------------------------------------------------------------------
-
-			function horloge(){
-
-				var date = new Date();
-				var h = date.getHours()+ ":"+ date.getMinutes()+ ":"+ date.getSeconds();
-				$("#heure").text(h).css("color",'rgb(0,128,128)');
-			}
-
-			setInterval(horloge,1000);
-
-
-			$(".slogan").html("Donner un Sens à votre Flemme !").css("font-size","small").css("color","rgb(0,128,128)").css("text-decoration","underline").css("text-decoration-color","orange");
-
-
-
-
-			$('#btnMenu').on('click touch', function(){            
-
-				$('#nav').slideToggle();    
-
-				});
-
-
-
-
-
-		});
-	</script>		
