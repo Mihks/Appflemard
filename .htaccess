@@ -1,4 +1,4 @@
 RewriteEngine On
-RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTPS} on [OR]
 RewriteCond %{HTTP_HOST} !^www\.flemard\.ga$ [NC]
 RewriteRule ^(.*) https://www.flemard.ga/$1 [QSA,L,R=301]
