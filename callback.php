@@ -8,9 +8,9 @@ session_start();
 include_once 'fonction.php';
 
 		
-// $code_statut = 200;
+$code_statut = 200;
 
-// $_SESSION['code_statut'] = $code_statut;
+$_SESSION['code_statut'] = $code_statut;
 
 // $tel = '074'.mt_rand(200040,241743);
 
