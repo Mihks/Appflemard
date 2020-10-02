@@ -1,21 +1,7 @@
 <?php
 
 session_name("flemard");
-
 session_start();
-
-include_once 'fonction.php';
-
-// $data_received=file_get_contents("php://input");  
-	// $data_received_xml= new SimpleXMLElement($data_received);  
-	// $ligne_response=$data_received_xml[0];  
-	// $reference_received=$ligne_response->REF; 
-	// $statut_received=$ligne_response->STATUT;  
-	// $num_client=$ligne_response->TEL_CLIENT
-
-
-	// UPDATE ma_table set statut = $statut_received where ref_paiement=$reference_received
-
 
 
 if (!isset($_SESSION['ref_trans']) AND empty($_SESSION['ref_trans']) ) {
@@ -25,6 +11,8 @@ if (!isset($_SESSION['ref_trans']) AND empty($_SESSION['ref_trans']) ) {
 
 	}else{
 
+		
+		include('fonction.php');
 
 		$code_statut = 200;//mt_rand(199,200);
 
