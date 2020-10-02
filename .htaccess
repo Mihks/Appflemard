@@ -1,4 +1,2 @@
-# Passage en https toutes les urls
-RewriteEngine On
-RewriteCond %{SERVER_PORT} !^443$
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [QSA,R=301,L]
+RewriteEngine on
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
