@@ -399,7 +399,7 @@ $ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key=56K8R0XSWEJD85VF2
 $response = curl_exec($ch);
 curl_close($ch);
 
-var_dump($response);
+echo($response);
 
 // $pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expeditedaddons.com" onload="this.submit();">
 // 	<input type="hidden" name="api_key" value="'.getenv('WEBTOPDF_API_KEY').'">	
