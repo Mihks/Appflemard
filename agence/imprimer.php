@@ -9,7 +9,7 @@
 // include_once 'fonction.php';
 
 
-// header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/html; charset=utf-8');
 
 
 // if (isset($_SESSION['agence'])) {
