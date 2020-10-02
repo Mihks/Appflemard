@@ -4,8 +4,7 @@ session_name("flemard");
 
 session_start();
 
-
-include('fonction.php');
+include_once 'fonction.php';
 
 
 		
@@ -33,7 +32,7 @@ include('fonction.php');
 			$req3->execute(array($tel,$_SESSION['id_client']));
 
 
-		} else {
+		}else{
 			
 			$req = $bdd->prepare('UPDATE paiement SET code_statut = ?,net = ? WHERE ref_trans = ? ');
 									
