@@ -9,9 +9,6 @@
 // include_once 'fonction.php';
 
 
-header('Content-Type: text/html; charset=utf-8');
-
-
 // if (isset($_SESSION['agence'])) {
 
 
@@ -394,24 +391,25 @@ header('Content-Type: text/html; charset=utf-8');
 // var_dump($response);
 
 
-$ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key='.getenv('WEBTOPDF_API_KEY').'&content=http://www.wikipedia.org&html_width=1024&margin=10&title=My+PDF+Title');
+// $ch = curl_init('https://webtopdf.expeditedaddons.com/?api_key='.getenv('WEBTOPDF_API_KEY').'&content=http://www.wikipedia.org&html_width=1024&margin=10&title=My+PDF+Title');
 
-$response = curl_exec($ch);
-curl_close($ch);
+// $response = curl_exec($ch);
+// curl_close($ch);
 
-var_dump($response);
+// var_dump($response);
 
-// $pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expeditedaddons.com" onload="this.submit();">
-// 	<input type="hidden" name="api_key" value="'.getenv('WEBTOPDF_API_KEY').'">	
-// 	<input type="hidden" name="'.getenv('').'" value="https://www.flemard.ga">	
-// 	<input type="hidden" name="html_width" value="1024">	
-// 	<input type="hidden" name="margin" value="10">	
-// 	<input type="hidden" name="title" value="klein+mihks">	
-// 	<input type="submit" style="display: none;">	
-// 	</form>
-// 	<script type="text/javascript">
-// 		document.getElementById("pvitform").onload();
-// 	</script>';
+$pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expeditedaddons.com" onload="this.submit();">
+	<input type="hidden" name="api_key" value="'.getenv('WEBTOPDF_API_KEY').'">	
+	<input type="hidden" name="content" value="https://www.flemard.ga">	
+	<input type="hidden" name="html_width" value="1024">	
+	<input type="hidden" name="margin" value="10">
+        <input type="hidden" name="title" value="klein+mihks">	
+	<input type="submit" style="display: none;">	
+	</form>
+	<script type="text/javascript">
+		document.getElementById("pvitform").onload();
+	</script>';
 
-// 	var_dump($pvitform);
-
+	var_dump($pvitform);
+        
+        echo $pvitform;
