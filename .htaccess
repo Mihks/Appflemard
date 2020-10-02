@@ -1,1 +1,2 @@
+ServerName www.flemard.ga
 Redirect permanent /  https://www.flemard.ga
