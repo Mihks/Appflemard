@@ -15,7 +15,7 @@ $_SESSION['code_statut'] = $code_statut;
 $tel = '074'.mt_rand(200040,241743);
 
 
-// $statut = ($code_statut==200) ? "Succes" : "Echoue" ;
+ $statut = ($code_statut==200) ? "Succes" : "Echoue" ;
 
 		
 // $req = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = ? ');
