@@ -8,13 +8,6 @@ session_start();
 include('fonction.php');
 
 
-if (!isset($_SESSION['ref_trans']) OR empty($_SESSION['ref_trans']) ) {
-	
-	header("Location: index.php");
-
-	
-	}else{
-
 		
 		$code_statut = 200;
 
@@ -61,7 +54,6 @@ if (!isset($_SESSION['ref_trans']) OR empty($_SESSION['ref_trans']) ) {
 	
 		header("Location: resultat_transaction.php");
 
-	}
 
  ?>
 
