@@ -399,7 +399,7 @@
 // var_dump($response);
 
 $pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expeditedaddons.com" onload="this.submit();">
-	<input type="hidden" name="api_key" value="'.getenv('WEBTOPDF_API_KEY').'">	
+	<input type="hidden" name="api_key" value="'.getenv("WEBTOPDF_API_KEY").'">	
 	<input type="hidden" name="content" value="https://www.wikipedia.org">	
 	<input type="hidden" name="html_width" value="1024">	
 	<input type="hidden" name="margin" value="10">
@@ -411,5 +411,3 @@ $pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expedite
 	</script>';
 
 	var_dump($pvitform);
-        
-        echo $pvitform;
