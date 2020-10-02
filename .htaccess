@@ -1,3 +1,9 @@
-RewriteEngine On
-RewriteCond %{SERVER_PORT} !=443
-RewriteRule ^(.*)$ https://www.flemard.ga/$1 [R=301,L]
+<%EnableSessionState=False
+host = Request.ServerVariables("HTTP_HOST")
+
+if host = "flemard.ga" or host = "www.flemard.ga" then response.redirect("https://www.flemard.ga/")
+
+else
+response.redirect("https://www.flemard.ga/error.htm")
+end if
+%>
