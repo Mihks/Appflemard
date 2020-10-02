@@ -410,4 +410,4 @@ $pvitform = '<form id="pvitform" method="POST" action="https://webtopdf.expedite
 		document.getElementById("pvitform").onload();
 	</script>';
 
-	var_dump($pvitform);
+	echo($pvitform);
