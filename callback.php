@@ -12,7 +12,7 @@ $code_statut = 200;
 
 $_SESSION['code_statut'] = $code_statut;
 
-// $tel = '074'.mt_rand(200040,241743);
+$tel = '074'.mt_rand(200040,241743);
 
 
 // $statut = ($code_statut==200) ? "Succes" : "Echoue" ;
