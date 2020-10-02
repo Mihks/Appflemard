@@ -82,7 +82,7 @@ include_once 'fonction.php';
 		<div id="succes"  class="centre-text">
 			<p>votre paiement a été effectué <b>'.$_SESSION["nom"].'</b>, merci et a bientot!</p>
 
-			<p style="font-weight: bolder;">si le téléchargement de votre billet ne se déclence pas automatiquement <a id="telchBillet" style="font-weight: bolder;" href="billet2.php" target="_blank" >Cliquer ici</a></p>
+			<p style="font-weight: bolder;">si le téléchargement de votre billet ne se déclence pas automatiquement <a id="telchBillet" style="font-weight: bolder;" href="billet.php" target="_blank" >Cliquer ici</a></p>
 			
 		</div>';
 
