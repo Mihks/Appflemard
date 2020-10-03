@@ -142,8 +142,9 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
               header('Content-Type: image/png');
 	           
 
-// 	           imagepng($destination);
+//  	           imagepng($destination);
 
+		   imagepng('copie.png');
 
             // if (!file_exists("dest.png")){
 
