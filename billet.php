@@ -116,25 +116,25 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
 
             // $source = imagecreatefrompng('codeqr.png');
 
-            $noir = imagecolorallocate($destination, 0, 0, 0);
+//             $noir = imagecolorallocate($destination, 0, 0, 0);
     
-            $red = imagecolorallocate($destination, 128, 0, 0);
+//             $red = imagecolorallocate($destination, 128, 0, 0);
 
            // imagestring($source, 4, 0, 0, $lien, $noir);
 
             imagestring($destination, 4, 210, 86, $nom_agence, $noir); // Agence
 
-            imagestring($destination, 4, 510, 85, $id, $red); // ID Unique
+//             imagestring($destination, 4, 510, 85, $id, $red); // ID Unique
 
-            imagestring($destination, 4, 215, 144,$depart , $noir); // Date voyage
+//             imagestring($destination, 4, 215, 144,$depart , $noir); // Date voyage
 
-            imagestring($destination, 4, 215, 179, $heure, $noir); // heure
+//             imagestring($destination, 4, 215, 179, $heure, $noir); // heure
 
-            imagestring($destination, 4, 215, 209,$trajet, $noir); // Trajet
+//             imagestring($destination, 4, 215, 209,$trajet, $noir); // Trajet
 
-            imagestring($destination, 4, 245, 243, $ref, $noir); // ref trans
+//             imagestring($destination, 4, 245, 243, $ref, $noir); // ref trans
 
-            imagestring($destination, 4, 545, 300, $type, $noir); // type reservation
+//             imagestring($destination, 4, 545, 300, $type, $noir); // type reservation
 
              // imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
