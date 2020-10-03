@@ -6,7 +6,7 @@ session_start();
 
 // require('agence/fpdf/fpdf.php');
 
-require('agence/phpqrcode/qrlib.php');
+// require('agence/phpqrcode/qrlib.php');
 
 
 
@@ -104,17 +104,17 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
             $reponse->closeCursor();
             
 
-            QRcode::png($id,'codeqr.png','M',4,2);
+            // QRcode::png($id,'codeqr.png','M',4,2);
 
            
             $destination = imagecreatefrompng("copie.png"); 
 
-             if (!file_exists("codeqr.png")){
-                   echo '<h2>Erreur création du fichier QRcode</h2>';
-                    exit; // pas les droits en écriture ?
-                    }
+             // if (!file_exists("codeqr.png")){
+             //       echo '<h2>Erreur création du fichier QRcode</h2>';
+             //        exit; // pas les droits en écriture ?
+             //        }
 
-            $source = imagecreatefrompng('codeqr.png');
+            // $source = imagecreatefrompng('codeqr.png');
 
             $noir = imagecolorallocate($destination, 0, 0, 0);
     
@@ -140,7 +140,9 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
 
              // Affichage et libération de la mémoire
               header('Content-Type: image/png');
-            imagepng($destination,'dest.png');
+	           
+
+	           imagepng($destination,'dest.png');
 
 
             if (!file_exists("dest.png")){
@@ -149,8 +151,8 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
                 exit; // pas les droits en écriture ?
                     }
 
-                    imagedestroy($destination);
-                    imagedestroy($source);
+                    // imagedestroy($destination);
+                    // imagedestroy($source);
 
               
         
