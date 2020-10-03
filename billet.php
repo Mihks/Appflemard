@@ -4,68 +4,68 @@ session_name("flemard");
 
 session_start();
 
-require('agence/fpdf/fpdf.php');
+// require('agence/fpdf/fpdf.php');
 
 require('agence/phpqrcode/qrlib.php');
 
 
 
 
-class PDF extends FPDF
-{
+// class PDF extends FPDF
+// {
 
 
 
-// En-tête
-function Header()
-{
-    // Logo
-    $this->Image('images/yagaC.png',10,6,30);
-    // Police Arial gras 15
-    $this->SetFont('Arial','B',15);
-    // Décalage à droite
-    $this->Cell(60);
-    // Titre
-    $this->Cell(60,10,'Billet de Voyage',0,1,'C');
-    // Saut de ligne
-    $this->Ln(20);
-}
+// // En-tête
+// function Header()
+// {
+//     // Logo
+//     $this->Image('images/yagaC.png',10,6,30);
+//     // Police Arial gras 15
+//     $this->SetFont('Arial','B',15);
+//     // Décalage à droite
+//     $this->Cell(60);
+//     // Titre
+//     $this->Cell(60,10,'Billet de Voyage',0,1,'C');
+//     // Saut de ligne
+//     $this->Ln(20);
+// }
 
-// Pied de page
-function Footer()
-{
-    // Positionnement à 1,5 cm du bas
-    $this->SetY(-15);
-    // Police Arial italique 8
-    $this->SetFont('Arial','I',8);
-    // Numéro de page
-    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-}
+// // Pied de page
+// function Footer()
+// {
+//     // Positionnement à 1,5 cm du bas
+//     $this->SetY(-15);
+//     // Police Arial italique 8
+//     $this->SetFont('Arial','I',8);
+//     // Numéro de page
+//     $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+// }
 
-// Tableau simple
-function BasicTable($tableau)
-{
-    // En-tête
-    foreach($tableau as $key=>$data){
-        $this->Cell(40);
-        $this->Cell(40,15,$key,0);
-        $this->Cell(10);
-        $this->Cell(40,15,$data,0,1);
+// // Tableau simple
+// function BasicTable($tableau)
+// {
+//     // En-tête
+//     foreach($tableau as $key=>$data){
+//         $this->Cell(40);
+//         $this->Cell(40,15,$key,0);
+//         $this->Cell(10);
+//         $this->Cell(40,15,$data,0,1);
 
-        }
+//         }
     
-}
+// }
 
 
-function Img($source)
-{
+// function Img($source)
+// {
 
-     $this->Image('dest.png');
+//      $this->Image('dest.png');
   
-}
+// }
 
 
-}
+// }
 
 
 
@@ -139,7 +139,7 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
             imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
              // Affichage et libération de la mémoire
-                    // header('Content-Type: image/png');
+              header('Content-Type: image/png');
             imagepng($destination,'dest.png');
 
 
@@ -155,7 +155,7 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
               
         
 
-    // }else{
+     } //else{
 
 
 
@@ -258,20 +258,20 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
 
 
 
-$pdf = new PDF();
+// $pdf = new PDF();
 
 
-$pdf->SetFont('Arial','',14);
-$pdf->AliasNbPages();
-$pdf->AddPage();
-$pdf->Cell(120);
-// $pdf->Cell(60,10,'Agence : '.$nom_agence,0,1,'C');
-$pdf->Ln();
-$pdf->Cell(35);
-$pdf->Cell(130,10,'Date de reservation: '.$date_reserve,1,1,'C');
-$pdf->Ln(10);
-$pdf->Img('dest.png');
-$pdf->Output();
+// $pdf->SetFont('Arial','',14);
+// $pdf->AliasNbPages();
+// $pdf->AddPage();
+// $pdf->Cell(120);
+// // $pdf->Cell(60,10,'Agence : '.$nom_agence,0,1,'C');
+// $pdf->Ln();
+// $pdf->Cell(35);
+// $pdf->Cell(130,10,'Date de reservation: '.$date_reserve,1,1,'C');
+// $pdf->Ln(10);
+// $pdf->Img('dest.png');
+// $pdf->Output();
 
   
 
