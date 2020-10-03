@@ -110,31 +110,53 @@ $_POST['nom'] = strip_tags($_POST['nom']);
 $_SESSION['nom'] = $_POST['nom']; ///////
 
 
-	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo, nombre_place_reserve FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
 	$reponse->execute(array($_POST["agence"],$_POST['depart'],$_POST['trajet'],$_POST['heure_depart']));
 
 	$donnees = $reponse->fetch();
 
 	$place_aller_dispo = $donnees['nombre_place_dispo'];
+	
+	$_SESSION['trajet'] = $_POST['trajet'];
+	
+	$_SESSION['horaire'] = $_POST['heure_depart'];
+		
+	$_SESSION['date_voyage'] = $_POST['depart'];
 
-	$reponse->closeCursor();
-
+	$_SESSION['new_place_dispo'] = $donnees['nombre_place_dispo'] - $_POST['nombre_billet'] ;
+	
+	$_SESSION['new_place_reserve'] = $donnees['nombre_place_reserve'] + $_POST['nombre_billet'] ;
+	
+	$_SESSION['new_nombre_place'] = $donnees['new_place_dispo'] + $_POST['new_place_reserve'] ;
+	
 
 	if (preg_match('#Aller_retour#', $_POST['type_billet'])) {
 		
-
 		$retour = explode('-',$_POST['trajet']);
 
 		$trajet_retour = $retour[1] + $retour[0];
 
-		$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
+		$reponse = $bdd->prepare(" SELECT nombre_place_dispo,nombre_place_reserve FROM voyage WHERE nom_agence = ? AND date_voyage = ? AND nom_trajet = ? AND horaire = ?  ");
 
 		$reponse->execute(array($_POST["agence"],$_POST['retour'],$trajet_retour,$_POST['heure_retour']));
 
 		$donnees = $reponse->fetch();
 		
 		$place_retour_dispo = $donnees['nombre_place_dispo'];
+		
+		$_SESSION['horaire_retour'] = $_POST['heure_retour'];
+		
+		$_SESSION['date_voyage_retour'] = $_POST['retour'];
+		
+		$_SESSION['trajet_retour'] = $trajet_retour;
+		
+		$_SESSION['new_place_dispo_retour'] = $donnees['nombre_place_dispo'] - $_POST['nombre_billet'] ;
+	
+		$_SESSION['new_place_reserve_retour'] = $donnees['nombre_place_reserve'] + $_POST['nombre_billet'] ;
+	
+		$_SESSION['new_nombre_place_retour'] = $donnees['new_place_dispo_retour'] + $_POST['new_place_reserve_retour'] ;
+
 	
 	}
 	
