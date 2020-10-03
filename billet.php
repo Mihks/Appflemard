@@ -103,9 +103,7 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
 
             $reponse->closeCursor();
             
-
             // QRcode::png($id,'codeqr.png','M',4,2);
-
            
              $destination = imagecreatefrompng("copie.png"); 
 
@@ -141,8 +139,8 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
              // Affichage et libération de la mémoire
               header('Content-Type: image/png');
 	           
-  	           imagepng($destination);
-		   imagedestroy($destination);
+  	       imagepng($destination);
+		//   imagedestroy($destination);
 
             // if (!file_exists("dest.png")){
 
