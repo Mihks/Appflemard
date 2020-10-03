@@ -136,7 +136,7 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
 
             imagestring($destination, 4, 545, 300, $type, $noir); // type reservation
 
-            imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
+             // imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
              // Affichage et libération de la mémoire
               header('Content-Type: image/png');
