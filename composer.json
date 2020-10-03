@@ -10,7 +10,7 @@
         "intervention/image": "^2.3",
          "ext-exif":"*",
          "ext-curl": "*",
-          "gd": "*"
+          "ext-gd": "*"
 
 
     }
