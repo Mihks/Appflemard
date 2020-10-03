@@ -142,14 +142,14 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
               header('Content-Type: image/png');
 	           
 
-	           imagepng($destination,'dest.png');
+	           imagepng($destination);
 
 
-            if (!file_exists("dest.png")){
+            // if (!file_exists("dest.png")){
 
-                echo '<h2>Erreur création du billet</h2>';
-                exit; // pas les droits en écriture ?
-                    }
+            //     echo '<h2>Erreur création du billet</h2>';
+            //     exit; // pas les droits en écriture ?
+            //         }
 
                     // imagedestroy($destination);
                     // imagedestroy($source);
