@@ -155,7 +155,7 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
               
         
 
-    }else{
+    // }else{
 
 
 
@@ -163,96 +163,96 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
 
 
 
-         $reponse =  $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id,client.nom,CONCAT('+241',client.tel_client) AS num_tel,reservation.type_reservation,CONCAT_WS(' ',reservation.nombre_place,'place(s) par voyage') AS nbre_place,reservation.trajet,reservation.trajet_retour,DATE_FORMAT(reservation.date_retour, '%W, %e %M %Y') AS retour,DATE_FORMAT(reservation.date_depart, '%W, %e %M %Y') AS depart,reservation.heure_depart,reservation.heure_retour,CONCAT(paiement.montant_debite,'FCFA') AS montant,DATE_FORMAT(transaction.date_reservation, '%W %e %M %Y %T') AS date_reserve,reservation.nom_agence,paiement.ref_trans AS ref FROM client,paiement,reservation,transaction WHERE reservation.id_reservation = transaction.id_reservation AND paiement.ref_trans = transaction.ref_trans AND client.id_client = transaction.id_client AND paiement.ref_trans = ? ; ");
+    //      $reponse =  $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id,client.nom,CONCAT('+241',client.tel_client) AS num_tel,reservation.type_reservation,CONCAT_WS(' ',reservation.nombre_place,'place(s) par voyage') AS nbre_place,reservation.trajet,reservation.trajet_retour,DATE_FORMAT(reservation.date_retour, '%W, %e %M %Y') AS retour,DATE_FORMAT(reservation.date_depart, '%W, %e %M %Y') AS depart,reservation.heure_depart,reservation.heure_retour,CONCAT(paiement.montant_debite,'FCFA') AS montant,DATE_FORMAT(transaction.date_reservation, '%W %e %M %Y %T') AS date_reserve,reservation.nom_agence,paiement.ref_trans AS ref FROM client,paiement,reservation,transaction WHERE reservation.id_reservation = transaction.id_reservation AND paiement.ref_trans = transaction.ref_trans AND client.id_client = transaction.id_client AND paiement.ref_trans = ? ; ");
 
-        $reponse->execute(array($_SESSION['ref_trans']));
+    //     $reponse->execute(array($_SESSION['ref_trans']));
 
-        $donnees=$reponse->fetch();
+    //     $donnees=$reponse->fetch();
 
-            $nom_agence = $donnees['nom_agence'];
+    //         $nom_agence = $donnees['nom_agence'];
 
-            $id = $donnees['id'];
+    //         $id = $donnees['id'];
 
-            $depart = $donnees['depart'];
+    //         $depart = $donnees['depart'];
 
-            $retour = $donnees['retour'];
+    //         $retour = $donnees['retour'];
 
-            $heure = $donnees['heure_depart'];
+    //         $heure = $donnees['heure_depart'];
 
-            $heure_retour = $donnees['heure_retour'];
+    //         $heure_retour = $donnees['heure_retour'];
 
-            $trajet = $donnees['trajet'];
+    //         $trajet = $donnees['trajet'];
 
-            $trajet_retour = $donnees['trajet_retour'];
+    //         $trajet_retour = $donnees['trajet_retour'];
 
-            $ref = $donnees['ref'];
+    //         $ref = $donnees['ref'];
 
-            $type = $donnees['type_reservation'];
+    //         $type = $donnees['type_reservation'];
 
-            $date_reserve = $donnees['date_reserve'];
+    //         $date_reserve = $donnees['date_reserve'];
 
-            $reponse->closeCursor();
+    //         $reponse->closeCursor();
             
 
-            QRcode::png($id,'codeqr.png','M',4,2);
+    //         QRcode::png($id,'codeqr.png','M',4,2);
 
            
-            $destination = imagecreatefrompng("billet_retour.png"); 
+    //         $destination = imagecreatefrompng("billet_retour.png"); 
 
-             if (!file_exists("codeqr.png")){
-                   echo '<h2>Erreur création du fichier QRcode</h2>';
-                    exit; // pas les droits en écriture ?
-                    }
+    //          if (!file_exists("codeqr.png")){
+    //                echo '<h2>Erreur création du fichier QRcode</h2>';
+    //                 exit; // pas les droits en écriture ?
+    //                 }
 
-            $source = imagecreatefrompng('codeqr.png');
+    //         $source = imagecreatefrompng('codeqr.png');
 
-            $noir = imagecolorallocate($destination, 0, 0, 0);
+    //         $noir = imagecolorallocate($destination, 0, 0, 0);
 
-            $red = imagecolorallocate($destination, 128, 0, 0);
-
-
-           // imagestring($source, 4, 0, 0, $lien, $noir);
-
-            imagestring($destination, 4, 210, 86, $nom_agence, $noir); // Agence
-
-            imagestring($destination, 4, 515, 85, $id, $red); // ID Unique
-
-            imagestring($destination, 4, 215, 125, $depart.' A', $noir); // Date voyage
-
-            imagestring($destination, 4, 215, 144, $retour.' R', $noir); // Date voyage
+    //         $red = imagecolorallocate($destination, 128, 0, 0);
 
 
-            imagestring($destination, 4, 210, 179, $heure.' A /'.$heure_retour.' R', $noir); // heure
+    //        // imagestring($source, 4, 0, 0, $lien, $noir);
 
-            imagestring($destination, 4, 215, 209, $trajet.' A', $noir); // Trajet
+    //         imagestring($destination, 4, 210, 86, $nom_agence, $noir); // Agence
 
-            imagestring($destination, 4, 215, 230, $trajet_retour.' R', $noir); // Trajet
+    //         imagestring($destination, 4, 515, 85, $id, $red); // ID Unique
 
-            imagestring($destination, 4, 245, 255, $ref, $noir); // ref trans
+    //         imagestring($destination, 4, 215, 125, $depart.' A', $noir); // Date voyage
 
-            imagestring($destination, 4, 545, 300, $type, $noir); // type reservation
-
-
-            imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
-
-             // Affichage et libération de la mémoire
-                    // header('Content-Type: image/png');
-                    imagepng($destination,'dest.png');
+    //         imagestring($destination, 4, 215, 144, $retour.' R', $noir); // Date voyage
 
 
-                      if (!file_exists("dest.png")){
-                            echo '<h2>Erreur création du billet</h2>';
-                            exit; // pas les droits en écriture ?
-                    }
+    //         imagestring($destination, 4, 210, 179, $heure.' A /'.$heure_retour.' R', $noir); // heure
 
-                    imagedestroy($destination);
-                    imagedestroy($source);
+    //         imagestring($destination, 4, 215, 209, $trajet.' A', $noir); // Trajet
+
+    //         imagestring($destination, 4, 215, 230, $trajet_retour.' R', $noir); // Trajet
+
+    //         imagestring($destination, 4, 245, 255, $ref, $noir); // ref trans
+
+    //         imagestring($destination, 4, 545, 300, $type, $noir); // type reservation
+
+
+    //         imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
+
+    //          // Affichage et libération de la mémoire
+    //                 // header('Content-Type: image/png');
+    //                 imagepng($destination,'dest.png');
+
+
+    //                   if (!file_exists("dest.png")){
+    //                         echo '<h2>Erreur création du billet</h2>';
+    //                         exit; // pas les droits en écriture ?
+    //                 }
+
+    //                 imagedestroy($destination);
+    //                 imagedestroy($source);
 
 
 
             
 
-    }
+    // }
 
 
 
