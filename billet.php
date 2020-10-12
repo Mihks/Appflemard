@@ -69,8 +69,6 @@ session_start();
 // }
 
 
-echo phpinfo();
-
 include_once 'fonction.php';
 
 $req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
