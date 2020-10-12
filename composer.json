@@ -1,8 +1,7 @@
 {
     "require": {
        "php": ">=5.5",
-       "khanamiryan/qrcode-detector-decoder": "^1.0",        
-       "ext-gd":"*"
+       "khanamiryan/qrcode-detector-decoder": "^1.0"
 
 
     }
