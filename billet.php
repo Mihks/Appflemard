@@ -1,5 +1,5 @@
 <?php
-dl("php_gd2.so");
+
 session_name("flemard");
 
 session_start();
