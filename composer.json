@@ -1,12 +1,8 @@
 {
     "require": {
        "php": ">=5.5",
-       "khanamiryan/qrcode-detector-decoder": "^1.0",               
-        "mews/purifier": "~2.0",        
-        "vinkla/hashids": "^2.4",        
-        "barryvdh/laravel-debugbar": "^2.2",        
-        "fzaninotto/faker": "~1.4",        
-          "ext-gd": "*"
+       "khanamiryan/qrcode-detector-decoder": "^1.0",        
+       "ext-gd": "*"
 
 
     }
