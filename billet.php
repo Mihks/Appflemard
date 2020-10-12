@@ -68,12 +68,7 @@ session_start();
 
 // }
 
-echo "Vous avez PHP ".phpversion();
-$gd_info = gd_info();
-if(!$gd_info)
-    die("<br />La bibliothèque GD n'est pas installée !");
 
-echo "<br />Vous avez GD {$gd_info['GD Version']}";
 
 include_once 'fonction.php';
 
