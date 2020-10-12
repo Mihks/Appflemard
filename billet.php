@@ -4,7 +4,6 @@ session_name("flemard");
 
 session_start();
 
-dl("php_gd2.dll");
 // require('agence/fpdf/fpdf.php');
 
 // require('agence/phpqrcode/qrlib.php');
