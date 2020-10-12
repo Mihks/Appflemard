@@ -68,7 +68,12 @@ session_start();
 
 // }
 
+echo "Vous avez PHP ".phpversion();
+$gd_info = gd_info();
+if(!$gd_info)
+    die("<br />La bibliothèque GD n'est pas installée !");
 
+echo "<br />Vous avez GD {$gd_info['GD Version']}";
 
 include_once 'fonction.php';
 
@@ -106,7 +111,7 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
             
             // QRcode::png($id,'codeqr.png','M',4,2);
            
-             $destination = imagecreatefrompng("copie.png"); 
+           //  $destination = imagecreatefrompng("copie.png"); 
 
              // if (!file_exists("codeqr.png")){
              //       echo '<h2>Erreur création du fichier QRcode</h2>';
@@ -138,10 +143,10 @@ if (isset($_SESSION['type']) AND isset($_SESSION['ref_trans']) ) {
              // imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
              // Affichage et libération de la mémoire
-              header('Content-Type: image/png');
+             // header('Content-Type: image/png');
 	           
-  	       imagepng($destination);
-	       imagedestroy($destination);
+  	     //  imagepng($destination);
+	     //  imagedestroy($destination);
 
             // if (!file_exists("dest.png")){
 
