@@ -69,6 +69,7 @@ session_start();
 // }
 
 
+echo phpinfo();
 
 include_once 'fonction.php';
 
