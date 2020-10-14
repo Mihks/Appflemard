@@ -94,7 +94,7 @@ include_once 'fonction.php';
 		$donnees = $reponse->fetch();
 
 			echo "		
-		<div id="succes"  class="centre-text">
+		<div id='succes'  class='centre-text'>
 			<p>votre paiement a été effectué <b>'.$_SESSION["nom"].'</b>, merci et a bientot!</p>
 
 			<p style='font-weight: bolder;'>
