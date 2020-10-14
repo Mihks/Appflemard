@@ -74,11 +74,10 @@ session_start();
 
 			<div class="centre-text">
 
-				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>Airtel Money</b> ou via MobiCash .</p>
+				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>Airtel Money</b> ou via <b>Mobi Cash</b> .</p>
 
 
-
-				<p>Tout juste après avoir effectué votre paiement sur votre <b>smartphone</b> ou autres, vous êtes redirigé vers votre billet numérique au format pdf ( à imprimer si vous le souhaitiez). Ce billet indiquera les coordonnées de votre voyage et est à présenter le jour j à <b>l’agence solicitée</b>. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
+				<p>Tout juste après avoir effectué votre paiement , un identifiant unique s'affiche en rouge , ce dernier contient toutes les coordonnées de votre réservation , il est à présenter à l'agence sollicitée. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
 			</div>
 
 			<img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" height='200' width='250' id="imaga" />
