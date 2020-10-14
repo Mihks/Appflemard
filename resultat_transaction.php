@@ -97,7 +97,7 @@ include_once 'fonction.php';
 			<p style='font-weight: bolder;'>
 			Votre identifiant unique lié à votre réservation est le suivant  
 			<span style='font-size:15px;color:red;'>".$donnees['id']."</span>
-			veuillez présenter ce code à l'agence , ne le divulguez à personne
+			veuillez présenter ce code à l'agence , ne le divulguez à personne il contient tous les coordonnées de votre voyage .
 			</p>
 			
 		</div>";
