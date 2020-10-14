@@ -416,7 +416,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
  	<input type="hidden" name="montant" value="100">	
 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
  	<input type="hidden" name="operateur" value="'.$info[0].'">	
- 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
+ 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/callback.php">	
  	<input type="submit" style="display: none;" value="payer">	
  	</form>
  	<script type="text/javascript">
