@@ -4,13 +4,25 @@ session_name("flemard");
 
 session_start();
 
+
+$data_received=file_get_contents("php://input");
+$data_received_xml=new SimpleXMLElement($data_received);
+$ligne_response=$data_received_xml[0];
+$interface_received=$ligne_response->INTERFACEID;
+$reference_received=$ligne_response->REF;
+$type_received=$ligne_response->TYPE;
+$statut_received=$ligne_response->STATUT;
+$operateur_received=$ligne_response->OPERATEUR;
+$client_received=$ligne_response->TEL_CLIENT;
+$message_received=$ligne_response->MESSAGE;
+$token_received=$ligne_response->TOKEN;
+$agent_received=$ligne_response->AGENT
+
 include_once 'fonction.php';
-		
-$code_statut = 200;
 
-$_SESSION['code_statut'] = $code_statut;
+$_SESSION['code_statut'] = $statut_received;
 
-$tel = '074'.mt_rand(200040,241743);
+//$tel = '074'.mt_rand(200040,241743);
 
 
  $statut = ($code_statut==200) ? "Succes" : "Echoue" ;
@@ -18,17 +30,17 @@ $tel = '074'.mt_rand(200040,241743);
 
 $requete = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = ? ');
 									
-$requete->execute(array($code_statut,$_SESSION['ref_trans']));
+$requete->execute(array($statut_received,$reference_received));
 
 
 $requete = $bdd->prepare('UPDATE transaction SET statut = ?  WHERE ref_trans = ? ');
 									
-$requete->execute(array($statut,$_SESSION['ref_trans']));
+$requete->execute(array($statut,$reference_received));
 
 
 $requete = $bdd->prepare('UPDATE client SET tel_client = ?  WHERE id_client = ? ');
 
-$requete->execute(array($tel,$_SESSION['id_client']));
+$requete->execute(array($client_received,$_SESSION['id_client']));
 
 
 ///si le $statut est égal à succes
