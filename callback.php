@@ -16,7 +16,7 @@ $operateur_received=$ligne_response->OPERATEUR;
 $client_received=$ligne_response->TEL_CLIENT;
 $message_received=$ligne_response->MESSAGE;
 $token_received=$ligne_response->TOKEN;
-$agent_received=$ligne_response->AGENT
+$agent_received=$ligne_response->AGENT;
 
 include_once 'fonction.php';
 
