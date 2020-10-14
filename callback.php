@@ -86,4 +86,4 @@ $requete->execute(array($_SESSION['id_reservation']));
 ///////////////////////////////////////
 
    
-header("Location: resultat_transaction.php");
+// header("Location: resultat_transaction.php");
