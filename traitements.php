@@ -391,38 +391,38 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		$_SESSION['id_client'] = $id_client;
 
 
-		header('Location: callback.php');
+	//	header('Location: callback.php');
 
 ///////////////////////////////////////////////////fin insertion/////////////////////////////////////////:
 //envoies les infos API mypivit
 
 
-// 	$reponse = $bdd->prepare(" SELECT CONCAT_WS(';',id_operateur,tel_marchand)  AS infos 
+ 	$reponse = $bdd->prepare(" SELECT CONCAT_WS(';',id_operateur,tel_marchand)  AS infos 
 
-// 										FROM compte_marchand  WHERE nom_operateur = ? "); 
+										FROM compte_marchand  WHERE nom_operateur = ? "); 
 
-// 	$reponse->execute(array($_POST['moyen_paiement'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
-
-		
-// 	$donnees = $reponse->fetch();
+ 	$reponse->execute(array($_POST['moyen_paiement'])) or die(print_r($bdd->errorInfo())); //renvoie une erreur en cas d'erreur
 
 		
-// 	$infos = $donnees['infos'];
+ 	$donnees = $reponse->fetch();
 
-// 	$info = explode(';', $infos);
+		
+	$infos = $donnees['infos'];
+
+ 	$info = explode(';', $infos);
 	
-// 	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
-// 	<input type="hidden" name="tel_marchand" value="0'.$info[1].'">	
-// 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
-// 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
-// 	<input type="hidden" name="operateur" value="'.$info[0].'">	
-// 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
-// 	<input type="submit" style="display: none;" value="payer">	
-// 	</form>
-// 	<script type="text/javascript">
-// 		document.getElementById("pvitform").onload();
-// 	</script>';
-// 	echo($pvitform);
+	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
+ 	<input type="hidden" name="tel_marchand" value="0'.$info[1].'">	
+ 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
+	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
+ 	<input type="hidden" name="operateur" value="'.$info[0].'">	
+ 	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
+ 	<input type="submit" style="display: none;" value="payer">	
+ 	</form>
+ 	<script type="text/javascript">
+ 		document.getElementById("pvitform").onload();
+ 	</script>';
+	echo($pvitform);
  
 	/* $ch = curl_init(); 
 
