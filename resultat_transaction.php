@@ -78,11 +78,8 @@ include_once 'fonction.php';
 			
 			<br/><br/><br/><br/>';
 		
-		//	echo'<p style="font-weight: bolder;">si le téléchargement de votre billet ne se déclence pas automatiquement <a id="telchBillet" style="font-weight: bolder;" href="billet.php" target="_blank" >Cliquer ici</a></p>';
-		 
-			$reponse = $bdd->prepare("
 		
-		SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
+	$reponse = $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
 		FROM `reservation`,`client`,`transaction`,`paiement` 
 		WHERE reservation.id_reservation = transaction.id_reservation AND 
 		paiement.ref_trans = transaction.ref_trans  AND client.id_client = transaction.id_client AND reservation.nom_agence = ? 
@@ -93,13 +90,13 @@ include_once 'fonction.php';
 		
 		$donnees = $reponse->fetch();
 
-			echo "		
+		echo "		
 		<div id='succes'  class='centre-text'>
-			<p>votre paiement a été effectué <b>'.$_SESSION["nom"].'</b>, merci et a bientot!</p>
+			<p>votre paiement a été effectué <b>".$_SESSION["nom"]."</b>, merci et a bientot!</p>
 
 			<p style='font-weight: bolder;'>
 			Votre identifiant unique lié à votre réservation est le suivant  
-			<span style='font-size:15px;color:red;'>$donnees['id']</span>
+			<span style='font-size:15px;color:red;'>".$donnees['id']."</span>
 			veuillez présenter ce code à l'agence , ne le divulguez à personne
 			</p>
 			
