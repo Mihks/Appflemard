@@ -1,7 +1,5 @@
 <?php 
-
 session_name('flemadmin');
-
 session_start();
 
 include_once 'fonction.php';
@@ -56,7 +54,7 @@ $reponse->closeCursor();
 
 
 
-if (preg_match('#major|hitu|transporteur#', $_SESSION['agence'])) {
+if (preg_match('#^terrestre$#', $_SESSION['type_agence'])) {
 	
 
 
@@ -125,7 +123,7 @@ if (preg_match('#major|hitu|transporteur#', $_SESSION['agence'])) {
 
 
 
-}elseif (preg_match('#akewa#', $_SESSION['agence'])) {
+}elseif (preg_match('#^maritime$#', $_SESSION['type_agence'])) {
 	
 
 
@@ -211,8 +209,8 @@ if (preg_match('#major|hitu|transporteur#', $_SESSION['agence'])) {
 	
 </body>
 
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery-ui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
 		
 
 	<script >
