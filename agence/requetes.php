@@ -63,7 +63,7 @@ if (!isset($_SESSION['agence'])) {
 	$etat_reservation = filtre($_POST['etat_reservation']);
 
 // 	$statut = (filtre($_POST['etat_reservation'])=='Avorte') ? "Echoue" : filtre($_POST['statut']);
- 	$statut = ($_POST['etat_reservation'])=='Avorte') ? "Echoue" : $_POST['statut'];
+ 	$statut = ($_POST['etat_reservation']=='Avorte') ? "Echoue" : $_POST['statut'];
 
 
 
