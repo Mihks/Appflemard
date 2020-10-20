@@ -3,7 +3,12 @@ session_name("flemard");
 session_start();
 include_once 'fonction.php';
 
-echo '
+
+
+if(isset($SESSION['nom']) && !empty($SESSION['nom']) && isset($SESSION['ref_trans']) && !empty($SESSION['ref_trans']) ){
+
+	
+	echo '
 <!DOCTYPE html>
 <html>
 	<head>
@@ -57,3 +62,4 @@ echo '
 
 		include('agence/includes/footer.php');
     
+}
