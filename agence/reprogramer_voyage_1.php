@@ -141,13 +141,13 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 	$reponse->closeCursor();
 
 
-	$reponse = $bdd->prepare(" SELECT place_dispo(:date_voyage,:trajet,:nom_agence,:heure);");
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE date_voyage = :date_voyage AND nom_trajet = :trajet AND nom_agence = :nom_agence AND horaire = :heure ");
 
 	$reponse->execute(array('date_voyage' => $date,'trajet' =>$trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure));
 
 	$donnee = $reponse->fetch();
 
-	$place_dispo = $donnee[0];
+	$place_dispo = $donnee['nombre_place_dispo'];
 
 	$reponse->closeCursor();
 
