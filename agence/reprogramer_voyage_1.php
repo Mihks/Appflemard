@@ -1,10 +1,6 @@
 <?php 
-
 session_name('flemadmin');
-
 session_start();
-
-
 header('Content-Type: text/html; charset=utf-8'); 
 
 
