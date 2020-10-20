@@ -3,11 +3,37 @@ session_name("flemard");
 session_start();
 include_once 'fonction.php';
 
-echo '<header>
+echo '
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Voyage</title>
+		<meta charset="utf-8"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1 ,target- densitydpi=device-dpi,maximum-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="voyage GABON" />
+		<meta name="author" content="Klein Mihks" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+		
+		<link rel="stylesheet" type="text/css" href="agence/css/style.css">
+		<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.structure.css">
+		<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.theme.min.css">
+		
+
+	
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link rel="shortcut icon" href="agence/images/flemard.jpg" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<header>
+
 			
-				<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
-				<p class="slogan"></p>
-				<span id="heure"></span>
+			<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
+			<p class="slogan"></p>
+			<span id="heure"></span>
 				
 
 				<button class="btn btn-navbar" id="btnMenu">    
@@ -60,7 +86,7 @@ echo '<header>
 			veuillez présenter ce code à l'agence , ne le divulguez à personne il contient tous les coordonnées de votre voyage .
 			</p>
 			
-		</div>";
+		</div></body></html>";
 
 		include('agence/includes/footer.php');
     
