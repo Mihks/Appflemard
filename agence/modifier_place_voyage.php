@@ -1,9 +1,6 @@
 <?php
-
 session_name('flemadmin');
-
 session_start();
-
 
 	include_once 'fonction.php';
 
@@ -28,16 +25,25 @@ $heure = $_POST['heure'];
 
 
 
-
-$reponse = $bdd->prepare(" SELECT place_reserve(?,?,?,?)");
+/////////////////////////////////
+			
+$reponse = $bdd->prepare(" SELECT nombre_place_reserve FROM voyage WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND heure = ? ");
 
 $reponse->execute(array($date,$trajet,$_SESSION['agence'],$heure));
 
 $donnee = $reponse->fetch();
-
-$place_reserve = $donnee[0];
-
+	
+$place_reserve = $donnee['nombre_place_reserve'];
 $reponse->closeCursor();
+
+//////////////////////////////////////////
+// $reponse = $bdd->prepare(" SELECT place_reserve(?,?,?,?)");
+
+// $reponse->execute(array($date,$trajet,$_SESSION['agence'],$heure));
+
+// $donnee = $reponse->fetch();
+
+// $place_reserve = $donnee[0];
 
 $new_place_dispo = $nombre - $place_reserve;
 
@@ -51,8 +57,6 @@ $new_place_dispo = $nombre - $place_reserve;
 // $bdd_nombre_place = $donnee['nombre_place'];
 
 // $reponse->closeCursor();
-
-
 
 
 
