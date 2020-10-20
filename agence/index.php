@@ -1,6 +1,4 @@
 <?php 
-
-
 session_name('flemadmin');
 
 session_start(); 
@@ -2932,7 +2930,7 @@ $('#aide').click(function(){
 
 		var input_id = $('#input_id').val();
 
-		$.post('qrc_id',{id:input_id},function(data){
+		$.post('qrc_id.php',{id:input_id},function(data){
 
 			// $('#result_id').html('Chargement...');
 			
