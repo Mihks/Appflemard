@@ -29,7 +29,7 @@ echo '
 
 <body>
 			
-			<br/><br/><br/><br/>';
+	<br/><br/>';
 		
 		
 	$reponse = $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
