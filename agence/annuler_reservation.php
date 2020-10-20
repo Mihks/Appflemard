@@ -39,9 +39,6 @@ include_once 'fonction.php';
 
 	$id = filtre($_POST['id']);
 
-
-
-
 $rep =  $bdd->prepare(" SELECT  Duree_validite_billet AS duree FROM agence WHERE nom_agence = ? ");
 
 $rep->execute(array($_SESSION['agence']));
@@ -244,8 +241,8 @@ if (preg_match('#^terrestre$#', $_SESSION['type_agence'])) {
 	
 </body>
 
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery-ui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
 		
 
 	<script >
