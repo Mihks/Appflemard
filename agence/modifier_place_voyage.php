@@ -1,8 +1,7 @@
 <?php
 session_name('flemadmin');
 session_start();
-
-	include_once 'fonction.php';
+include_once 'fonction.php';
 
 
 
@@ -11,10 +10,6 @@ if (isset($_SESSION['agence'])) {
 
 
 if (isset($_POST['nombre']) &&  isset($_POST['trajet']) && isset($_POST['date']) && isset($_POST['heure'])) {
-
-
-
-
 $nombre = intval($_POST['nombre']);
 
 $trajet = $_POST['trajet'];
@@ -27,7 +22,7 @@ $heure = $_POST['heure'];
 
 /////////////////////////////////
 			
-$reponse = $bdd->prepare(" SELECT nombre_place_reserve FROM voyage WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND heure = ? ");
+$reponse = $bdd->prepare(" SELECT nombre_place_reserve FROM voyage WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
 
 $reponse->execute(array($date,$trajet,$_SESSION['agence'],$heure));
 
