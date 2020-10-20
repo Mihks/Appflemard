@@ -1,178 +1,76 @@
-
 <?php
-
 session_name("flemard");
-
 session_start(); 
-
 include_once 'fonction.php';
-	
+include_once 'callback.php';
 
-?>
+$statut = ($code_statut==200) ? "Succes" : "Echoue" ;
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>resultat</title>
+$requete = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = ? ');
+									
+$requete->execute(array($statut_received,$reference_received));
 
-	<meta name="viewport" content="width=device-width, initial-scale=1 ,target- densitydpi=device-dpi,maximum-scale=1.0" />
-
-
-	<link rel="stylesheet" href="agence/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="agence/css/jquery-ui.theme.min.css">
+$requete = $bdd->prepare('UPDATE transaction SET statut = ?  WHERE ref_trans = ? ');
+									
+$requete->execute(array($statut,$reference_received));
 
 
-</head>
-<body>
+// $requete = $bdd->prepare('UPDATE client SET tel_client = ?  WHERE id_client = ? ');
 
-	<?php 
-
-
-	if (!isset($_SESSION['code_statut'])) {
-		
-		header("Location:index.php");
-		
-	
-	}else{
+// $requete->execute(array($client_received,$_SESSION['id_client']));
 
 
+///si le $statut est égal à succes
+if(isset($statut_received) && !empty($statut_received) && $statut_received==200){
 
-		if ($_SESSION['code_statut']==200) {
-				
-			echo '<header>
-			
-				<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
-				<p class="slogan"></p>
-				<span id="heure"></span>
-				
+$requete = $bdd->prepare('UPDATE
+     reservation
+   SET etat_voyage_1 = "Valide", etat_voyage_2 = "Valide"
+    WHERE
+        id_reservation = ? ');
 
-				<button class="btn btn-navbar" id="btnMenu">    
-					<span class="icon-bar"></span>    
-					<span class="icon-bar"></span>    
-					<span class="icon-bar"></span> 
-				</button> 
+$requete->execute(array($_SESSION['id_reservation']));
 
 
-				<nav id="nav">
+$requete = $bdd->prepare('UPDATE
+     voyage
+ 	SET nombre_place_dispo = ?, nombre_place_reserve = ? ,nombre_place = ?
+    WHERE
+        date_voyage = ? AND horaire = ? AND nom_trajet = ? AND nom_agence = ? ');
 
-					
-					<div>
-						
-						<ul>
-
-							<li><a href="index.php" class="">Accueil</a></li>
-							<li><a href="index.php#reserve" id="lien-reserve">Reservation</a></li>
-							<li><a href="index.php#a_propos" >A propos de</a></li>
-							<li><a href="index.php#contact">Contact</a></li>
-
-						
-						</ul>
-					</div>
-
-				</nav>	
-
-				<div id="heure"></div>
-
-			</header>
-			
-			<br/><br/><br/><br/>';
-		
-		
-	$reponse = $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
-		FROM `reservation`,`client`,`transaction`,`paiement` 
-		WHERE reservation.id_reservation = transaction.id_reservation AND 
-		paiement.ref_trans = transaction.ref_trans  AND client.id_client = transaction.id_client AND reservation.nom_agence = ? 
-		
-		AND paiement.ref_trans = ? ");
-
-		$reponse->execute(array($_SESSION['_agence'],$_SESSION['ref_trans']));
-		
-		$donnees = $reponse->fetch();
-
-		echo "		
-		<div id='succes'  class='centre-text'>
-			<p>votre paiement a été effectué <b>".$_SESSION["nom"]."</b>, merci et a bientot!</p>
-
-			<p style='font-weight: bolder;'>
-			Votre identifiant unique lié à votre réservation est le suivant  
-			<span style='font-size:15px;color:red;'>".$donnees['id']."</span>
-			veuillez présenter ce code à l'agence , ne le divulguez à personne il contient tous les coordonnées de votre voyage .
-			</p>
-			
-		</div>";
-
-		include('agence/includes/footer.php');
-			
-			
-
-		}else{
-
-			echo '<header>
-			
-				<div class="log"><img src="images/yaga.png" alt="logo" width="53" height="53"></div >
-				<p class="slogan"></p>
-				<span id="heure"></span>
-				
-
-				<button class="btn btn-navbar" id="btnMenu">    
-					<span class="icon-bar"></span>    
-					<span class="icon-bar"></span>    
-					<span class="icon-bar"></span> 
-				</button> 
+$requete->execute(array($_SESSION['new_place_dispo'],$_SESSION['new_place_reserve'],$_SESSION['new_nombre_place'],$_SESSION['date_voyage'],$_SESSION['horaire'],$_SESSION['trajet'],$_SESSION['_agence']));
 
 
-				<nav id="nav">
+if ($_SESSION['type'] =='Aller_retour'){
 
-					
-					<div>
-						
-						<ul>
+$requete = $bdd->prepare('UPDATE
+     voyage
+ 	SET nombre_place_dispo = ?, nombre_place_reserve = ? ,nombre_place = ?
+    WHERE
+        date_voyage = ? AND horaire = ? AND nom_trajet = ? AND nom_agence = ? ');
 
-							<li><a href="index.php" class="">Accueil</a></li>
-							<li><a href="index.php#reserve" id="lien-reserve">Reservation</a></li>
-							<li><a href="index.php#a_propos" >A propos de</a></li>
-							<li><a href="index.php#contact">Contact</a></li>
-
-						
-						</ul>
-					</div>
-
-				</nav>	
-
-				<div id="heure"></div>
-
-			</header>
-			
-			<br/><br/><br/><br/>';
-
-			echo "<div id='echoue'>
-
-			<p class='centre-text'>votre paiement n'a pas été effectué</p>'
-
-		</div>";
-
-		include('agence/includes/footer.php');
-
-
-		
-// Suppression des variables de session et de la session 
-		$_SESSION = array();
-		session_destroy();
-
-		}	
+$requete->execute(array($_SESSION['new_place_dispo_retour'],$_SESSION['new_place_reserve_retour'],$_SESSION['new_nombre_place_retour'],$_SESSION['date_voyage_retour'],$_SESSION['horaire_retour'],$_SESSION['trajet_retour'],$_SESSION['_agence']));
 
 	}
-?>
-		
 	
-</body>
+	header('Location:validate.php');
 
-<script src="agence/js/jquery.min.js"></script>
-<script src="agence/js/jquery-ui.min.js"></script>
-<script src="agence/js/interfaceClient.js"></script>
-</html>
+}else{
+////////////////////////////////
 
 
+/////si $statut est diff de succes
+if($_SESSION['code_statut']!=200){
 
+$requete = $bdd->prepare('UPDATE
+     reservation
+   SET etat_voyage_1 = "Avorte", etat_voyage_2 = "Avorte"
+    WHERE
+        id_reservation = ? ');
+$requete->execute(array($_SESSION['id_reservation']));
 
+}
+	
+header("Location:index.php");
+	
+}
