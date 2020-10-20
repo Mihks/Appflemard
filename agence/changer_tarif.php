@@ -1,9 +1,6 @@
 <?php
-
 session_name('flemadmin');
-
 session_start();
-
 
 if ( isset($_SESSION['agence']) && isset($_POST['nouveau_trajet_tarif']) && isset($_POST['nom_trajet_tarif'])) {
 	
@@ -24,7 +21,7 @@ $nouveau_trajet_tarif = intval($_POST['nouveau_trajet_tarif']);
 $nom_trajet_tarif = $_POST['nom_trajet_tarif'];
 
 
-if (preg_match('#major|hitu|transporteur#', $_SESSION['agence'])) {
+if (preg_match('#^terrestre$#', $_SESSION['type_agence'])) {
 
 
 
@@ -78,7 +75,7 @@ if (preg_match('#major|hitu|transporteur#', $_SESSION['agence'])) {
 
 	}
 
-}elseif (preg_match('#akewa#', $_SESSION['agence'])) {
+}elseif (preg_match('#^maritime$#', $_SESSION['type_agence'])) {
 
 
 
