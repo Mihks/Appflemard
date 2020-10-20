@@ -60,7 +60,7 @@ $requete->execute(array($_SESSION['new_place_dispo_retour'],$_SESSION['new_place
 
 
 /////si $statut est diff de succes
-if($_SESSION['code_statut']!=200){
+if($statut_received!=200){
 
 $requete = $bdd->prepare('UPDATE
      reservation
