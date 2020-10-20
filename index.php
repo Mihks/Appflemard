@@ -1,7 +1,5 @@
 
 <?php 
-
-
 session_name("flemard");
 
  // On écrit un cookie setcookie
