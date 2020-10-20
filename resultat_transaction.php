@@ -14,7 +14,6 @@ $requete = $bdd->prepare('UPDATE transaction SET statut = ?  WHERE ref_trans = ?
 									
 $requete->execute(array($statut,$reference_received));
 
-
 // $requete = $bdd->prepare('UPDATE client SET tel_client = ?  WHERE id_client = ? ');
 
 // $requete->execute(array($client_received,$_SESSION['id_client']));
