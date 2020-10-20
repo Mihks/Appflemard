@@ -106,7 +106,7 @@ $reponse->closeCursor();
 
 
 
-if (preg_match('#^major$|^hitu$|^transporteur$#', $_SESSION['agence'])) {
+if (preg_match('#^terrestre$#', $_SESSION['type_agence'])) {
 	
 	if ($_SESSION['membre']=='administrateur') {
 		# code...
@@ -314,7 +314,7 @@ if (preg_match('#^major$|^hitu$|^transporteur$#', $_SESSION['agence'])) {
 
 		}
 
-}elseif (preg_match('#^akewa$#', $_SESSION['agence'])) {
+}elseif (preg_match('#^maritime$#', $_SESSION['type_agence'])) {
 	
 
 	if (isset($id) && !empty($id) && preg_match("#^[0-9a-zA-Z -]+$#",$id)) {
