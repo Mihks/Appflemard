@@ -1,7 +1,5 @@
 <?php 
-
 session_name('flemadmin');
-
 session_start();
 
 if (!isset($_SESSION['agence'])) {
@@ -22,8 +20,8 @@ if (!isset($_SESSION['agence'])) {
 		<meta charset="utf-8" />
 		<title></title>
 
-		<link rel="stylesheet" type="text/css" href="../css/jquery-ui.structure.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
 	<style type="text/css">
 		#chargement,#aucunResultat{
 
@@ -459,8 +457,8 @@ if (preg_match('#^terrestre$#', $_SESSION['type_agence'])) {
 	
 </body>
 
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery-ui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
 
 		
 
