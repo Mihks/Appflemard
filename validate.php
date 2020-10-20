@@ -34,9 +34,6 @@ echo '<header>
 					</div>
 
 				</nav>	
-
-				<div id="heure"></div>
-
 			</header>
 			
 			<br/><br/><br/><br/>';
