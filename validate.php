@@ -1,10 +1,10 @@
 <?php 
 session_name("flemard");
 session_start();
-include_once 'fonction.php';
+include_once('fonction.php');
+include_once('callback.php');
 
-
-// if(isset($_SESSION['nom']) && !empty($_SESSION['nom']) && isset($_SESSION['ref_trans']) && !empty($_SESSION['ref_trans']) ){
+if(isset( isset($reference_received ) && !empty($reference_received ) ){
 
 	
 	echo '
@@ -36,21 +36,20 @@ include_once 'fonction.php';
 	<br/><br/>';
 		
 		
-	$reponse = $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
+	$reponse = $bdd->prepare("SELECT client.nom, CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
 		FROM reservation,client,transaction,paiement 
 		WHERE reservation.id_reservation = transaction.id_reservation AND 
-		paiement.ref_trans = transaction.ref_trans  AND client.id_client = transaction.id_client AND reservation.nom_agence = ? 
-		
-		AND paiement.ref_trans = ? ");
+		paiement.ref_trans = transaction.ref_trans  AND client.id_client = transaction.id_client AND paiement.ref_trans = ? ");
 
-		$reponse->execute(array($_SESSION['_agence'],$_SESSION['ref_trans']));
+		$reponse->execute(array($reference_received));
 		
 		$donnees = $reponse->fetch();
 		$id = $donnees['id'];
+		$nom = $donnees['nom'];
 		
 	echo "		
-		<div id='succes'  class='centre-text'>
-			<p>votre paiement a été effectué <b>".$_SESSION["nom"]."</b>, merci et a bientot!</p>
+		<div class='centre-text'>
+			<p>votre paiement a été effectué <b>".$nom."</b>, merci et a bientot!</p>
 
 			<p style='font-weight: bolder;'>
 			Votre identifiant unique lié à votre réservation est le suivant  
@@ -61,4 +60,4 @@ include_once 'fonction.php';
 		</div></body></html>";
 
 		include('agence/includes/footer.php');
-  
+}
