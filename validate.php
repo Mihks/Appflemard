@@ -4,7 +4,6 @@ session_start();
 include_once 'fonction.php';
 
 
-
 // if(isset($_SESSION['nom']) && !empty($_SESSION['nom']) && isset($_SESSION['ref_trans']) && !empty($_SESSION['ref_trans']) ){
 
 	
@@ -38,7 +37,7 @@ include_once 'fonction.php';
 		
 		
 	$reponse = $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id
-		FROM `reservation`,`client`,`transaction`,`paiement` 
+		FROM reservation,client,transaction,paiement 
 		WHERE reservation.id_reservation = transaction.id_reservation AND 
 		paiement.ref_trans = transaction.ref_trans  AND client.id_client = transaction.id_client AND reservation.nom_agence = ? 
 		
@@ -47,14 +46,15 @@ include_once 'fonction.php';
 		$reponse->execute(array($_SESSION['_agence'],$_SESSION['ref_trans']));
 		
 		$donnees = $reponse->fetch();
-
-		echo "		
+		$id = $donnees['id'];
+		
+	echo "		
 		<div id='succes'  class='centre-text'>
 			<p>votre paiement a été effectué <b>".$_SESSION["nom"]."</b>, merci et a bientot!</p>
 
 			<p style='font-weight: bolder;'>
 			Votre identifiant unique lié à votre réservation est le suivant  
-			<span style='font-size:15px;color:red;'>".$donnees['id']."</span>
+			<span style='font-size:15px;color:red;'>".$id."</span>
 			veuillez présenter ce code à l'agence , ne le divulguez à personne il contient tous les coordonnées de votre voyage .
 			</p>
 			
