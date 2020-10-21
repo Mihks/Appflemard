@@ -124,7 +124,7 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 	if (preg_match("#Aller|Unique#", $type_reserv)) {
 			
 
-	$reponse = $bdd->prepare(" SELECT trajet,nombre_place,date_retour,type_reservation AS type FROM reservation WHERE id_reservation = ? ");
+	$reponse = $bdd->prepare(" SELECT trajet,nombre_place,date_retour,type_reservation AS type, date_depart , heure_depart ,heure_retour FROM reservation WHERE id_reservation = ? ");
 
 	$reponse->execute(array($id));
 
@@ -134,21 +134,36 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 
 	$nombre_place = $donnee['nombre_place'];
 
-	$date_retour = $donnee['date_retour']; 
+	$date_retour = $donnee['date_retour'];
+	$heure_retour = $donnee['heure_retour'];
+	
+	$date_depart = $donnee['date_depart'];
+	$heure_depart = $donnee['heure_depart'];
 
 	$type = $donnee['type'];
 
 	$reponse->closeCursor();
 
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo , nombre_place_reserve FROM voyage WHERE date_voyage = :date_voyage AND nom_trajet = :trajet AND nom_agence = :nom_agence AND horaire = :heure ");
 
-	$reponse = $bdd->prepare(" SELECT nombre_place_dispo FROM voyage WHERE date_voyage = :date_voyage AND nom_trajet = :trajet AND nom_agence = :nom_agence AND horaire = :heure ");
+	$reponse->execute(array('date_voyage' => $date_depart,'trajet' =>$trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure_depart));
+		
+	$donnee = $reponse->fetch();
+
+	$old_place_dispo = $donnee['nombre_place_dispo'];
+	$old_place_reserve = $donnee['nombre_place_reserve'];
+	
+	
+		
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo , nombre_place_reserve FROM voyage WHERE date_voyage = :date_voyage AND nom_trajet = :trajet AND nom_agence = :nom_agence AND horaire = :heure ");
 
 	$reponse->execute(array('date_voyage' => $date,'trajet' =>$trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure));
 
 	$donnee = $reponse->fetch();
 
 	$place_dispo = $donnee['nombre_place_dispo'];
-
+	$place_reserve = $donnee['nombre_place_reserve'];
+		
 	$reponse->closeCursor();
 
 	if ( $place_dispo >= $nombre_place) {
@@ -182,6 +197,21 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 				$reponse = $bdd->prepare("UPDATE transaction SET date_reservation = NOW()  WHERE id_reservation =  ?   ");
 
 				$reponse->execute(array($id));
+				
+				/////New voyage
+				$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ?  WHERE WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
+				
+				$new_place_dispo = $_place_dispo - $nombre_place
+				$new_place_reserve = $place_reserve + $nombre_place
+				$reponse->execute(array($new_place_dispo,$new_place_reserve,$date,$trajet,$_SESSION['agence'],$heure));
+				
+				//////ancien
+				$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ?  WHERE WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
+
+				$new_place_dispo = $old_place_dispo + $nombre_place
+				$new_place_reserve = $old_place_reserve - $nombre_place
+				$reponse->execute(array($new_place_dispo,$new_place_reserve,$date_depart,$trajet,$_SESSION['agence'],$heure_depart));
+				
 
 			
 				echo "<div class='Resultat_reprog'>La modification s'est effectuée avec succès ! <img src='images/accept.png' /></div>";
@@ -273,17 +303,34 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 	$reponse->closeCursor();
 
 
-	$reponse = $bdd->prepare(" SELECT place_dispo(:date_voyage,:trajet,:nom_agence,:heure);");
+// 	$reponse = $bdd->prepare(" SELECT place_dispo(:date_voyage,:trajet,:nom_agence,:heure);");
+
+// 	$reponse->execute(array('date_voyage' => $date,'trajet' =>$trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure));
+
+// 	$donnee = $reponse->fetch();
+
+// 	$place_dispo = $donnee[0];
+
+// 	$reponse->closeCursor();
+
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo , nombre_place_reserve FROM voyage WHERE date_voyage = :date_voyage AND nom_trajet = :trajet AND nom_agence = :nom_agence AND horaire = :heure ");
+
+	$reponse->execute(array('date_voyage' => $date_retour,'trajet' =>$trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure_retour));
+		
+	$donnee = $reponse->fetch();
+
+	$old_place_dispo = $donnee['nombre_place_dispo'];
+	$old_place_reserve = $donnee['nombre_place_reserve'];
+	
+		
+	$reponse = $bdd->prepare(" SELECT nombre_place_dispo , nombre_place_reserve FROM voyage WHERE date_voyage = :date_voyage AND nom_trajet = :trajet AND nom_agence = :nom_agence AND horaire = :heure ");
 
 	$reponse->execute(array('date_voyage' => $date,'trajet' =>$trajet,'nom_agence' => $_SESSION['agence'],'heure' => $heure));
 
 	$donnee = $reponse->fetch();
 
-	$place_dispo = $donnee[0];
-
-	$reponse->closeCursor();
-
-
+	$place_dispo = $donnee['nombre_place_dispo'];
+	$place_reserve = $donnee['nombre_place_reserve'];
 		
 	
 	if ($place_dispo >= $nombre_place ) {
@@ -304,9 +351,7 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 			
 			$rep->closeCursor();
 
-
 			$penalite = $ancienPenalite + $penalite;
-
 
 			$reponse = $bdd->prepare(" UPDATE reservation SET date_retour = ? , heure_retour = ? , nbre_x_reserv_reprog_2 = ? , penalite_2 = ? WHERE nom_agence = ? AND id_reservation =  ?   ");
 
@@ -317,6 +362,20 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 
 			$reponse->execute(array($id));
 
+			/////New voyage
+			$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ?  WHERE WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
+				
+			$new_place_dispo = $_place_dispo - $nombre_place
+			$new_place_reserve = $place_reserve + $nombre_place
+			$reponse->execute(array($new_place_dispo,$new_place_reserve,$date,$trajet,$_SESSION['agence'],$heure));
+				
+			//////Ancien
+			$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ?  WHERE WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
+
+			$new_place_dispo = $old_place_dispo + $nombre_place
+			$new_place_reserve = $old_place_reserve - $nombre_place
+			$reponse->execute(array($new_place_dispo,$new_place_reserve,$date_depart,$trajet,$_SESSION['agence'],$heure_depart));
+				
 			
 			echo "<div class='Resultat_reprog'>La modification s'est effectuée avec succès <img src='images/accept.png' /></div>";
 		
