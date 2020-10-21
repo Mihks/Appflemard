@@ -1,8 +1,5 @@
 <?php
-
 session_name("flemard");
-
-
 session_start(); ?>
 
 <!DOCTYPE html>
