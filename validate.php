@@ -5,7 +5,6 @@ include_once('fonction.php');
 include_once('callback.php');
 
 if(isset($reference_received ) && !empty($reference_received ) ){
-
 	
 	echo '
 <!DOCTYPE html>
