@@ -200,7 +200,7 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 				/////New voyage
 				$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ? WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
 				
-				$new_place_dispo = $_place_dispo - $nombre_place;
+				$new_place_dispo = $place_dispo - $nombre_place;
 				$new_place_reserve = $place_reserve + $nombre_place;
 				$reponse->execute(array($new_place_dispo,$new_place_reserve,$date,$trajet,$_SESSION['agence'],$heure));
 				
@@ -256,7 +256,7 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 				/////New voyage
 				$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ? WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
 				
-				$new_place_dispo = $_place_dispo - $nombre_place;
+				$new_place_dispo = $place_dispo - $nombre_place;
 				$new_place_reserve = $place_reserve + $nombre_place;
 				$reponse->execute(array($new_place_dispo,$new_place_reserve,$date,$trajet,$_SESSION['agence'],$heure));
 				
@@ -378,7 +378,7 @@ if ( $etat != 'Effectue' AND date('Y-m-d') <= $date_limit) {
 			/////New voyage
 			$reponse = $bdd->prepare("UPDATE voyage SET nombre_place_dispo = ? , nombre_place_reserve = ? WHERE date_voyage = ? AND nom_trajet = ? AND nom_agence = ? AND horaire = ? ");
 				
-			$new_place_dispo = $_place_dispo - $nombre_place;
+			$new_place_dispo = $place_dispo - $nombre_place;
 			$new_place_reserve = $place_reserve + $nombre_place;
 			$reponse->execute(array($new_place_dispo,$new_place_reserve,$date,$trajet,$_SESSION['agence'],$heure));
 				
