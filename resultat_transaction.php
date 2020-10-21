@@ -5,9 +5,6 @@ include_once 'fonction.php';
 include_once 'callback.php';
 
 
-
-$statut_received = 200;
-
 $statut = ($statut_received==200) ? "Succes" : "Echoue" ;
 
 $requete = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = ? ');
@@ -74,6 +71,6 @@ $requete->execute(array($_SESSION['id_reservation']));
 
 }
 	
-header("Location:index.php");
+header("Location:validate.php");
 	
 }
