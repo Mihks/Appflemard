@@ -7,7 +7,8 @@ include_once 'callback.php';
 
 
 $statut_received = 200;
-$statut = ($code_statut==200) ? "Succes" : "Echoue" ;
+
+$statut = ($statut_received==200) ? "Succes" : "Echoue" ;
 
 $requete = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = ? ');
 									
