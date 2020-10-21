@@ -5,7 +5,7 @@ include_once 'fonction.php';
 
 
 
-if(isset($_SESSION['nom']) && !empty($_SESSION['nom']) && isset($_SESSION['ref_trans']) && !empty($_SESSION['ref_trans']) ){
+// if(isset($_SESSION['nom']) && !empty($_SESSION['nom']) && isset($_SESSION['ref_trans']) && !empty($_SESSION['ref_trans']) ){
 
 	
 	echo '
@@ -61,5 +61,4 @@ if(isset($_SESSION['nom']) && !empty($_SESSION['nom']) && isset($_SESSION['ref_t
 		</div></body></html>";
 
 		include('agence/includes/footer.php');
-    
-}
+  
