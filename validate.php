@@ -4,7 +4,7 @@ session_start();
 include_once('fonction.php');
 include_once('callback.php');
 
-if(isset( isset($reference_received ) && !empty($reference_received ) ){
+if(isset($reference_received ) && !empty($reference_received ) ){
 
 	
 	echo '
