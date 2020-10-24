@@ -22,23 +22,26 @@ echo('<!DOCTYPE html>
 </div>
 
 <div>
-	<label>Gain agence</label><input type="text" value="300000" />
-	<label>Com. Flemard</label><input type="text" value="100000" />
-	<label>Gain Total</label><input type="text" value="400000" />
+// 	<label>Gain agence</label><input type="text" value="300000" />
+// 	<label>Com. Flemard</label><input type="text" value="100000" />
+// 	<label>Gain Total</label><input type="text" value="400000" />
 
 <form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" >
- 	<select name="tel_marchand" >
+
+Tel Marchand
+<select name="tel_marchand" >
  		<option value="077565805">Airtel Money</option>
  		<option value="062691284">Mobi Cash</option>
  	</select>
+	
 	Montant
-	<input type="text" name="montant" value="100">	
+	<input type="text" name="montant" value="100" />	
 	
-	<input type="hidden" name="ref" value="'.$ref.'">
+	<input type="hidden" name="ref" value="'.$ref.'" />
 	
-	<input type="hidden" name="action" value="2">
+	<input type="hidden" name="action" value="2" />
 	
-	<input type="hidden" name="service" value="REST">
+	<input type="hidden" name="service" value="REST" />
 	
 	<select name="tel_client" >
  		<option value="074872120">Mihky</option>
@@ -50,8 +53,8 @@ echo('<!DOCTYPE html>
  		<option value="MC">Mobi Cash</option>
  	</select>
 
- <input type="hidden" name="token" value="'.$donnees['token'].'">	
- 	<input type="submit" value="payer">	
+ <input type="hidden" name="token" value="'.$donnees['token'].'" />	
+ 	<input type="submit" value="payer" />	
  </form>
 </div></body>
 </html>
