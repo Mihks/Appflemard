@@ -4,6 +4,8 @@ session_start();
 include_once 'fonction.php';
 include_once 'callback.php';
 
+$_SESSION['ref']= $reference_received;
+
 ///si le $statut est égal à succes
 if(isset($statut_received) && !empty($statut_received) && $statut_received==200){	
 	
@@ -81,6 +83,7 @@ $requete = $bdd->prepare('UPDATE
 $requete->execute(array($new_place_dispo,$new_place_reserve,$donnees['date_retour'],$donnees['heure_retour'],$donnees['trajet_retour'],$donnees['nom_agence']));
 
 	}
+	
 	
 	header('Location:validate.php');
 
