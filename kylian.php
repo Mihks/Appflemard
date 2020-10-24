@@ -1,9 +1,10 @@
 <?php
+
 include_once('fonction.php');
 
 $ref = uniqid();
 
-$reponse = $bdd->exec(" SELECT token FROM compte_marchand ");
+$reponse = $bdd->query(" SELECT token FROM compte_marchand LIMIT 1 ");
 		
 $donnees = $reponse->fetch();
 
