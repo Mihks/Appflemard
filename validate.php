@@ -54,7 +54,7 @@ if(isset($reference_received ) && !empty($reference_received ) ){
 			<p style='font-weight: bolder;'>
 			Votre identifiant unique lié à votre réservation est le suivant  
 			<span style='font-size:15px;color:red;'>".$id."</span>
-			veuillez présenter ce code à l'agence , ne le divulguez à personne il contient tous les coordonnées de votre voyage .
+			veuillez présenter ce code à l'agence , ne le divulguez à personne il contient tous les coordonnées de votre voyage <a href='index.php'>Retour</a>.
 			</p>
 			
 		</div></body></html>";
