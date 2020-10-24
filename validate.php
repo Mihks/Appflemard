@@ -2,7 +2,8 @@
 session_name("flemard");
 session_start();
 include_once('fonction.php');
-include_once('callback.php');
+
+$reference_received = $_SESSION['ref'];
 
 if(isset($reference_received ) && !empty($reference_received ) ){
 	
