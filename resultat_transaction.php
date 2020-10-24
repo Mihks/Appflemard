@@ -103,6 +103,6 @@ $requete->execute(array($donnees['id_reservation']));
 
 }
 	
-header("Location:validate.php");
+header("Location:index.php");
 	
 }
