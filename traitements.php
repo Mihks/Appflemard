@@ -125,7 +125,7 @@ $_SESSION['nom'] = $_POST['nom']; ///////
 	
 	$_SESSION['new_place_reserve'] = $donnees['nombre_place_reserve'] + $_POST['nombre_billet'] ;
 	
-	$_SESSION['new_nombre_place'] = $donnees['new_place_dispo'] + $_POST['new_place_reserve'] ;
+// 	$_SESSION['new_nombre_place'] = $donnees['new_place_dispo'] + $_POST['new_place_reserve'] ;
 	
 
 	if (preg_match('#Aller_retour#', $_POST['type_billet'])) {
@@ -151,9 +151,6 @@ $_SESSION['nom'] = $_POST['nom']; ///////
 		$_SESSION['new_place_dispo_retour'] = $donnees['nombre_place_dispo'] - $_POST['nombre_billet'] ;
 	
 		$_SESSION['new_place_reserve_retour'] = $donnees['nombre_place_reserve'] + $_POST['nombre_billet'] ;
-	
-		$_SESSION['new_nombre_place_retour'] = $donnees['new_place_dispo_retour'] + $_POST['new_place_reserve_retour'] ;
-
 	
 	}
 	
@@ -410,7 +407,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 	
 	$pvitform = '<form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" onload="this.submit();">
  	<input type="hidden" name="tel_marchand" value="0'.$info[1].'">	
- 	<input type="hidden" name="montant" value="'.$_SESSION['montant'].'">	
+ 	<input type="hidden" name="montant" value="100">	
 	<input type="hidden" name="ref" value="'.$_SESSION['ref_trans'].'">	
  	<input type="hidden" name="operateur" value="'.$info[0].'">	
  	<input type="hidden" name="redirect" value="https://flemardapp.herokuapp.com/resultat_transaction.php">	
