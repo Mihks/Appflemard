@@ -31,14 +31,22 @@ echo('<!DOCTYPE html>
  		<option value="077565805">Airtel Money</option>
  		<option value="062691284">Mobi Cash</option>
  	</select>
- 	<input type="text" name="montant" value="100">	
+	Montant
+	<input type="text" name="montant" value="100">	
+	
 	<input type="hidden" name="ref" value="'.$ref.'">
+	
 	<input type="hidden" name="action" value="2">
+	
 	<input type="hidden" name="service" value="REST">
+	
 	<select name="tel_client" >
  		<option value="074872120">Mihky</option>
  	</select>
- 		<option value="AM">Airtel Money</option>
+	
+	Operateur
+	<select>
+		<option value="AM">Airtel Money</option>
  		<option value="MC">Mobi Cash</option>
  	</select>
 
