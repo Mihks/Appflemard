@@ -1,5 +1,8 @@
+<!-- // 	<label>Gain agence</label><input type="text" value="300000" />
+// 	<label>Com. Flemard</label><input type="text" value="100000" />
+// 	<label>Gain Total</label><input type="text" value="400000" />
+ -->
 <?php
-
 include_once('fonction.php');
 
 $ref = uniqid();
@@ -8,8 +11,8 @@ $reponse = $bdd->query(" SELECT token FROM compte_marchand LIMIT 1 ");
 		
 $donnees = $reponse->fetch();
 
-
 echo('<!DOCTYPE html>
+
 <html>
 <head>
 	<title>Redistribution</title>
@@ -22,9 +25,6 @@ echo('<!DOCTYPE html>
 </div>
 
 <div>
-// 	<label>Gain agence</label><input type="text" value="300000" />
-// 	<label>Com. Flemard</label><input type="text" value="100000" />
-// 	<label>Gain Total</label><input type="text" value="400000" />
 
 <form id="pvitform" method="POST" action="https://mypvit.com/pvit-secure-full-api.kk" >
 
@@ -43,6 +43,7 @@ Tel Marchand
 	
 	<input type="hidden" name="service" value="REST" />
 	
+	Agence
 	<select name="tel_client" >
  		<option value="074872120">Mihky</option>
  	</select>
@@ -59,4 +60,3 @@ Tel Marchand
 </div></body>
 </html>
 ');
-
