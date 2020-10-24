@@ -5,7 +5,7 @@
 <?php
 
 
-echo(phpinfo);
+echo(phpinfo());
 // include_once('fonction.php');
 
 // $ref = uniqid();
