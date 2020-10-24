@@ -26,7 +26,7 @@ $reponse = $bdd->prepare("SELECT reservation.type_reservation,reservation.nombre
 	reservation.trajet_retour,reservation.date_retour,reservation.heure_retour,nom_agence 
 	FROM reservation,transaction 
 	WHERE reservation.id_reservation = transaction.id_reservation
-	AND reservation.ref_trans = ? ") :
+	AND transaction.ref_trans = ? ") :
 $reponse->execute(array($reference_received));
 
 $donnees = $reponse->fetch();
