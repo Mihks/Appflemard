@@ -17,8 +17,8 @@ curl_setopt($ch, CURLOPT_URL,"https://mypvit.com/pvit-secure-full-api.kk");
 curl_setopt($ch, CURLOPT_POSTFIELDS,
 "tel_marchand=077565805
 &montant=100
-&ref='.$ref.'&tel_client=074872120
-&token='.$token.'&action=2
+&ref=".$ref."&tel_client=074872120
+&token=".$token."&action=2
 &service=REST
 &operateur=AM
 &agent=caisse3");
