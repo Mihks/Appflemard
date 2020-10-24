@@ -19,6 +19,7 @@
 				<p><strong>Heures d’ouverture</strong></p>
 				<p>Du lundi au vendredi : 9h00–17h00</p>
 				<p>Les samedi et dimanche : 11h00–15h00</p>
+				<p>Flemard</p>
 
 
 			</div>
