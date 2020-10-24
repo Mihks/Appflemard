@@ -4,6 +4,9 @@ session_start();
 include_once 'fonction.php';
 include_once 'callback.php';
 
+///si le $statut est égal à succes
+if(isset($statut_received) && !empty($statut_received) && $statut_received==200){	
+	
 $statut = ($statut_received==200) ? "Succes" : "Echoue";
 
 $requete = $bdd->prepare('UPDATE paiement SET code_statut = ? WHERE ref_trans = ? ');
@@ -24,9 +27,8 @@ $reponse = $bdd->prepare("SELECT reservation.type_reservation,reservation.nombre
 	reservation.id_reservation,reservation.trajet,
 	reservation.date_depart,reservation.heure_depart,
 	reservation.trajet_retour,reservation.date_retour,reservation.heure_retour,nom_agence 
-	FROM reservation,transaction 
-	WHERE reservation.id_reservation = transaction.id_reservation
-	AND transaction.ref_trans = ? ") :
+	FROM reservation,paiement 
+	WHERE reservation.id_reservation = paiement.id_reservation AND paiement.ref_trans = ? ") :
 $reponse->execute(array($reference_received));
 
 $donnees = $reponse->fetch();
@@ -41,11 +43,6 @@ $new_place_dispo = $donnee['nombre_place_dispo'] - $donnees['nombre_place'] ;
 	
 $new_place_reserve = $donnee['nombre_place_reserve'] + $donnees['nombre_place'] ;
 	
-
-
-///si le $statut est égal à succes
-if(isset($statut_received) && !empty($statut_received) && $statut_received==200){
-
 $requete = $bdd->prepare('UPDATE
      reservation
    SET etat_voyage_1 = "Valide", etat_voyage_2 = "Valide"
@@ -54,7 +51,6 @@ $requete = $bdd->prepare('UPDATE
 
 $requete->execute(array($donnees['id_reservation']));
 
-	
 $requete = $bdd->prepare('UPDATE
      voyage
  	SET nombre_place_dispo = ?, nombre_place_reserve = ? 
