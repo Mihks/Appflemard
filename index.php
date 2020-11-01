@@ -268,13 +268,18 @@ include_once 'fonction.php';
 
 		<script> 
 			$(function() {
-
-
-			$('.img-diaspo').first().fadeOut(2000, function suivante() {
-			$(this).next('.img-diaspo').fadeOut(2000,suivante);
-			});
-			
-			setInterval(suivante, 8000);
+			var i=0;
+			affiche();
+			function affiche() {
+			i++;
+			if (i==1) precedent = '#img5'
+			else precedent = '#img' + (i-1);
+			var actuel = '#img' + i;
+			$(precedent).fadeOut(2000);
+			$(actuel).fadeIn(2000);
+			if (i==5) i=0;
+			} 
+			setInterval(affiche, 2000);
 
 			$(".slogan").html("Donner un Sens à votre Flemme !").css("font-size","small").css("color","rgb(0,128,128)").css("text-decoration","underline").css("text-decoration-color","orange");
 
