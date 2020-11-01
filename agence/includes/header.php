@@ -1,7 +1,7 @@
 
 		<header>
 		
-			<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div >
+			<div class="log"><img src="agence/images/yaga.png" alt="logo" width="53" height="53"></div>
 			<p class="slogan"></p>
 			<span id="heure"></span>
 			
@@ -32,4 +32,4 @@
 
 		</header>
 
-		<br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/>
