@@ -154,7 +154,7 @@ le corps
  		display: block;
  		}
 
- 	 .img-diaspo,#imaga{
+ 	 #imaga{
  			
  		
  		width: 20%;
@@ -176,10 +176,10 @@ le corps
 
  	}
 
- 	.img-diaspo,.centre-text,#imaga{
+ 	.centre-text,#imaga{
 
  		display: block;
-		
+
  		
  	}
 
@@ -188,8 +188,6 @@ le corps
 
 
 }
-
-
  /* Mise en page pour tablettes 
  
  /* Mise en page pour les grands écrans 
@@ -281,7 +279,7 @@ le corps
  		display: block;
  		}
 
- 	 .img-diaspo,#imaga{
+ 	 #imaga{
  			
  		
  		width: 200px;
@@ -301,7 +299,7 @@ le corps
 
  	}
 
- 	.img-diaspo,.centre-text,#imaga{
+ 	.centre-text,#imaga{
 
  		display: block;
 
@@ -316,6 +314,7 @@ le corps
 
 
 
+
 body{
 
 	margin: 0px;
@@ -323,13 +322,10 @@ body{
 	background-color: #f0f0f0;
 	line-height: 1.5;
 	
-}
-
-.img-diaspo{
 	
-	display : none;
 
 }
+
 
 .btn {    
 	display: inline-block;    
@@ -617,13 +613,13 @@ formulaire
 
 
 
-.img-diaspo,#imaga,.centre-text{
+#imaga,.centre-text{
 
 	display: inline-block;
 	
 }
 
-.img-diaspo,#imaga{
+#imaga{
 
 	border-radius: 5px;
 	margin-left: 5px;
