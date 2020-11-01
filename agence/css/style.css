@@ -12,6 +12,11 @@ le corps
 #img5 {z-index: 5;}
  */
 
+.img-diaspo{
+position: absolute; // Les images vont se superposer
+
+}
+
  @media screen and (max-width: 480px) {
 	
  	#payer{
