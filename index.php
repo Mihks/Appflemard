@@ -56,11 +56,11 @@ include_once 'fonction.php';
 		
 		<div style='height:300px;width:300px;'>
 		
-			<img class="img-diapo" src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
-			<img class="img-diapo" src="agence//images/unnamed.jpg" id="img4">
-			<img class="img-diapo" src="agence/images/FACEBOOK_RESERVATION_LIGNE.jpg" id="img3">
-			<img class="img-diapo" src="agence/images/6.png" id="img2">
-			<img class="img-diapo" src="agence/images/presentation.jpg" id="img1">
+			<img class="img-diaspo" src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
+			<img class="img-diaspo" src="agence//images/unnamed.jpg" id="img4">
+			<img class="img-diaspo" src="agence/images/FACEBOOK_RESERVATION_LIGNE.jpg" id="img3">
+			<img class="img-diaspo" src="agence/images/6.png" id="img2">
+			<img class="img-diaspo" src="agence/images/presentation.jpg" id="img1">
 		
 		</div>
 
