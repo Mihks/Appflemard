@@ -5,7 +5,12 @@ le corps
 ----------------------------
 
  */
-
+#img1 {z-index: 1;}
+#img2 {z-index: 2;}
+#img3 {z-index: 3;}
+#img4 {z-index: 4;}
+#img5 {z-index: 5;}
+#img6 {z-index: 6;}
 
  @media screen and (max-width: 480px) {
 	
