@@ -54,7 +54,7 @@ include_once 'fonction.php';
 
 		<?php include_once 'agence/includes/header.php'; ?>
 		
-		<section style='overflow:auto;height: 80%;'>
+		<section>
 			
 		<div align='center'>
 			<div class="slideshow">
