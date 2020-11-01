@@ -54,7 +54,7 @@ include_once 'fonction.php';
 
 		<?php include_once 'agence/includes/header.php'; ?>
 		
-		<div>
+		<div style='height:300px;width:300px;'>
 		
 			<img class="img-diapo" src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
 			<img class="img-diapo" src="agence//images/unnamed.jpg" id="img4">
