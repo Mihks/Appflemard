@@ -67,13 +67,20 @@ include_once 'fonction.php';
 			</div>
 
 <!-- 			<img class="img-diaspo" src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" height='200' width='250' id="img6" /> -->
-			<img class="img-diaspo" height='200' width='250' src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
+<!-- 			<img class="img-diaspo" height='200' width='250' src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
 			<img class="img-diaspo" height='200' width='250' src="agence//images/unnamed.jpg" id="img4">
 			<img class="img-diaspo" height='200' width='250' src="agence/images/FACEBOOK_RESERVATION_LIGNE.jpg" id="img3">
 			<img class="img-diaspo" height='200' width='250' src="agence/images/6.png" id="img2">
-			<img class="img-diaspo" height='200' width='250' src="agence/images/presentation.jpg" id="img1">	
+			<img class="img-diaspo" height='200' width='250' src="agence/images/presentation.jpg" id="img1">	 -->
 
-			
+			<div class="slideshow">
+				<ul>
+					<li><img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" alt="" width="350" height="200" /></li>
+					<li><img src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" alt="" width="350" height="200" /></li>
+					<li><img src="agence//images/unnamed.jpg" alt="" width="350" height="200" /></li>
+					<li><img src="agence/images/6.png" alt="" width="350" height="200" /></li>
+				</ul>
+			</div>
 <!-- Start Form-->
 			<h2 id="reserve">Réservation</h2>
 
@@ -262,19 +269,13 @@ include_once 'fonction.php';
 
 		<script> 
 			$(function() {
-			var i=0;
-			affiche();
-			function affiche() {
-			i++;
-			if (i==1) precedent = '#img5'
-			else precedent = '#img' + (i-1);
-			var actuel = '#img' + i;
-			$(precedent).fadeOut(2000);
-			$(actuel).fadeIn(2000);
-			if (i==5) i=0;
-			} 
-			setInterval(affiche, 2000);
-
+			 
+			setInterval(function(){
+         			$(".slideshow ul").animate({marginLeft:-350},800,function(){
+            			$(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
+         			})
+      			}, 3500);
+				
 			$(".slogan").html("Donner un Sens à votre Flemme !").css("font-size","small").css("color","rgb(0,128,128)").css("text-decoration","underline").css("text-decoration-color","orange");
 
 			//met une largeur de 200px à toutes les entrées du formulaire(input,textarea,button,select) sauf a l"input
