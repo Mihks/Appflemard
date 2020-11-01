@@ -179,7 +179,7 @@ le corps
  	.img-diaspo,.centre-text,#imaga{
 
  		display: block;
-
+		
  		
  	}
 
@@ -188,6 +188,8 @@ le corps
 
 
 }
+
+
  /* Mise en page pour tablettes 
  
  /* Mise en page pour les grands écrans 
@@ -321,10 +323,13 @@ body{
 	background-color: #f0f0f0;
 	line-height: 1.5;
 	
-	
-
 }
 
+.img-diaspo{
+	
+	display : none;
+
+}
 
 .btn {    
 	display: inline-block;    
