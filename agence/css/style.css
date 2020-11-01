@@ -154,7 +154,7 @@ le corps
  		display: block;
  		}
 
- 	 #imaga{
+ 	 .img-diaspo,#imaga{
  			
  		
  		width: 20%;
@@ -176,7 +176,7 @@ le corps
 
  	}
 
- 	.centre-text,#imaga{
+ 	.img-diaspo,.centre-text,#imaga{
 
  		display: block;
 
@@ -279,7 +279,7 @@ le corps
  		display: block;
  		}
 
- 	 #imaga{
+ 	 .img-diaspo,#imaga{
  			
  		
  		width: 200px;
@@ -299,7 +299,7 @@ le corps
 
  	}
 
- 	.centre-text,#imaga{
+ 	.img-diaspo,.centre-text,#imaga{
 
  		display: block;
 
@@ -311,15 +311,6 @@ le corps
 
  }
 
-
-.img-diaspo{
-
-position: fixed; left: 120px; top: 120px;
-height:100px;
-width: 100px;
-display: none; // Par défaut, elles ne seront pas affichées
-
-}
 
 
 
@@ -621,13 +612,13 @@ formulaire
 
 
 
-#imaga,.centre-text{
+.img-diaspo,#imaga,.centre-text{
 
 	display: inline-block;
 	
 }
 
-#imaga{
+.img-diaspo,#imaga{
 
 	border-radius: 5px;
 	margin-left: 5px;
