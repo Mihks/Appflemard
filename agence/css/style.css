@@ -22,7 +22,7 @@ position: absolute; // Les images vont se superposer
    height: 200px;
    overflow: hidden;
    border: 3px solid red;
-   padding-left: 550px;
+   margin-left: 550px;
 }
 
 .slideshow ul {
