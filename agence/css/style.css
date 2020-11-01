@@ -314,7 +314,7 @@ le corps
 
 .img-diaspo{
 
-position: absolute; left: 0px; top: 0px;
+position: fixed; left: 120px; top: 120px;
 height:100px;
 width: 100px;
 }
