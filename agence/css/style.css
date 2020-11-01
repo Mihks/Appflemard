@@ -317,13 +317,9 @@ le corps
 position: fixed; left: 120px; top: 120px;
 height:100px;
 width: 100px;
-}
+display: none; // Par défaut, elles ne seront pas affichées
 
-#img1 {z-index: 1;}
-#img2 {z-index: 2;}
-#img3 {z-index: 3;}
-#img4 {z-index: 4;}
-#img5 {z-index: 5;}
+}
 
 
 
