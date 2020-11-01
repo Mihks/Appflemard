@@ -273,6 +273,8 @@ include_once 'fonction.php';
 			$('.img-diaspo').first().fadeOut(2000, function suivante() {
 			$(this).next('.img-diaspo').fadeOut(2000,suivante);
 			});
+			
+			setInterval(suivante, 8000);
 
 			$(".slogan").html("Donner un Sens à votre Flemme !").css("font-size","small").css("color","rgb(0,128,128)").css("text-decoration","underline").css("text-decoration-color","orange");
 
