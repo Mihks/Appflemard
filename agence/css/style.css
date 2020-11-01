@@ -21,7 +21,7 @@ position: absolute; // Les images vont se superposer
    width: 350px;
    height: 200px;
    overflow: hidden;
-   border: 3px solid #F2F2F2;
+   border: 3px solid red;
    padding-left: 550px;
 }
 
