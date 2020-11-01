@@ -66,7 +66,7 @@ include_once 'fonction.php';
 				<p>Tout juste après avoir effectué votre paiement , un identifiant unique s'affiche en rouge , ce dernier contient toutes les coordonnées de votre réservation , il est à présenter à l'agence sollicitée. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
 			</div>
 
-			<img class="img-diaspo" src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" height='200' width='250' id="img6" />
+<!-- 			<img class="img-diaspo" src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" height='200' width='250' id="img6" /> -->
 			<img class="img-diaspo" height='200' width='250' src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
 			<img class="img-diaspo" height='200' width='250' src="agence//images/unnamed.jpg" id="img4">
 			<img class="img-diaspo" height='200' width='250' src="agence/images/FACEBOOK_RESERVATION_LIGNE.jpg" id="img3">
@@ -266,12 +266,12 @@ include_once 'fonction.php';
 			affiche();
 			function affiche() {
 			i++;
-			if (i==1) precedent = '#img6'
+			if (i==1) precedent = '#img5'
 			else precedent = '#img' + (i-1);
 			var actuel = '#img' + i;
 			$(precedent).fadeOut(2000);
 			$(actuel).fadeIn(2000);
-			if (i==6) i=0;
+			if (i==5) i=0;
 			} 
 			setInterval(affiche, 2000);
 
