@@ -1,21 +1,11 @@
 
 <?php 
 session_name("flemard");
-
- // On écrit un cookie setcookie
-
-
-
-// On démarre la session AVANT d'écrire du code HTML
-
 session_start(); 
 
-
-		include_once 'fonction.php';
-
-
-
-
+ // On écrit un cookie setcookie
+// On démarre la session AVANT d'écrire du code HTML
+include_once 'fonction.php';
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +54,15 @@ session_start();
 
 		<?php include_once 'agence/includes/header.php'; ?>
 		
-
+		<div>
+		
+			<img class="img-diapo" src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" id="img5">
+			<img class="img-diapo" src="agence//images/unnamed.jpg" id="img4">
+			<img class="img-diapo" src="agence/images/FACEBOOK_RESERVATION_LIGNE.jpg" id="img3">
+			<img class="img-diapo" src="agence/images/6.png" id="img2">
+			<img class="img-diapo" src="agence/images/presentation.jpg" id="img1">
+		
+		</div>
 
 		<section>
 
@@ -272,7 +270,9 @@ session_start();
 			$(function() {
 
 
-
+			$('.img-diaspo').first().fadeOut(2000, function suivante() {
+			$(this).next('.img-diaspo').fadeOut(2000,suivante);
+			});
 
 			$(".slogan").html("Donner un Sens à votre Flemme !").css("font-size","small").css("color","rgb(0,128,128)").css("text-decoration","underline").css("text-decoration-color","orange");
 
