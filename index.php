@@ -55,7 +55,7 @@ include_once 'fonction.php';
 		<?php include_once 'agence/includes/header.php'; ?>
 		
 		<section style='overflow:auto;height: 80%;'>
-			
+		<div align='center'>
 			<div class="slideshow">
 			<ul>
 				<li><img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" alt="" width="350" height="200" /></li>
@@ -63,8 +63,8 @@ include_once 'fonction.php';
 				<li><img src="agence//images/unnamed.jpg" alt="" width="350" height="200" /></li>
 				<li><img src="agence/images/6.png" alt="" width="350" height="200" /></li>
 			</ul>
+		</div>
 			</div>
-
 			<h2>Accueil</h2>
 
 			<div class="centre-text">
