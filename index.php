@@ -55,6 +55,15 @@ include_once 'fonction.php';
 		<?php include_once 'agence/includes/header.php'; ?>
 		
 		<section style='overflow:auto;height: 80%;'>
+			
+			<div class="slideshow">
+			<ul>
+				<li><img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" alt="" width="350" height="200" /></li>
+				<li><img src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" alt="" width="350" height="200" /></li>
+				<li><img src="agence//images/unnamed.jpg" alt="" width="350" height="200" /></li>
+				<li><img src="agence/images/6.png" alt="" width="350" height="200" /></li>
+			</ul>
+			</div>
 
 			<h2>Accueil</h2>
 
@@ -73,14 +82,7 @@ include_once 'fonction.php';
 			<img class="img-diaspo" height='200' width='250' src="agence/images/6.png" id="img2">
 			<img class="img-diaspo" height='200' width='250' src="agence/images/presentation.jpg" id="img1">	 -->
 
-			<div class="slideshow">
-				<ul>
-					<li><img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" alt="" width="350" height="200" /></li>
-					<li><img src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" alt="" width="350" height="200" /></li>
-					<li><img src="agence//images/unnamed.jpg" alt="" width="350" height="200" /></li>
-					<li><img src="agence/images/6.png" alt="" width="350" height="200" /></li>
-				</ul>
-			</div>
+			
 <!-- Start Form-->
 			<h2 id="reserve">Réservation</h2>
 
