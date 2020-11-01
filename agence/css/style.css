@@ -11,10 +11,28 @@ le corps
 #img4 {z-index: 4;}
 #img5 {z-index: 5;}
  */
-
+/* 
 .img-diaspo{
 position: absolute; // Les images vont se superposer
 
+} */
+
+.slideshow {
+   width: 350px;
+   height: 200px;
+   overflow: hidden;
+   border: 3px solid #F2F2F2;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
 }
 
  @media screen and (max-width: 480px) {
