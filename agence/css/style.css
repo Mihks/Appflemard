@@ -468,6 +468,7 @@ le corps
 body{
 
 	margin: 5px;
+	padding : 0px;
 	/*background-image: url("../images/bg_2.jpg");*/
 	background-color: #f0f0f0;
 	line-height: 1.5;
