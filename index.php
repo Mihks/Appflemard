@@ -58,12 +58,12 @@ include_once 'fonction.php';
 			
 		<div align='center'>
 			<div class="slideshow">
-<!-- 			<ul> -->
+			<ul>
 				<li><img src="agence/images/iStock-516654892-e1544537163371.jpg" alt="" style='width:60%;height:25%;'/></li>
  				<li><img src="agence/images/itl.cat_bus-wallpaper_2969762.png" alt="" style='width:60%;height:25%;' /></li> 
 <!-- !				<li><img src="agence//images/iStock-516654892-e1544537163371.jpg" alt="" style='width:98.2%;height:500px;' /></li> -->
 <!-- 				<li><img src="agence/images/téléchargé.jpg" alt="" style='width:100%;height:25%;' /></li> -->
-<!-- 			</ul> -->
+			</ul>
 			</div>
 		</div>
 			<h2>Accueil</h2>
