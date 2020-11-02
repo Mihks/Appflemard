@@ -193,14 +193,14 @@ le corps
 
 @media screen and (min-width: 768px){
 
-.img-slide{
-   width: 450px;
-   height: 300px;
 
+.img-slide{
+   width: 60%;
+   height: 600px;
 }
 .slideshow {
-   width: 450px;
-   height: 300px;
+   width: 60%;
+   height: 600px;
    overflow: hidden;
 }
 
@@ -328,6 +328,27 @@ le corps
 
  */ @media (min-width: 1200px) {
 	 
+
+.img-slide{
+   width: 60%;
+   height: 600px;
+}
+.slideshow {
+   width: 60%;
+   height: 600px;
+   overflow: hidden;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
 	 
 		#envoyer{
 	 	
