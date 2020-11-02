@@ -33,6 +33,13 @@ le corps
 
  @media screen and (max-width: 480px) {
 
+
+.centre-text {
+
+	margin-: 5px;
+	padding: 5px;
+}	width : 150px;
+	 
 .img-slide{
    width: 450px;
    height: 300px;
