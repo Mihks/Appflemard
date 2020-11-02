@@ -32,6 +32,12 @@ le corps
 
  @media screen and (max-width: 480px) {
 
+.img-slide{
+   width: 450px;
+   height: 300px;
+
+}
+
 .slideshow {
    width: 450px;
    height: 300px;
@@ -66,6 +72,11 @@ le corps
 
 @media screen and (min-width: 481px)  and (max-width: 489px) {
 
+.img-slide{
+   width: 450px;
+   height: 300px;
+
+}
 .slideshow {
    width: 450px;
    height: 300px;
@@ -101,6 +112,11 @@ le corps
 
  @media screen and (min-width: 490px)  and (max-width: 766px) {
 
+.img-slide{
+   width: 450px;
+   height: 300px;
+
+}
 .slideshow {
    width: 450px;
    height: 300px;
@@ -133,6 +149,11 @@ le corps
 
  @media screen and (min-width: 980px) {
 
+.img-slide{
+   width: 450px;
+   height: 300px;
+
+}
 .slideshow {
    width: 450px;
    height: 300px;
@@ -173,6 +194,11 @@ le corps
 
 @media screen and (min-width: 768px){
 
+.img-slide{
+   width: 450px;
+   height: 300px;
+
+}
 .slideshow {
    width: 450px;
    height: 300px;
