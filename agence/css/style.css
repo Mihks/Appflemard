@@ -150,13 +150,13 @@ le corps
  @media screen and (min-width: 980px) {
 
 .img-slide{
-   width: 50%;
-   height: 25%;
+   width: 650px;
+   height: 500px;
 
 }
 .slideshow {
-   width: 50%;
-   height: 25%;
+   width: 650px;
+   height: 500px;
    overflow: hidden;
 }
 
