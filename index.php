@@ -59,10 +59,10 @@ include_once 'fonction.php';
 		<div align='center'>
 			<div class="slideshow">
 			<ul>
-				<li><img class="img-slide" src="agence/images/iStock-516654892-e1544537163371.jpg" alt="" style='width:450px;height:300px;'/></li>
- 				<li><img class="img-slide" src="agence/images/itl.cat_bus-wallpaper_2969762.png" alt="" style='width:450px;height:300px;' /></li> 
-				<li><img class="img-slide" src="agence//images/iStock-516654892-e1544537163371.jpg" alt="" style='width:450px;height:300px;' /></li>
-				<li><img class="img-slide" src="agence/images/téléchargé.jpg" alt="" style='width:450px;height:300px;' /></li>
+				<li><img class="img-slide" src="agence/images/iStock-516654892-e1544537163371.jpg" alt="" /></li>
+ 				<li><img class="img-slide" src="agence/images/itl.cat_bus-wallpaper_2969762.png" alt=""  /></li> 
+				<li><img class="img-slide" src="agence//images/iStock-516654892-e1544537163371.jpg" alt=""  /></li>
+				<li><img class="img-slide" src="agence/images/téléchargé.jpg" alt="" /></li>
 			</ul>
 			</div>
 		</div>
