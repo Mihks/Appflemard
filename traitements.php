@@ -274,7 +274,7 @@ if ( ( preg_match("#Aller_retour#", $_POST['type_billet']) && $place_aller_dispo
 		
 	// }
 	$prixI = $prixUnitaire*$_POST['nombre_billet'];
-	$montant = ($_POST['type_billet'] == "Aller_simple") ? $prixI + $prixI*0.0725  : $prixI + $prixI*0.0725*( 2 - $remise);
+	$montant = ($_POST['type_billet'] == "Aller_simple") ? $prixI*1.0706  : $prixI*1.0706*( 2 - $remise);
 
 
 	//////////////////////////////////////////insertion////////////////
