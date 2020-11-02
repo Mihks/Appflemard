@@ -7,13 +7,13 @@ le corps
  */
 
 .img-slide{
-   width: 60%;
-   height: 600px;
+   width: 650px;
+   height: 500px;
 
 }
 .slideshow {
-   width: 60%;
-   height: 600px;
+   width: 650%;
+   height: 500px;
    overflow: hidden;
    box-shadow: 1px 6px 40px;
 
@@ -151,7 +151,7 @@ le corps
 
 .img-slide{
    width: 650px;
-   height: 500px;
+   height: 400px;
 
 }
 .slideshow {
