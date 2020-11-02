@@ -60,7 +60,7 @@ include_once 'fonction.php';
 			<div class="slideshow">
 			<ul>
 				<li><img src="agence/images/51459340_949759081892876_3562716998855032832_n.jpg" alt="" style='width:100%;height:25%;'/></li>
-				<li><img src="agence/images/532d5cf1f3749247e6221c63fea18c3b.jpg" alt="" style='width:100%;height:25%;' /></li>
+				<li><img src="agence/images/itl.cat_bus-wallpaper_2969762.png" alt="" style='width:100%;height:25%;' /></li>
 				<li><img src="agence//images/unnamed.jpg" alt="" style='width:100%;height:25%;' /></li>
 				<li><img src="agence/images/téléchargé.jpg" alt="" style='width:100%;height:25%;' /></li>
 			</ul>
