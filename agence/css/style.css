@@ -15,7 +15,7 @@ le corps
    width: 60%;
    height: 600px;
    overflow: hidden;
-   box-shadow: 1px 1px 1px 25px;
+   box-shadow: 1px 1px 1px 3px;
 }
 
 .slideshow ul {
