@@ -5,11 +5,17 @@ le corps
 ----------------------------
 
  */
+
+.img-slide{
+   width: 60%;
+   height: 600px;
+
+}
 .slideshow {
-   width: 450px;
-   height: 300%;
+   width: 60%;
+   height: 600px;
    overflow: hidden;
-    border: 3px solid red;
+   border: 3px solid red;
 }
 
 .slideshow ul {
@@ -25,7 +31,24 @@ le corps
 
 
  @media screen and (max-width: 480px) {
-	
+
+.slideshow {
+   width: 450px;
+   height: 300px;
+   overflow: hidden;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
+
  	#payer{
 
 	width: 70px;
@@ -42,7 +65,24 @@ le corps
 
 
 @media screen and (min-width: 481px)  and (max-width: 489px) {
-	
+
+.slideshow {
+   width: 450px;
+   height: 300px;
+   overflow: hidden;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
+
 	
  	#payer{
 
@@ -61,6 +101,23 @@ le corps
 
  @media screen and (min-width: 490px)  and (max-width: 766px) {
 
+.slideshow {
+   width: 450px;
+   height: 300px;
+   overflow: hidden;
+   border: 3px solid red;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
 
  	#payer{
 
@@ -75,6 +132,24 @@ le corps
 
 
  @media screen and (min-width: 980px) {
+
+.slideshow {
+   width: 450px;
+   height: 300px;
+   overflow: hidden;
+   border: 3px solid red;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
 
 	 #envoyer{
 	 	
@@ -98,6 +173,23 @@ le corps
 
 @media screen and (min-width: 768px){
 
+.slideshow {
+   width: 450px;
+   height: 300px;
+   overflow: hidden;
+   border: 3px solid red;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
 
 	#envoyer{
 	 	
@@ -233,6 +325,24 @@ le corps
 
 /* Mise en page  De smartphones à tablettes */
  @media screen and (max-width: 767px){
+
+.slideshow {
+   width: 450px;
+   height: 300px;
+   overflow: hidden;
+   border: 3px solid red;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+   width: 400%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+.slideshow li {
+   float: left;
+}
 
 	 #envoyer{
 	 	
