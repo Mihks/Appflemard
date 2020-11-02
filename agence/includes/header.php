@@ -23,7 +23,9 @@
 						<li><a href="#" class="">Accueil</a></li>
 						<li><a href="#reserve" id="lien-reserve">Reservation</a></li>
 						<li><a href="#a_propos" >A propos de</a></li>
-						<li><a href="#contact">Contact</a></li>			
+						<li><a href="#contact">Contact</a></li>
+						<li><a href="agence/index.php">agences</a></li>			
+
 					</ul>
 				</div>
 
