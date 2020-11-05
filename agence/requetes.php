@@ -2,10 +2,11 @@
 session_name('flemadmin');
 session_start();
 
+include_once 'fonction.php';
+
 
 if (!isset($_SESSION['agence'])) {
 	
-	include_once 'fonction.php';
 
 	demandeReconnexion();
 	
@@ -41,7 +42,6 @@ if (!isset($_SESSION['agence'])) {
 
 
 
-	include_once 'fonction.php';
 
 	 
 	function filtre($value)
