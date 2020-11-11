@@ -237,7 +237,7 @@ include_once 'fonction.php';
 						<p>Réservez vos places pour un voyage de Libreville vers l'interieur du Gabon et vise versa avec votre ordinateur, téléphones…</p>
 					</div>
 
-					<img src="agence/images/flemar.jpg" id="imaga" width="200" height="200" border="1" title="Flemard" alt="Flemard"  /><sub style="font-family: chiller;color: red;">Flemard</sub>
+					<img src="agence/images/flemard.jpg" id="imaga" width="200" height="200" border="1" title="Flemard" alt="Flemard"  /><sub style="font-family: chiller;color: red;">Flemard</sub>
 					
 				</div>
 			</article>
