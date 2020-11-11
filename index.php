@@ -11,11 +11,11 @@ include_once 'fonction.php';
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Voyage</title>
+		<title>Flemard</title>
 		<meta charset="utf-8"/>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1 ,target- densitydpi=device-dpi,maximum-scale=1.0" />
-		<meta name="description" content="" />
+		<meta name="description" content="voyage terrestre maritime ferroviaire Gabon" />
 		<meta name="keywords" content="voyage GABON" />
 		<meta name="author" content="Klein Mihks" />
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
