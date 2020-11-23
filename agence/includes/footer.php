@@ -29,7 +29,7 @@
 				<figure>
 					<span class="footer-lien-reseau">
 						<figcaption>Rejoignez nous sur nos réseaux sociaux</figcaption>
-						<a href="https://www.facebook.com/flemardofficiel"><img src="agence/images/logo_facebook.jpg" alt="" /></a>
+						<a href="https://www.facebook.com/flemardofficiel" target="_blank"><img src="agence/images/logo_facebook.jpg" alt="" /></a>
 						<a href="#"><img src="agence/images/instagram.jpg" alt="" /></a>
 						<a href="#"><img src="agence/images/twitter.jpg" alt="" /></a>
 					</span>
