@@ -85,7 +85,7 @@ $requete->execute(array($new_place_dispo,$new_place_reserve,$donnees['date_retou
 	}
 	
 	
-	header('Location:validate.php');
+	header('Location:billet.php');
 
 }else{
 ////////////////////////////////
