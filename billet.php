@@ -2,16 +2,12 @@
 session_name("flemard");
 session_start();
 include_once('fonction.php');
-
 include_once('agence/phpqrcode/qrlib.php');
-
-header ("Content-type: image/jpeg");
 
 $reference_received = $_SESSION['ref'];
 
 if(isset($reference_received ) && !empty($reference_received ) ){
-
-
+	
 $destination = imagecreatefromjpeg("agence/images/billet.jpg");
 	
 	
@@ -81,7 +77,8 @@ $red = imagecolorallocate($destination, 128, 0, 0);
  imagecopymerge($destination,$source, 900, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
 
-
 imagejpeg($destination);
+	
+header("Content-type: image/jpeg");
 
 }
