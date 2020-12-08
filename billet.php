@@ -1,6 +1,6 @@
 <?php
 include_once('agence/phpqrcode/qrlib.php');
-header ("Content-type: image/jpeg");
+// header ("Content-type: image/jpeg");
 
 $destination = imagecreatefromjpeg("agence/images/billet.jpg");
 
