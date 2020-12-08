@@ -1,5 +1,6 @@
 <?php
-
+session_name('flemard');
+session_start();
 include_once('agence/phpqrcode/qrlib.php');
 header ("Content-type: image/jpeg");
 
