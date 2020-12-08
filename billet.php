@@ -4,6 +4,8 @@ session_start();
 include_once('fonction.php');
 include_once('agence/phpqrcode/qrlib.php');
 
+header("Content-type: image/jpeg");
+
 $reference_received = '5e9ce49ee2034';
 
 if(isset($reference_received ) && !empty($reference_received ) ){
@@ -75,6 +77,6 @@ $red = imagecolorallocate($destination, 128, 0, 0);
 
 imagejpeg($destination);
 	
-header("Content-type: image/jpeg");
+
 
 }
