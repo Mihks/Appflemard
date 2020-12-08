@@ -129,7 +129,7 @@ if (isset($_REQUEST['imp_billet']) && !empty($_REQUEST['imp_billet']) && preg_ma
             QRcode::png($id,'codeqr.png','M',4,2);
 
            
-            $destination = imagecreatefrompng("copie.png"); 
+            $destination = imagecreatefrompng("images/billet.jpg"); 
 
              if (!file_exists("codeqr.png")){
                    echo '<h2>Erreur création du fichier QRcode</h2>';
@@ -144,24 +144,26 @@ if (isset($_REQUEST['imp_billet']) && !empty($_REQUEST['imp_billet']) && preg_ma
 
            // imagestring($source, 4, 0, 0, $lien, $noir);
 
-            imagestring($destination, 4, 210, 86, $nom_agence, $noir); // Agence
+           imagestring($destination, 4, 210,31,$nom_agence, $noir); // Agence
 
-            imagestring($destination, 4, 510, 85, $id, $red); // ID Unique
+             imagestring($destination, 4, 510, 31,$id, $red); // ID Unique
 
-            imagestring($destination, 4, 215, 144,$depart , $noir); // Date voyage
+             imagestring($destination, 4, 215, 123,$depart, $noir); // Date voyage
 
-            imagestring($destination, 4, 215, 179, $heure, $noir); // heure
+              imagestring($destination, 4, 215, 155,$heure, $noir); // heure
 
-            imagestring($destination, 4, 215, 209,$trajet, $noir); // Trajet
+                imagestring($destination, 4, 215, 188,$trajet, $noir); // Trajet
 
-            imagestring($destination, 4, 245, 243, $ref, $noir); // ref trans
+                imagestring($destination, 4, 245, 221,$reference_received, $noir); // ref trans
 
-            imagestring($destination, 4, 545, 300, $type, $noir); // type reservation
+                 imagestring($destination, 4, 510, 350,$type, $noir); // type reservation
 
-            imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
+                 imagestring($destination, 4, 195, 350,$nom, $noir); // nom
 
-             // Affichage et libération de la mémoire
-                    // header('Content-Type: image/png');
+
+             imagecopymerge($destination,$source, 900, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
+                         // Affichage et libération de la mémoire
+                                // header('Content-Type: image/png');
             imagepng($destination,'dest.png');
 
 
