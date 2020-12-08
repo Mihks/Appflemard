@@ -23,7 +23,7 @@ $requete->execute(array($statut,$reference_received));
 
 // $requete->execute(array($client_received,$_SESSION['id_client']));
 
-if ($statut_received==200) {
+if ($statut_received !=200) {
     # code...
 
 $reponse = $bdd->prepare("SELECT reservation.type_reservation,reservation.nombre_place,
@@ -63,7 +63,35 @@ $requete = $bdd->prepare('UPDATE
         date_voyage = ? AND horaire = ? AND nom_trajet = ? AND nom_agence = ? ');
 
 $requete->execute(array($new_place_dispo,$new_place_reserve,$donnees['date_depart'],$donnees['heure_depart'],$donnees['trajet'],$donnees['nom_agence']));
+//////////////////////////////////////////////////////infos billet//////////////////////////////
+	
+	
+  $reponse =  $bdd->prepare("SELECT CONCAT(SUBSTRING(UPPER(reservation.nom_agence),1,3),SUBSTRING(reservation.id_reservation,-3),SUBSTRING( client.nom,1,3),SUBSTRING(client.id_client,-3)) AS id,client.nom,CONCAT('+241',client.tel_client) AS num_tel,reservation.type_reservation,reservation.nombre_place,reservation.trajet,DATE_FORMAT(reservation.date_depart, '%W, %e %M %Y') AS depart,reservation.heure_depart,CONCAT(paiement.montant_debite,'FCFA') AS montant,DATE_FORMAT(transaction.date_reservation, '%W %e %M %Y %T') AS date_reserve, reservation.nom_agence,paiement.ref_trans AS ref FROM client,paiement,reservation,transaction WHERE reservation.id_reservation = transaction.id_reservation AND paiement.ref_trans = transaction.ref_trans AND client.id_client = transaction.id_client AND paiement.ref_trans = ?");
 
+            $reponse->execute(array($reference_received));
+
+            $donnees = $reponse->fetch();
+
+            $_SESSION['agence'] = $donnees['nom_agence'];
+
+            $_SESSION['id'] = $donnees['id'];
+
+            $_SESSION['date_voyage'] = $donnees['depart'];
+
+           $_SESSION['heure'] = $donnees['heure_depart'];
+
+           $_SESSION['trajet'] = $donnees['trajet'];
+
+            $_SESSION['ref_trans'] = $donnees['ref'];
+
+           $_SESSION['type'] = $donnees['type_reservation'];
+
+            $_SESSION['nom'] = $donnees['nom'];
+
+            $reponse->closeCursor();	
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 if ($donnees['type_reservation'] =='Aller_retour'){
 
