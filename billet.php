@@ -71,9 +71,10 @@ $_SESSION['type']='Aller_simple';
 
              // Affichage et libération de la mémoire
                 
-//             imagepng($destination,'dest.png');
+             imagepng($destination,'dest.png');
         
-              imagejpeg($destination);
+             imagepng('dest.png');
+              
         
 
 //             if (!file_exists("dest.png")){
@@ -82,8 +83,8 @@ $_SESSION['type']='Aller_simple';
 //                 exit; // pas les droits en écriture ?
 //                     }
 
-                    imagedestroy($destination);
-                    imagedestroy($source);
+//                     imagedestroy($destination);
+//                     imagedestroy($source);
 
               
     }elseif ( isset($_SESSION['type']) && !empty($_SESSION['type']) && $_SESSION['type']=='Aller_retour' && isset($reference_received) && !empty($reference_received) ){
