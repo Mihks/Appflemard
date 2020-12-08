@@ -1,63 +1,10 @@
 <?php
 session_name('flemard');
 session_start();
-// include_once('agence/fpdf/fpdf.php');
+
 include_once('agence/phpqrcode/qrlib.php');
 
 
-// class PDF extends FPDF
-// {
-
-// // En-tête
-// function Header()
-// {
-//     // Logo
-//     $this->Image('agence/images/yagaC.png',10,6,30);
-//     // Police Arial gras 15
-//     $this->SetFont('Arial','B',15);
-//     // Décalage à droite
-//     $this->Cell(60);
-//     // Titre
-//     $this->Cell(60,10,'Billet de Voyage',0,1,'C');
-//     // Saut de ligne
-//     $this->Ln(20);
-// }
-
-// // Pied de page
-// function Footer()
-// {
-//     // Positionnement à 1,5 cm du bas
-//     $this->SetY(-15);
-//     // Police Arial italique 8
-//     $this->SetFont('Arial','I',8);
-//     // Numéro de page
-//     $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-// }
-
-// // Tableau simple
-// function BasicTable($tableau)
-// {
-//     // En-tête
-//     foreach($tableau as $key=>$data){
-//         $this->Cell(40);
-//         $this->Cell(40,15,$key,0);
-//         $this->Cell(10);
-//         $this->Cell(40,15,$data,0,1);
-
-//         }
-    
-// }
-
-
-// function Img($source)
-// {
-
-//      $this->Image('dest.png');
-  
-// }
-
-
-// }
 
 $_SESSION['type']='Aller_simple';
 
@@ -101,7 +48,7 @@ $_SESSION['type']='Aller_simple';
             imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
              // Affichage et libération de la mémoire
-                header('Content-Type: image/png');
+                header('Content-Type: image/jpeg');
 //             imagepng($destination,'dest.png');
         
               imagejpeg($destination);
