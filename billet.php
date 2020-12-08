@@ -1,10 +1,10 @@
 <?php
 
-include_once('phpqrcode/qrlib.php');
+include_once('agence/phpqrcode/qrlib.php');
 
 header ("Content-type: image/jpeg");
 
-$destination = imagecreatefromjpeg("billet.jpg");
+$destination = imagecreatefromjpeg("agence/images/billet.jpg");
 
 
 $id = uniqid();
