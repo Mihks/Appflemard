@@ -12,7 +12,7 @@ class PDF extends FPDF
 function Header()
 {
     // Logo
-    $this->Image('agence/images/flemard.jpg',10,6,30);
+    $this->Image('agence/images/yagaC.png',10,6,30);
     // Police Arial gras 15
     $this->SetFont('Arial','B',15);
     // Décalage à droite
@@ -123,14 +123,17 @@ $reference_received ='5e9ce7b0bfde0';
             imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
              // Affichage et libération de la mémoire
-                    // header('Content-Type: image/png');
-            imagepng($destination,'dest.png');
+                header('Content-Type: image/png');
+//             imagepng($destination,'dest.png');
+        
+              imagejpeg($destination);
+        
 
-            if (!file_exists("dest.png")){
+//             if (!file_exists("dest.png")){
 
-                echo '<h2>Erreur création du billet</h2>';
-                exit; // pas les droits en écriture ?
-                    }
+//                 echo '<h2>Erreur création du billet</h2>';
+//                 exit; // pas les droits en écriture ?
+//                     }
 
                     imagedestroy($destination);
                     imagedestroy($source);
@@ -227,16 +230,16 @@ $reference_received ='5e9ce7b0bfde0';
      }
 
 
-$pdf = new PDF();
+// $pdf = new PDF();
 
-$pdf->SetFont('Arial','',14);
-$pdf->AliasNbPages();
-$pdf->AddPage();
-$pdf->Cell(120);
-// $pdf->Cell(60,10,'Agence : '.$nom_agence,0,1,'C');
-$pdf->Ln();
-$pdf->Cell(35);
-$pdf->Cell(130,10,'Date de reservation: '.$date_reserve,1,1,'C');
-$pdf->Ln(10);
-$pdf->Img('dest.png');
-$pdf->Output();
+// $pdf->SetFont('Arial','',14);
+// $pdf->AliasNbPages();
+// $pdf->AddPage();
+// $pdf->Cell(120);
+// // $pdf->Cell(60,10,'Agence : '.$nom_agence,0,1,'C');
+// $pdf->Ln();
+// $pdf->Cell(35);
+// $pdf->Cell(130,10,'Date de reservation: '.$date_reserve,1,1,'C');
+// $pdf->Ln(10);
+// $pdf->Img('dest.png');
+// $pdf->Output();
