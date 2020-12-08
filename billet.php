@@ -3,7 +3,7 @@ session_name('flemard');
 session_start();
 
 include_once('agence/phpqrcode/qrlib.php');
-
+header('Content-Type: image/jpeg');
 
 
 $_SESSION['type']='Aller_simple';
@@ -48,7 +48,7 @@ $_SESSION['type']='Aller_simple';
             imagecopymerge($destination,$source, 540, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
 
              // Affichage et libération de la mémoire
-                header('Content-Type: image/jpeg');
+                
 //             imagepng($destination,'dest.png');
         
               imagejpeg($destination);
