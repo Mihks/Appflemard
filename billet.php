@@ -91,7 +91,7 @@ $reference_received ='5e9ce7b0bfde0';
             
             QRcode::png($id,'codeqr.png','M',4,2);
 
-            $destination = imagecreatefrompng("copie.png"); 
+            $destination = imagecreatefromjpg("billet.jpg"); 
 
              if (!file_exists("codeqr.png")){
                    echo '<h2>Erreur création du fichier QRcode</h2>';
