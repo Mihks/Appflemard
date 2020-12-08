@@ -136,7 +136,10 @@ include_once 'fonction.php';
 
 								</div>
 
-							<!--excellence transport -->
+						<!--Major Transport -->
+							<?php include('agence/includes/major.php'); ?>	
+						
+						<!--excellence transport -->
 							<?php include('agence/includes/excellence_transport.php'); ?>
 <!--------------------------------------------------------------------------------------------------------------------------------->
 
