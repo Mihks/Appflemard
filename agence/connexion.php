@@ -74,6 +74,7 @@
 				<option value="">Choisir une agence</option>
 				
 				<optgroup label="Agence Terrestre">
+					<option value="major">Major Transport</option>
 					<option value="excellence_transport">Excellence Transport</option>
 				</optgroup>
 
