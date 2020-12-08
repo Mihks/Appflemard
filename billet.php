@@ -4,7 +4,9 @@ header ("Content-type: image/jpeg");
 
 $destination = imagecreatefromjpeg("agence/images/billet.jpg");
 
-include_once('fonction.php');
+include_once'fonction.php';
+
+
 $id = uniqid();
 
 
