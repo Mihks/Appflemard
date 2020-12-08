@@ -57,24 +57,25 @@ $red = imagecolorallocate($destination, 128, 0, 0);
 
  $source = imagecreatefrompng('codeqr.png');
 
- imagestring($destination, 4, 210,31,$nom_agence, $noir); // Agence
+ imagestring($destination, 4, 210,31,'Major Transport', $noir); // Agence
 
  imagestring($destination, 4, 510, 31,$id, $red); // ID Unique
 
- imagestring($destination, 4, 215, 123,$depart, $noir); // Date voyage
+ imagestring($destination, 4, 215, 123,'13/06/2021' , $noir); // Date voyage
 
-  imagestring($destination, 4, 215, 155,$heure, $noir); // heure
+  imagestring($destination, 4, 215, 155, '13:30', $noir); // heure
 
-    imagestring($destination, 4, 215, 188,$trajet, $noir); // Trajet
+    imagestring($destination, 4, 215, 188,'Libreville-Oyem', $noir); // Trajet
         
-    imagestring($destination, 4, 245, 221,$reference_received, $noir); // ref trans
+    imagestring($destination, 4, 245, 221, "45mgkk548", $noir); // ref trans
 
-     imagestring($destination, 4, 510, 350,$type, $noir); // type reservation
+     imagestring($destination, 4, 510, 350, 'Aller simple', $noir); // type reservation
 
-     imagestring($destination, 4, 195, 350,$nom, $noir); // nom
+     imagestring($destination, 4, 195, 350, 'Moudiba IV', $noir); // type reservation
 
 
  imagecopymerge($destination,$source, 900, 152, 0, 0, 100, 100, 60); //PERMET DE FUSIONER LES IMAGES
+
 
 
 imagejpeg($destination);
