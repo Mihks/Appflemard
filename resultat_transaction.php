@@ -7,7 +7,7 @@ include_once 'callback.php';
 $_SESSION['ref']= $reference_received;
 
 ///si le $statut est égal à succes
-if(isset($statut_received) && !empty($statut_received) && $statut_received==200){	
+if(isset($statut_received) && !empty($statut_received)){	
 	
 $statut = ($statut_received==200) ? "Succes" : "Echoue";
 
@@ -23,6 +23,8 @@ $requete->execute(array($statut,$reference_received));
 
 // $requete->execute(array($client_received,$_SESSION['id_client']));
 
+if ($statut_received==200) {
+    # code...
 
 $reponse = $bdd->prepare("SELECT reservation.type_reservation,reservation.nombre_place,
 
@@ -44,6 +46,7 @@ $donnee = $reponse->fetch();
 $new_place_dispo = $donnee['nombre_place_dispo'] - $donnees['nombre_place'] ;
 	
 $new_place_reserve = $donnee['nombre_place_reserve'] + $donnees['nombre_place'] ;
+	
 	
 $requete = $bdd->prepare('UPDATE
      reservation
@@ -86,6 +89,12 @@ $requete->execute(array($new_place_dispo,$new_place_reserve,$donnees['date_retou
 	
 	
 	header('Location:billet.php');
+	
+	
+	}
+	
+	
+	header('Location:billet.php');
 
 }else{
 ////////////////////////////////
@@ -103,6 +112,6 @@ $requete->execute(array($donnees['id_reservation']));
 
 }
 	
-header("Location:billet.php");
+header("Location:index.php");
 	
 }
