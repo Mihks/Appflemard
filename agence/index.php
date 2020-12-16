@@ -411,7 +411,7 @@ button{
 			
 			<!-- <a href="#" style="text-decoration: none;"> -->
 				
-<!-- 		<img src="images/question.svg" id="aide" alt="aide" title="Guide utilisation" style="position: absolute;left: 1269px;margin-top: 10px;border-radius: 3px;cursor: pointer;" /> </a> -->
+ 		<img src="images/question.svg" id="aide" alt="aide" title="Guide utilisation" style="position: absolute;left: 1269px;margin-top: 10px;border-radius: 3px;cursor: pointer;" /> </a>
 		
 
 
@@ -434,8 +434,8 @@ button{
 
 
 				<li style="list-style-type: none;display: inline-block;margin: 5px;">
-					<a  href="#" id="aide" title="Centre de discussion" style="text-decoration: none;color: black;text-shadow: 1px 1px 1px orange;">
-					Guide d'aide</a><img src="images/question.svg"  alt="aide" title="Guide utilisation" class="pasHover" style="width: 20px;height: 20px;position: relative;top:2.2px;left: 5px;" />
+					<a  href="#" id="Scolis" title="service colis" style="text-decoration: none;color: black;text-shadow: 1px 1px 1px orange;">
+					Service colis</a><img src="images/colis.svg"  alt="colis" title="service colis" class="pasHover" style="width: 20px;height: 20px;position: relative;top:2.2px;left: 5px;" />
 				</li>
 
 				<li style="list-style-type: none;display: inline-block;">
