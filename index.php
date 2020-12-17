@@ -73,7 +73,7 @@ include_once 'fonction.php';
 				<p>Bienvenue sur votre site de réservation en ligne de billets de bus et de bateaux . Plus besoin de vous déplacer dans les agences de voyage pour une réservation. Réservez vos billets depuis chez vous et soldez via <b>Airtel Money</b> ou via <b>Mobi Cash</b> .</p>
  
 
-				<p>Tout juste après avoir effectué votre paiement , un identifiant unique s'affiche en rouge , ce dernier contient toutes les coordonnées de votre réservation , il est à présenter à l'agence sollicitée. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
+				<p>Tout juste après avoir effectué votre paiement , un billet unique s'affiche , ce dernier contient les coordonnées de votre réservation , il est à présenter à l'agence sollicitée. Ne procrastinez plus,  <b style="color: rgb(0,128,128);">Flemard</b> pointe le bout de son nez !</p>
 			</div>
 			
 	
