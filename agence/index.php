@@ -764,7 +764,7 @@ button{
 
 		echo '<label for="trajet">Trajet :</label>
 		
-		<select name="trajet" id="trajet">
+		<select name="trajet" id="">
 
 			<option value="trajet_confondu">Trajets Confondus</option>';
 
@@ -782,7 +782,7 @@ button{
 		?>
 	
 		
-		<label for="date_reserve">Agenda :</label><input style="cursor: pointer;" title="Agenda" type="text" id="date_reserve" name="date" placeholder="entrer une date" />
+		<label for="">Agenda :</label><input style="cursor: pointer;" title="Agenda" type="text" id="d" name="" placeholder="entrer une date" />
 			<img src="images/b_calendar.png" style="vertical-align: bottom;margin: 3px;" />
 
 		
