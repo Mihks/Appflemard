@@ -700,8 +700,8 @@ button{
 
 		<legend>
 			<select id="choixInfo">
-				<option value="reservation">Réservation</option>
-				<option value="Voyage">Voyage</option>
+				<option value="reservation">Réservation de place</option>
+				<option value="reservation_bus">Réservation de bus</option>
 			</select>
 		</legend>
 
@@ -753,8 +753,37 @@ button{
 	
 	<span style="margin:15px;" id="info_voyage" hidden>
 
+		<?php 
+			
+			//FunctionTrajet();
+			
+		$rep = $bdd->prepare("SELECT nom_trajet  FROM `trajets` WHERE trajets.nom_agence= ? ;");
+
+
+		$rep->execute(array($_SESSION['agence']));
+
+		echo '<label for="trajet">Trajet :</label>
 		
+		<select name="trajet" id="trajet">
+
+			<option value="trajet_confondu">Trajets Confondus</option>';
+
+		while ($donnees = $rep->fetch()) {
+			
+
+		
+		echo '<option value="'.$donnees["nom_trajet"].'">'.$donnees["nom_trajet"].'</option>';
+		
+		}
+
+
+		echo '</select>';
+		
+		?>
 	
+		
+		<label for="date_reserve">Agenda :</label><input style="cursor: pointer;" title="Agenda" type="text" id="date_reserve" name="date" placeholder="entrer une date" />
+			<img src="images/b_calendar.png" style="vertical-align: bottom;margin: 3px;" />
 
 		
 
