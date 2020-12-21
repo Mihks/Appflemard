@@ -1551,7 +1551,7 @@ button{
 
 
 
-	<div id="dialog-messagerie" hidden>
+	<div id="dialog-Scolis" hidden>
 		<H1>Hello World !</H1>
 	</div>
 
@@ -1762,9 +1762,9 @@ function dialogue(div_dialog,titre) {
 
 }
 
-$('#messagerie').click(function () {
+$('#Scolis').click(function () {
 	   
-	dialogue('#dialog-messagerie','FlemChat');
+	dialogue('#dialog-Scolis','Service colis');
 
 
 	});
