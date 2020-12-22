@@ -1552,7 +1552,32 @@ button{
 
 
 	<div id="dialog-Scolis" hidden>
-		<H1>Hello World !</H1>
+			<div id="conteneur_p" style="color: green;">
+			
+			<div id="details_sc" style="width: 50%;color: red;">
+				
+				<div id="barre_sc"></div>
+
+				<div id="img_sc"></div>
+
+				<div id="infos_rapide_sc"></div>
+
+				<div id="plus_infos_sc"></div>
+
+
+
+			</div>
+
+			<div id="tableaux_sc" style="width: 48%;color: blue; ">
+
+				<div id="barre_input_sc"></div>
+
+				<div id="table_sc"></div>
+
+
+				
+			</div>
+		</div>
 	</div>
 
 	<div hidden id="dial_qrcode">
