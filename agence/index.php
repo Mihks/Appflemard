@@ -1554,7 +1554,7 @@ button{
 	<div id="dialog-Scolis" hidden>
 			<div id="conteneur_p" style="border: 1px solid green;">
 			
-			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;float:right;">
+			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
 				
 				<div id="barre_sc"></div>
 
@@ -1568,7 +1568,7 @@ button{
 
 			</div>
 
-			<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue; ">
+			<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;display: inline-block; ">
 
 				<div id="barre_input_sc"></div>
 
