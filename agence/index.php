@@ -1558,9 +1558,6 @@ button{
 						
 					<img src="agence/images" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
 					
-				
-				</div>
-
 				<div id="infos_rapide_sc" style="display: inline-block;">
 					<p >
 						<ul>
@@ -1571,6 +1568,10 @@ button{
 					</p>
 				
 				</div>
+				
+				</div> #fin img_sc
+
+				
 
 				<div id="plus_infos_sc"></div>
 
