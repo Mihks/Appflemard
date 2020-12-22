@@ -1552,9 +1552,9 @@ button{
 
 
 	<div id="dialog-Scolis" hidden>
-			<div id="conteneur_p" style="border: 1px solid green;float:left;">
+			<div id="conteneur_p" style="border: 1px solid green;">
 			
-			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;">
+			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;float:left;">
 				
 				<div id="barre_sc"></div>
 
