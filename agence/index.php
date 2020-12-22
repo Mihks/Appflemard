@@ -1,10 +1,6 @@
 <?php 
 session_name('flemadmin');
-
 session_start(); 
-
-
-
 require('fonction.php');
 
 
@@ -1561,7 +1557,12 @@ button{
 				<div id="img_sc">
 						
 					<img src="agence/images" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
-					<p style="display: inline-block;">
+					
+				
+				</div>
+
+				<div id="infos_rapide_sc" style="display: inline-block;">
+					<p >
 						<ul>
 							<li>#Id</li>
 							<li>Nom</li>
@@ -1570,8 +1571,6 @@ button{
 					</p>
 				
 				</div>
-
-				<div id="infos_rapide_sc"></div>
 
 				<div id="plus_infos_sc"></div>
 
