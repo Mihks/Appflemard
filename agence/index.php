@@ -1558,7 +1558,18 @@ button{
 				
 				<div id="barre_sc"></div>
 
-				<div id="img_sc"></div>
+				<div id="img_sc">
+						
+					<img src="agence/images" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
+					<p style="display: inline-block;">
+						<ul>
+							<li>#Id</li>
+							<li>Nom</li>
+							<li>Poids</li>
+						</ul>
+					</p>
+				
+				</div>
 
 				<div id="infos_rapide_sc"></div>
 
