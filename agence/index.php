@@ -1550,13 +1550,14 @@ button{
 	<div id="dialog-Scolis" hidden>
 			<div id="conteneur_p" style="border: 1px solid green;">
 			
+			
 			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
 				
 				<div id="barre_sc"></div>
 
 				<div id="img_sc">
 						
-					<img src="agence/images/flemard.jpg" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
+					<img src="agence/images/flemard.jpeg" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
 					
 				<div id="infos_rapide_sc" style="display: inline-block;">
 					<p >
@@ -1575,6 +1576,7 @@ button{
 
 				<div id="plus_infos_sc">
 				
+					<h3>Information sur le colis</h3>
 					<ul>
 					    <li><a href="#tabs-1_sc">Article</a></li>
 					    <li><a href="#tabs-2_sc">Envoie</a></li>
