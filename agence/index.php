@@ -1556,7 +1556,7 @@ button{
 
 				<div id="img_sc">
 						
-					<img src="agence/images/ga.png" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
+					<img src="agence/images/flemard.jpg" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
 					
 				<div id="infos_rapide_sc" style="display: inline-block;">
 					<p >
@@ -1576,9 +1576,9 @@ button{
 				<div id="plus_infos_sc">
 				
 					<ul>
-					    <li><a href="#tabs-1_sc">Nunc tincidunt</a></li>
-					    <li><a href="#tabs-2_sc">Proin dolor</a></li>
-					    <li><a href="#tabs-3_sc">Aenean lacinia</a></li>
+					    <li><a href="#tabs-1_sc">Article</a></li>
+					    <li><a href="#tabs-2_sc">Envoie</a></li>
+					    <li><a href="#tabs-3_sc">Reception</a></li>
 					  </ul>
 				  <div id="tabs-1_sc">
 				    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
