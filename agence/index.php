@@ -1551,9 +1551,9 @@ button{
 			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
 			
 			
-			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;float: right;">
+			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;float: left;">
 	
-				<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" />
+				<img src="images/flemard.jpeg" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" />
 				
 			</div>
 														    
