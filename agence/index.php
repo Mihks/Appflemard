@@ -1551,7 +1551,7 @@ button{
 			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
 			
 			
-			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;padding: 15px;">
+			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
 				
 				<div id="barre_sc" border: 1px solid skyblue;" >Hello word !</div>
 
