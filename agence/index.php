@@ -1551,13 +1551,13 @@ button{
 			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
 			
 			
-			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
+			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;float: right;">
 	
 				<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;display: inline-block;" />
 				
 			</div>
 														    
-				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;display: inline-block; ">
+				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue; ">
 
 				Hello world !
 
