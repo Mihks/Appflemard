@@ -1572,7 +1572,15 @@ button{
 				
 				</div>
 
-				
+				</div>
+														    
+				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;display: inline-block; ">
+
+				<div id="barre_input_sc"></div>
+
+				<div id="table_sc"></div>
+
+				</div>										    
 
 				<div id="plus_infos_sc">
 				
@@ -1598,17 +1606,9 @@ button{
 
 
 
-			</div>
+			
 
-			<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;display: inline-block; ">
-
-				<div id="barre_input_sc"></div>
-
-				<div id="table_sc"></div>
-
-
-				
-			</div>
+			
 		</div>
 	</div>
 
