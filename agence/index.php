@@ -1552,33 +1552,19 @@ button{
 			
 			
 			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
-				
-				<div id="barre_sc" border: 1px solid skyblue;" >Hello word !</div>
 
 				<div id="img_sc" >
 						
-					<img src="agence/images/flemard.jpeg" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
-					
-				<div id="infos_rapide_sc" style="display: inline-block;">
-					<p >
-						<ul>
-							<li>#Id</li>
-							<li>Nom</li>
-							<li>Poids</li>
-						</ul>
-					</p>
-				
-				</div>
-				
+					<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 50%;display: inline-block;" />
 				</div>
 
 				</div>
 														    
 				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;display: inline-block; ">
 
-				<div id="barre_input_sc"></div>
+				<div id="barre_input_sc">Helojghhjf  fkfkfg hsfjhgjhjf</div>
 
-				<div id="table_sc"></div>
+				<div id="table_sc"> jefgjgfjgj fsgfj sfhj<hsf </div>
 
 				</div>										    
 
