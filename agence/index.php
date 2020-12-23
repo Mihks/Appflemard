@@ -1559,11 +1559,11 @@ button{
 				
 				<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;">
 	
-				<img src="images/flemard.jpeg" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" />
+				<img src="images/flemard.jpg" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" />
 				
 			</div>
 				
-				<br/><br/>
+				<br/>
 
 				<div id="plus_infos_sc" style="clear: both;">
 				
