@@ -1550,7 +1550,8 @@ button{
 	<div id="dialog-Scolis" hidden>
 			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
 			
-														    
+				<input type="image" id="but_menu" src="images/but_menu.png" name="" />
+										    
 				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;float: right;">
 
 				Hello world !
@@ -1559,7 +1560,7 @@ button{
 				
 				<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;">
 	
-				<img src="images/flemard.jpg" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" />
+				<div align="center"><img src="images/flemard.jpg" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" /></div>
 				
 			</div>
 				
