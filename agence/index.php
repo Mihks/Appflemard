@@ -1561,7 +1561,9 @@ button{
 
 				Hello world !
 
-				</div>										    
+				</div>	
+				
+				<br/><br/>
 
 				<div id="plus_infos_sc" style="clear: both;">
 				
