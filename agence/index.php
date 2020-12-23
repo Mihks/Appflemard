@@ -1553,7 +1553,7 @@ button{
 			
 			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;float: right;">
 	
-				<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;display: inline-block;" />
+				<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;" />
 				
 			</div>
 														    
@@ -1563,7 +1563,7 @@ button{
 
 				</div>										    
 
-				<div id="plus_infos_sc">
+				<div id="plus_infos_sc" style="clear: both;">
 				
 					<h3>Information sur le colis</h3>
 					<ul>
