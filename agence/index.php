@@ -1552,19 +1552,14 @@ button{
 			
 			
 			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
-
-				<div id="img_sc" >
-						
-					<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 50%;display: inline-block;" />
-				</div>
-
-				</div>
+	
+				<img src="images/ga.png" alt="photo article" title="photo de l'article" style="height: 200px;width: 200px;display: inline-block;" />
+				
+			</div>
 														    
 				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;display: inline-block; ">
 
-				<div id="barre_input_sc">Helojghhjf  fkfkfg hsfjhgjhjf</div>
-
-				<div id="table_sc"> jefgjgfjgj fsgfj sfhj<hsf </div>
+				Hello world !
 
 				</div>										    
 
