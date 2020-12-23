@@ -1548,14 +1548,14 @@ button{
 
 
 	<div id="dialog-Scolis" hidden>
-			<div id="conteneur_p" style="border: 1px solid green;">
+			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
 			
 			
 			<div id="details_sc" style="height: 200px;width: 50%;border: 1px solid red;display: inline-block;">
 				
-				<div id="barre_sc"></div>
+				<div id="barre_sc" >Hello word !</div>
 
-				<div id="img_sc">
+				<div id="img_sc" >
 						
 					<img src="agence/images/flemard.jpeg" alt="photo article" title="photo de l'article" style="width: 100px;height: 100px;display: inline-block;" />
 					
