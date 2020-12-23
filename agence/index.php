@@ -1550,7 +1550,7 @@ button{
 	<div id="dialog-Scolis" hidden>
 			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
 			
-				<input type="image" id="but_menu" src="images/but_menu.png" name="" />
+				<div><input type="image" id="but_menu" src="images/but_menu.png" name="" style="width:20px;height:20px;"/></div>
 										    
 				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;float: right;">
 
