@@ -6,6 +6,8 @@ include_once 'callback.php';
 
 $_SESSION['ref']= $reference_received;
 
+$req = $bdd->exec(" SET lc_time_names = 'fr_FR';");
+
 ///si le $statut est égal à succes
 if(isset($statut_received) && !empty($statut_received)){	
 	
