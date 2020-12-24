@@ -1811,6 +1811,10 @@ $('#Scolis').click(function () {
 	});
 
 
+$('#tableaux_sc').load('liste_colis.html');
+	
+	
+	
 
 voir_scan = '';
 
