@@ -1562,9 +1562,7 @@ button{
 
 	<div id="dialog-Scolis" hidden>
 			<div id="conteneur_p" style="border: 1px solid green;padding: 15px;">
-			
-				<div><input type="image" id="but_menu" src="images/but_menu.png" name="" style="width:20px;height:20px;"/></div>
-										    
+								    
 				<div id="tableaux_sc" style="height: 200px;width:48%;border: 1px solid blue;float: right;">
 
 				Hello world !
@@ -1581,11 +1579,11 @@ button{
 
 				<div id="plus_infos_sc" style="clear: both;">
 				
-					<h3>Information sur le colis</h3>
+					
 					<ul>
-					    <li><a href="#tabs-1_sc">Article</a></li>
-					    <li><a href="#tabs-2_sc">Envoie</a></li>
-					    <li><a href="#tabs-3_sc">Reception</a></li>
+					    <li><a href="#tabs-1_sc">liste des colis</a></li>
+					    <li><a href="#tabs-2_sc">Enrégistrement</a></li>
+					    <li><a href="#tabs-3_sc">Modification</a></li>
 					  </ul>
 				  <div id="tabs-1_sc">
 				    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
