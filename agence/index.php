@@ -773,7 +773,7 @@ button{
 
 		echo '<label for="trajet">Trajet :</label>
 		
-		<select name="trajet" id="">
+		<select name="" id="">
 
 			<option value="trajet_confondu">Trajets Confondus</option>';
 
