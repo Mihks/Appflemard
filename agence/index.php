@@ -42,7 +42,20 @@ if (isset($_SESSION['region']) && isset($_SESSION['login']) && isset($_SESSION['
 		}
 
 		
+		
+		#tableaux_sc{
+		
+			overflow: auto;
+			/*box-shadow: 4px 2px 40px;*/
+			border-bottom: 2px solid orange;
+			border-radius: 4px;
+			/*margin-bottom: 10px;*/
+			margin-left: 2px;
 
+			background-color: white;	
+
+		
+		}
 
 		.aligner{
 
