@@ -130,7 +130,7 @@ include_once 'fonction.php';
 								<select name="agence" id="agence"  class="frm-control">
 									<option value="">Choisir votre agence</option>
 									<optgroup label="Terrestre">
-										<option value="major">Major Transport</option>
+										
 										<option value="excellence_transport">Excellence Transport</option>
 									</optgroup>
 								</select>
