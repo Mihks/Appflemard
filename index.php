@@ -16,7 +16,7 @@ include_once 'fonction.php';
 
 		<meta name="viewport" content="width=device-width, initial-scale=1 ,target- densitydpi=device-dpi,maximum-scale=1.0" />
 		<meta name="description" content="voyage terrestre maritime ferroviaire Gabon" />
-		<meta name="keywords" content="voyage GABON" />
+		<meta name="keywords" content="voyage GABON flemard réservation billet payer airtel mobicash" />
 		<meta name="author" content="Klein Mihks" />
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 
