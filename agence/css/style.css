@@ -673,7 +673,7 @@ header{
 
 /*	border: 2px solid orange;*/
 	margin: 15px;
-/* 	margin-left: 0px; */
+ 	margin-left: 0px;
 	position: fixed;
 	top: -15px;
 	width: 100%;
