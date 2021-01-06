@@ -276,7 +276,7 @@ le corps
 
  	.icon-bar{
  		position: relative;
- 		left: -15px;
+ 		left: -8px;
  		top: -7px;
 
  	}
@@ -548,7 +548,7 @@ h2{
 
 	text-align: left;
 	color: red;
-	padding-left: 15px;
+/* 	padding-left: 15px; */
 	font-family: "Chiller", Arial,sans-serif;
 	font-size: 42px;
 	border-bottom: 1px solid orange;
